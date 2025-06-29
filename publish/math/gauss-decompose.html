@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width"><title>分段估计</title><link rel="stylesheet" href="/main.css">
+<meta name="viewport" content="width=device-width"><title>Gauss 分解</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
   .katex .mfrac .frac-line {
     font-size: 1.25em;
@@ -104,21 +104,26 @@ nav {
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="索引">« 索引</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-分段估计"><header><h1><span class="taxon"></span>分段估计 <a class="slug" href="/math/分段估计.html">[分段估计]</a><a class="slug" href="vscode://file:/Users/kokic/Repos/notes/math/分段估计.md">[edit]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of math [math/index]">Indexes of math</a></span></li></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
-$\gdef\d{\operatorname{d}}$</p>
-<p>试证 $\displaystyle e^x \left|\int_x^{x+1} \sin(e^t) \d t\right| \le 2$. 我们先把这个 $e^t$ 处理掉, 然后 <span class="link local"><a href="/math/分部积分.html" title="分部积分 [math/分部积分]">分部积分</a></span> 即可.</p>
+</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="索引">« 索引</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-gauss-decompose"><header><h1><span class="taxon"></span>Gauss 分解 <a class="slug" href="/math/gauss-decompose.html">[gauss-decompose]</a><a class="slug" href="vscode://file:/Users/kokic/Repos/notes/math/gauss-decompose.md">[edit]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/方法.html" title="方法 [math/方法]">方法</a></span></li><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of math [math/index]">Indexes of math</a></span></li></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
+$\gdef\spaces#1{~ #1 ~}$</p>
+<p>处理有理函数积分 $\int \frac{P_n(x)}{P_m(x)} \d x$ $(n  <  m)$ 的一种方法是将其裂项为分子 $\deg(-) \le 1$ 且分母 $\deg(-) \le 2$ 的有理函数之和, 也称为部分分式分解. 系数的确定一般灵活使用 <span class="link external"><a href="https://en.wikipedia.org/wiki/Heaviside_cover-up_method" title="Heaviside 覆盖法 [https://en.wikipedia.org/wiki/Heaviside_cover-up_method]">Heaviside 覆盖法</a></span>, 对于不能表为 $(x-a)^{-k}$ 的项, 额外考虑 $0,1$ 和 $\infty$ 处的取值.</p>
+<p>$\textbf{Example.}$ 分解 $R(x) = \frac{2x+1}{(x^2+x+1)(x+1)}$ 从而计算 $\int R(x) \d x$.</p>
+<p>$$
+\frac{2x+1}{(x^2+x+1)(x+1)} \spaces= \frac{A}{x+1} + \frac{Bx+C}{x^2+x+1}
+$$</p>
+<p>现在确定 $A,B,C$. 注意 $R(0) = A+C=1$. $R(1) = \frac{A}2 + \frac{B+C}3 = \frac{1}{2}$ 即 $3A + 2B + 2C = 3$. $(x+1)R(x)|_{x+1 \to 0} = A = -1$. 解得 $(A,B,C) = (-1,1,2)$. 如此就有</p>
+<p>$$ \int R(x) \d x \spaces= -\int \frac{1}{x+1} \d x + \int \frac{x+2}{x^2+x+1} \d x $$</p>
+<p>这里的 $\int \frac{x+2}{x^2+x+1} \d x$ 不太明显, 我们先拆出一个对数部分 $\frac{\d y}{y} = \frac{2x+1}{x^2+x+1}$, 从而将其写成</p>
 <p>$$
 \begin{aligned}
-e^x \left|\int_x^{x+1} \sin(e^t) \d t\right|
-&\spaces= e^x \left|\int_{e^x}^{e^{x+1}} \frac{\sin u}{u} \d u \right| \quad (t = \log u) \\
-&\spaces= e^x \left|-\int_{e^x}^{e^{x+1}} \frac{1}{u} \d \cos u \right| \\
-&\spaces= e^x \left| \frac{\cos e^x}{e^x} - \frac{\cos e^{x+1}}{e^{x+1}} - \int_{e^x}^{e^{x+1}} \frac{\cos u}{u^2} \d u \right| \\
-&\spaces\le |\cos e^x| + \left|\frac{1}{e}\cos e^{x+1}\right| + \left| e^x \int_{e^x}^{e^{x+1}} \frac{\cos u}{u^2} \d u \right| \\
-&\spaces\le 1 + \frac{1}{e} + 1 - \frac{1}{e} \\
-&\spaces= 2 
+\int \frac{x+2}{x^2+x+1} \d x 
+&\spaces= \frac{1}{2} \int \frac{2x+1}{x^2+x+1} \d x + \frac{3}{2} \int \frac{1}{x^2+x+1} \d x \\
+&\spaces= \frac{1}{2} \log(x^2+x+1) + \frac{3}{2} \int \frac{1}{(x+\frac{1}{2})^2 + \frac{3}{4}} \d x \\
+&\spaces= \frac{1}{2} \log(x^2+x+1) + \sqrt{3}\tan^{-1} \frac{2x+1}{\sqrt{x}}
 \end{aligned}
 $$</p>
-<p>这里 $e^x \int_{e^x}^{e^{x+1}} \frac{\cos u}{u^2} \d u \le e^x \int_{e^x}^{e^{x+1}} \frac{1}{u^2} \d u = 1 - \frac{1}{e}$.</p>
-</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>分部积分 <a class="slug" href="/math/分部积分.html">[分部积分]</a><a class="slug" href="vscode://file:/Users/kokic/Repos/notes/math/分部积分.md">[edit]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/方法.html" title="方法 [math/方法]">方法</a></span></li><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of math [math/index]">Indexes of math</a></span></li></ul></div></header></section></details></section></footer></article>
+<p>这里 $\log$ 内没有加绝对值是因为 $(x+\frac{1}{2})^2 + \frac{3}{4} \gt 0$. 综合得到</p>
+<p>$$ \square \spaces= -\log|x+1| + \frac{1}{2} \log(x^2+x+1) + \sqrt{3}\tan^{-1} \frac{2x+1}{\sqrt{x}} $$</p>
+</details></section><footer></footer></article>
 
 </div></body></html>

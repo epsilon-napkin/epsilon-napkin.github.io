@@ -3,6 +3,7 @@
 title: 曲边扇形面积
 taxon: formula
 asref: true
+method: [](/math/方法.md)
 tag: [](/math/index.md)
 ---
 

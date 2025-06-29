@@ -3,6 +3,7 @@
 title: 曲线弧长计算
 taxon: formula
 asref: true
+method: [](/math/方法.md)
 tag: [](/math/index.md)
 ---
 

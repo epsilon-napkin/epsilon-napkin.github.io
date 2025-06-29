@@ -140,7 +140,70 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>$\gdef\spaces#1{~ #1 ~}$
+$\gdef\d{\operatorname{d}}$</p>
+<div class="frame">
+<p>$S_n$ 是 $a_i$ 的部分和, 则 $\{S_n\}$ 有界 $\implies$ $\{a_n\}$ 收敛. 这是因为 $\{S_n\}$ 有界推出 $\{S_n\}$ 收敛, 则 $\lim_{n \to \infty} a_n = \lim_{n \to \infty} (S_n - S_{n-1}) = 0$. $(\impliedby)$ 不成立是因为有调和级数 $a_n = \frac{1}{n}, S_n \to \infty$ 这样的例子.</p>
+</div>
+<div class="frame">
+<p>$$
+\lim_{n \to \infty} \log\sqrt[n]{\Big(1+\frac{1}{n}\Big)^2 \Big(1+\frac{2}{n}\Big)^2 \cdots \Big(1+\frac{n}{n}\Big)^2}
+$$</p>
+<p>这道题充分诠释了什么叫虚张声势. 容易看出这就是</p>
+<p>$$
+\begin{aligned}
+\lim_{n \to \infty} \frac{1}{n} \sum_{i=1}^n 2\log\Big(1+\frac{i}{n}\Big) 
+&\spaces= 2\int_1^2 \log(x) \d x \\
+&\spaces= 4\log 2 - 2
+\end{aligned}
+$$</p>
+<p>即 <span class="link local"><a href="/math/riemann-sum.html" title="Riemann 和 [math/riemann-sum]">右 Riemann 和</a></span> 的典型形式.</p>
+</div>
+<div class="frame">
+<p>$$ \lim_{n \to \infty}\sum_{i=1}^n\sum_{j=1}^n \frac{n}{(n+i)(n^2+j^2)} $$</p>
+<p>这也是 <span class="link local"><a href="/math/riemann-sum.html" title="Riemann 和 [math/riemann-sum]">Riemann 和</a></span>. 注意</p>
+<p>$$ \sum_{i=1}^n\sum_{j=1}^n \frac{n}{(n+i)(n^2+j^2)} \spaces= \sum_{i=1}^n\sum_{j=1}^n \frac{1}{(1+\frac{i}{n})(1+\frac{j^2}{n^2})} \cdot \frac{1}{n^2} $$</p>
+<p>这是 $\frac{1}{(1+x)(1+y^2)}$ 在 $D = [0,1] \times [0,1]$ 上的积分. 所以</p>
+<p>$$
+\begin{aligned}
+\lim\square 
+&\spaces= \iint\limits_D \frac{1}{(1+x)(1+y^2)} \d x \d y \\
+&\spaces= \int_0^1 \frac{\d x}{1+x} \cdot \int_0^1 \frac{\d y}{1+y^2} \\
+&\spaces= \frac{\pi}{4} \log 2 \quad \color{grey}{\Big(\gets \log x\Big|_0^1 \cdot \tan^{-1} y \Big|_0^1 \Big)}
+\end{aligned}
+$$</p>
+</div>
+<div class="frame">
+<p>$$
+\lim_{n \to \infty} \Big( \frac{1}{\sqrt{n^2+1}} + \frac{1}{\sqrt{n^2+2}} + \cdots + \frac{1}{\sqrt{n^2+n}} \Big)
+$$</p>
+<p><span class="link local"><a href="/math/series-convergence.html" title="级数敛散性 [math/series-convergence]">夹逼</a></span>. 记这个和式为 $(a_i)_{1 \le i \le n}$, 用下式控制</p>
+<p>$$ 
+n \cdot \min\limits_{1 \le i \le n}(a_i) \spaces\le \sum_{i=1}^n a_i \spaces\le n \cdot \max\limits_{1 \le i \le n}(a_i) 
+$$</p>
+<p>由于下述, 故得 $\lim \square = 1$.</p>
+<p>$$
+\begin{aligned}
+\lim_{n \to \infty} n \cdot \min\limits_{1 \le i \le n}(a_i) \spaces= \lim_{n \to \infty} \frac{n}{\sqrt{n^2+n}} \spaces= 1 \\
+\lim_{n \to \infty} n \cdot \max\limits_{1 \le i \le n}(a_i) \spaces= \lim_{n \to \infty} \frac{n}{\sqrt{n^2+1}} \spaces= 1
+\end{aligned}
+$$</p>
+</div>
+<div class="frame">
+<p>$$
+\lim_{n\to\infty} n \left(\frac{1}{1+n^2}+\frac{1}{2^2+n^2}+\cdots+\frac{1}{n^2+n^2}\right)
+$$</p>
+<p>提出一个 $\frac{1}{n^2}$, 调整为 <span class="link local"><a href="/math/riemann-sum.html" title="Riemann 和 [math/riemann-sum]">Riemann 和</a></span> 即可.</p>
+<p>$$
+\begin{aligned}
+\lim \square 
+&\spaces= \lim_{n\to\infty}\frac{1}{n} \bigg(\frac{1}{1+(\frac{1}{n})^2}+\frac{1}{1+(\tfrac{2}{n})^2}+\cdots+\frac{1}{1+(\frac{n}{n})^2} \bigg) \\
+&\spaces= \lim_{n\to\infty}\frac{1}{n}\sum_{k=1}^n\frac{1}{1+(\frac{k}{n})^2} \\
+&\spaces=\int_0^1\frac{1}{1+x^2} \d x \\
+&\spaces=\frac{\pi}{4} \quad \color{grey}{\Big( \gets \tan^{-1} x \Big|_0^1 \Big)}
+\end{aligned}
+$$</p>
+</div>
 <div class="frame">
 <p>$$
 \lim_{x \to \infty} ~ x^2 \ln(1+\tfrac1x) - x
@@ -184,6 +247,6 @@ $$</p>
 <div class="frame">
 <p>$$ \lim\limits_{x \to 0} \frac{e^x\sin x - x(1+x)}{x^3} $$</p>
 <p>$\square \sim \frac{(1+x+\frac{x^2}{2}+\frac{x^3}{6})(x - \frac{x^3}6) - x - x^2}{x^3} \sim \frac{\frac{x^3}2 - \frac{x^3}6}{x^3} = \frac{1}2-\frac{1}6 = \frac{1}3$.</p>
-</div></details></section><footer></footer></article>
+</div></details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>级数敛散性 <a class="slug" href="/math/series-convergence.html">[series-convergence]</a><a class="slug" href="vscode://file:/Users/kokic/Repos/notes/math/series-convergence.md">[edit]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/方法.html" title="方法 [math/方法]">方法</a></span></li><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of math [math/index]">Indexes of math</a></span></li></ul></div></header></section></details></section></footer></article>
 
 </div></body></html>
