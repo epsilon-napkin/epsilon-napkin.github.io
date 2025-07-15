@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>先来先服务</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/调度算法.html'" title="调度算法">« 调度算法</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-先来先服务"><header><h1><span class="taxon"></span>先来先服务 <a class="slug" href="/408/operating-system/先来先服务.html">[先来先服务]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p><span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 是最简单的调度算法, 该算法既可⽤于作业调度, 也可⽤于进程调度. 当在作业调度中采⽤该算法时, 系统将按照作业到达的先后次序来进⾏调度, 或者说它是优先考虑在系统中等待时间最长的作业,⽽不管该作业所需执⾏时间的长短, 从后备作业队列中选择⼏个最先进⼊该队列的作业, 将它们调⼊内存, 为它们分配资源和创建进程. 然后把它放⼊就绪队列.</p>
+<p>当在进程调度中采⽤ <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法时, 每次调度是从就绪的进程队列中选择⼀个最先进⼊该队列的进程, 为之分配处理机, 使之投⼊运⾏. 该进程⼀直运⾏到完成或发⽣某事件⽽阻塞后, 进程调度程序才将处理机分配给其它进程.</p>
+<p>顺便说明, <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法在单处理机系统中已很少作为主调度算法, 但经常把它与其它调度算法相结合使⽤, 形成⼀种更为有效的调度算法. 例如, 可以在系统中按进程的优先级设置多个队列, 每个优先级⼀个队列, 其中每⼀个队列的调度都基于 <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法.</p>
+<h4>先来先服务 [FCFS, First Come First Served]</h4>
+<ul>
+<li>用于作业调度和进程调度.</li>
+<li>选择一个或多个最先进入队列的作业 (进程).</li>
+</ul>
+<h4>优缺点:</h4>
+<ul>
+<li>利于长作业，不利于短作业.</li>
+<li>利 CPU 繁忙型作业 (进程), 不利于 <code>I/O</code> 繁忙型作业 (进程).</li>
+<li>适于批处理系统, 不适于分时系统.</li>
+</ul>
+<p>$\textbf{Example.}$ 先来先服务</p>
+<table><thead><tr><th style="text-align: center">进程名</th><th style="text-align: center">到达</th><th style="text-align: center">服务</th><th style="text-align: center">开始</th><th style="text-align: center">完成</th><th style="text-align: center">周转</th><th style="text-align: center">带权周转</th></tr></thead><tbody>
+<tr><td style="text-align: center">A</td><td style="text-align: center">$0$</td><td style="text-align: center">$4$</td><td style="text-align: center">$0$</td><td style="text-align: center">$4$</td><td style="text-align: center">$4$</td><td style="text-align: center">$1$</td></tr>
+<tr><td style="text-align: center">B</td><td style="text-align: center">$1$</td><td style="text-align: center">$3$</td><td style="text-align: center">$4$</td><td style="text-align: center">$7$</td><td style="text-align: center">$6$</td><td style="text-align: center">$2$</td></tr>
+<tr><td style="text-align: center">C</td><td style="text-align: center">$2$</td><td style="text-align: center">$5$</td><td style="text-align: center">$7$</td><td style="text-align: center">$12$</td><td style="text-align: center">$10$</td><td style="text-align: center">$2$</td></tr>
+<tr><td style="text-align: center">D</td><td style="text-align: center">$3$</td><td style="text-align: center">$2$</td><td style="text-align: center">$12$</td><td style="text-align: center">$14$</td><td style="text-align: center">$11$</td><td style="text-align: center">$\frac{11}2$</td></tr>
+<tr><td style="text-align: center">E</td><td style="text-align: center">$4$</td><td style="text-align: center">$4$</td><td style="text-align: center">$14$</td><td style="text-align: center">$18$</td><td style="text-align: center">$14$</td><td style="text-align: center">$\frac{14}4$</td></tr>
+<tr><td style="text-align: center">平均</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">$9$</td><td style="text-align: center">$2.8$</td></tr>
+</tbody></table>
+</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>高响应比优先 <a class="slug" href="/408/operating-system/高响应比优先.html">[高响应比优先]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
+
+</div></body></html>
