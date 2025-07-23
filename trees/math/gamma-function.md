@@ -14,14 +14,10 @@ $\gdef\hint#1{\color{grey}#1}$
 $$
 \begin{aligned}
 \Gamma(s) 
-&\spaces{:=} \int_0^{+\infty} x^{s-1}e^{-x} \d x \\
-&\hint{\spaces{=} \int_0^{+\infty} x^se^{-x} \frac{\d x}{x} } \\
+&\spaces{:=} \int_0^{+\infty} x^{s-1}e^{-x} \d x
+&\hint{\spaces{=} \int_0^{+\infty} x^se^{-x} \frac{\d x}{x} }
 &\spaces{=} \mathcal{M}(e^{-x})|_s
 \end{aligned}
 $$
 
-$\textbf{Proposition.}$ $\Gamma$ 函数有以下常用性质. 
-  - $\Gamma(s+1) = s\Gamma(s)$. 
-  - $\Gamma(\frac12) = \sqrt{\pi}$. 
-  - $\Gamma(n+1) = n!$. 
-  - $\Gamma(s)\Gamma(1-s) = \frac{\pi}{\sin \pi s}$. 
+$\Gamma$ 函数有常用性质: $(i)$ $\Gamma(s+1) = s\Gamma(s)$. $(ii)$ $\Gamma(\frac12) = \sqrt{\pi}$. $(iii)$ $\Gamma(n+1) = n!$. $(iv)$ $\Gamma(s)\Gamma(1-s) = \frac{\pi}{\sin \pi s}$. 
