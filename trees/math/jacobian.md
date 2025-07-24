@@ -1,6 +1,6 @@
 
 ---
-title: Jacobian
+title: 积分坐标变换
 method: [](/math/方法.md)
 tag: [](/math/index.md)
 ---
@@ -9,7 +9,7 @@ $\gdef\d{\operatorname{d}}$
 $\gdef\spaces#1{~ #1 ~}$
 $\gdef\Jac{\operatorname{Jac}}$
 
-有多元微积分三大基本定理的说法, 是指 Fubini 定理, Stokes 公式和本节的 [积分坐标变换](/math/jacobian.md) 或者说测度的像. 设 $\Phi: U \to V$ 是 $\R^n$ 中两个区域之间的微分同胚, 各自的坐标分别记为 $x = (x_i)$, $y = (y_i)$. 对应的 Riemann 积分的换元公式可以写为
+设 $\Phi: U \to V$ 是 $\R^n$ 中两个区域之间的微分同胚, 各自的坐标分别记为 $x = (x_i)$, $y = (y_i)$. 对应的 Riemann 积分的换元公式可以写为
 
 $$ \d y \spaces= \Phi_*(|\det \Jac \Phi| \d x) $$
 
