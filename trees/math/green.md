@@ -1,6 +1,7 @@
 
 ---
 title: Green 公式
+taxon: formula
 ---
 
 $\gdef\spaces#1{~ #1 ~}$
