@@ -104,8 +104,7 @@ nav {
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/data-link-layer.html'" title="数据链路层">« 数据链路层</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-point-to-point"><header><h1><span class="taxon"></span>点对点 <a class="slug" href="/408/network/point-to-point.html">[point-to-point]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p><em>帧</em> 是点对点信道的数据链路层的协议数据单元. 这种信道使用一对一的点对点通信方式. 相应的点对点协议 PPP 应满足下列需求:</p>
+</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/data-link-layer.html'" title="数据链路层">« 数据链路层</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-point-to-point"><header><h1><span class="taxon"></span>点对点 <a class="slug" href="/408/network/point-to-point.html">[point-to-point]</a></h1><div class="metadata"><ul></ul></div></header></summary><p><em>帧</em> 是点对点信道的数据链路层的协议数据单元. 这种信道使用一对一的点对点通信方式. 相应的点对点协议 PPP 应满足下列需求:</p>
 <ol>
 <li>简单 — 这是首要的要求.</li>
 <li>封装成帧 — 必须规定特殊的字符作为帧定界符.</li>
@@ -118,8 +117,7 @@ nav {
 <li>网络层地址协商 — 必须提供一种机制使通信的两个网络层实体能够通过协商知道或能够配置彼此的网络层地址.</li>
 <li>数据压缩协商 — 必须提供一种方法来协商使用数据压缩算法.</li>
 </ol>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-point-to-point-1"><header><h1><span class="taxon"></span>PPP 协议的组成 <a class="slug" href="/408/network/point-to-point-1.html">[point-to-point-1]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p style="text-align: center;"><img src="../../assets/PPP 帧的格式.png" style="border-radius: 0.2em; width: 400px;"></p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-point-to-point-1"><header><h1><span class="taxon"></span>PPP 协议的组成 <a class="slug" href="/408/network/point-to-point-1.html">[point-to-point-1]</a></h1><div class="metadata"><ul></ul></div></header></summary><p style="text-align: center;"><img src="../../assets/PPP 帧的格式.png" style="border-radius: 0.2em; width: 400px;"></p>
 <p>⾸部的第⼀个字段和尾部的第⼆个字段都是标志字段 $\text{F}$ (Flag), 规定为 <code>Ox7E</code>, ⼗六进制的 <code>7E</code> 的⼆进制表⽰是 <code>01111110</code>. 标志字段表⽰⼀个帧的开始或结束. 因此标志字段就是 PPP 帧的定界符. 连续两帧之间只需要⽤⼀个标志字段. 如果出现连续两个标志字段, 就表⽰这是⼀个空帧, 应当丢弃.</p>
 <p>⾸部中的地址字段 $\text{A}$ 规定 <code>OxFF</code> 即 <code>11111111</code>, 控制字段 $\text{C}$ 规定为 <code>0x03</code> 即 <code>00000011</code>. 最初曾考虑以后再对这两个字段的值进⾏其他定义, 但⾄今也没有给出. 可见这两个字段实际上并没有携带 PPP 帧的信息.</p>
 <p>PPP ⾸部的第四个字段是 2 字节的协议字段. 当协议字段为 <code>0x0021</code> 时, PPP 帧的信息字段就是 IP 数据报. 若为 <code>OxCO21</code>, 则信息字段是 PPP 链路控制协议 LCP 的数据,⽽ <code>0x8021</code> 表⽰这是⽹络层的控制数据. 信息字段的长度是可变的, 不超过 <span class="link local"><a href="/408/network/maximum-transmission-unit.html" title="最⼤传送单元 [408/network/maximum-transmission-unit]">1500 字节</a></span>. 尾部中的第⼀个字段 (2 字节) 是使⽤ CRC 的帧检验序列 FCS.</p>

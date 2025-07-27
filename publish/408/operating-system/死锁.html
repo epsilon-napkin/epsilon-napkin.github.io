@@ -104,19 +104,16 @@ nav {
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/处理机调度与死锁.html'" title="处理机调度与死锁">« 处理机调度与死锁</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-死锁"><header><h1><span class="taxon"></span>死锁 [Deadlock] <a class="slug" href="/408/operating-system/死锁.html">[死锁]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<ul>
+</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/处理机调度与死锁.html'" title="处理机调度与死锁">« 处理机调度与死锁</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-死锁"><header><h1><span class="taxon"></span>死锁 [Deadlock] <a class="slug" href="/408/operating-system/死锁.html">[死锁]</a></h1><div class="metadata"><ul></ul></div></header></summary><ul>
 <li>系统中两个或两个以上的进程因共享资源而导致的一种僵持状态.</li>
 <li>死锁是指系统中多个进程无限期地等待永远不会发生的条件.</li>
 </ul>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁的原因"><header><h1><span class="taxon"></span>死锁的原因 <a class="slug" href="/408/operating-system/死锁的原因.html">[死锁的原因]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<ol>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁的原因"><header><h1><span class="taxon"></span>死锁的原因 <a class="slug" href="/408/operating-system/死锁的原因.html">[死锁的原因]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
 <li><em>对不可抢占资源的竞争</em>. 各进程对不可抢占 (剥夺) 的资源 (如打印机) 的竞争可能引起死锁, 对可抢占资源 (如 CPU) 的竞争是不会引起死锁的.</li>
 <li><em>并发进程运行推进顺序不当</em>. 请求和释放资源的顺序不当也同样会导致死锁.</li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁产生的必要条件"><header><h1><span class="taxon"></span>死锁产生的必要条件 <a class="slug" href="/408/operating-system/死锁产生的必要条件.html">[死锁产生的必要条件]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>产生死锁必须同时满足以下四个条件, 只要其中任一条件不成立, 死锁就不会发生.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁产生的必要条件"><header><h1><span class="taxon"></span>死锁产生的必要条件 <a class="slug" href="/408/operating-system/死锁产生的必要条件.html">[死锁产生的必要条件]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>产生死锁必须同时满足以下四个条件, 只要其中任一条件不成立, 死锁就不会发生.</p>
 <ol>
 <li>
 <p><em>互斥条件</em>: 只有对必须互斥使用的资源的争抢才会导致死锁 (如: 哲学家的筷子、打印机设备). 像内存、扬声器这样可以同时让多个进程使用的资源是不会导致死锁的 (因为进程不用阻塞等待这种资源).</p>
@@ -133,8 +130,7 @@ nav {
 </ol>
 <p>发生死锁时一定有循环等待, 但是发生循环等待时未必死锁 (循环等待是死锁的必要不充分条件). 如果同类资源数大于 1, 则即使有循环等待, 也未必发生死锁. <em>但如果系统中每类资源都只有一个, 那循环等待就是死锁的充分必要条件了</em>.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁的处理策略"><header><h1><span class="taxon"></span>死锁的处理策略 <a class="slug" href="/408/operating-system/死锁的处理策略.html">[死锁的处理策略]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>打破四个条件之一.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁的处理策略"><header><h1><span class="taxon"></span>死锁的处理策略 <a class="slug" href="/408/operating-system/死锁的处理策略.html">[死锁的处理策略]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>打破四个条件之一.</p>
 <ol>
 <li>
 <p>把只能互斥使用的资源改造成允许共享使用, 则系统不会进入死锁状态. 如 SPOOLing 技术. 操作系统可以采用 SPOOLing 技术把独占设备在逻辑上改造成共享设备. 比如用 SPOOLing 技术将打印机改造成共享设备.</p>
@@ -169,8 +165,7 @@ nav {
 </li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理死锁的⽅法"><header><h1><span class="taxon"></span>处理死锁的⽅法 <a class="slug" href="/408/operating-system/处理死锁的⽅法.html">[处理死锁的⽅法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<ol>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理死锁的⽅法"><header><h1><span class="taxon"></span>处理死锁的⽅法 <a class="slug" href="/408/operating-system/处理死锁的⽅法.html">[处理死锁的⽅法]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
 <li>
 <p>预防死锁. 这是一种较简单和直观的事先预防方法. 该方法是通过设置某些限制条件, 去破坏产生死锁四个必要条件中的一个或几个来预防产生死锁. 预防死锁是一种较易实现的方法, 已被广泛使用.</p>
 </li>
@@ -185,8 +180,7 @@ nav {
 </li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-银行家算法"><header><h1><span class="taxon"></span>银行家算法 <a class="slug" href="/408/operating-system/银行家算法.html">[银行家算法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<h4>核心思想</h4>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-银行家算法"><header><h1><span class="taxon"></span>银行家算法 <a class="slug" href="/408/operating-system/银行家算法.html">[银行家算法]</a></h1><div class="metadata"><ul></ul></div></header></summary><h4>核心思想</h4>
 <p>在进程提出资源申请时, 先预判此次分配是否会导致系统进入不安全状态. 如果会进入不安全状态, 就暂时不答应这次请求, 让该进程先阻塞等待.</p>
 <p>算法步骤:</p>
 <ol>

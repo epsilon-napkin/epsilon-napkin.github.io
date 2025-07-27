@@ -2,7 +2,6 @@
 ---
 title: Gauss 分解
 asref: true
-method: [](/math/方法.md)
 tag: [](/math/index.md)
 ---
 

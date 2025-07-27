@@ -104,8 +104,7 @@ nav {
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/index.html'" title="计算机网络">« 计算机网络</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-transport-layer"><header><h1><span class="taxon"></span>运输层 <a class="slug" href="/408/network/transport-layer.html">[transport-layer]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<style>
+</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/index.html'" title="计算机网络">« 计算机网络</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-transport-layer"><header><h1><span class="taxon"></span>运输层 <a class="slug" href="/408/network/transport-layer.html">[transport-layer]</a></h1><div class="metadata"><ul></ul></div></header></summary><style>
 hint {
   color: gray;  
 }
@@ -124,8 +123,7 @@ em {
 <p>运输层还要对收到的报⽂进⾏差错检测. 在 <span class="link local"><a href="/408/network/network-layer.html" title="网络层 [408/network/network-layer]">⽹络层</a></span>, IP 数据报⾸部中的检验和字段只检验⾸部是否出现差错⽽不检查数据部分.</p>
 <p>根据应⽤程序的不同需求, 运输层需要有两种不同的运输协议, 即⾯向连接的 <span class="link local"><a href="/408/network/tcp.html" title="传输控制协议 TCP [408/network/tcp]">TCP</a></span> 和⽆连接的 <span class="link local"><a href="/408/network/udp.html" title="⽤户数据报协议 UDP [408/network/udp]">UDP</a></span>.</p>
 <ul>
-<li><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-udp"><header><h1><span class="taxon"></span>⽤户数据报协议 UDP <a class="slug" href="/408/network/udp.html">[udp]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>⽤户数据报协议 UDP 只在 IP 的 <span class="link local"><a href="/408/network/ip-datagram.html" title="IP 数据报的格式 [408/network/ip-datagram]">数据报</a></span> 服务之上增加了很少⼀点的功能, 这就是 <span class="link local"><a href="/408/network/transport-layer.html" title="运输层 [408/network/transport-layer]">复⽤和分⽤</a></span> 的功能以及差错检测的功能. 当运输层采⽤⽆连接的 UDP 协议时, 这种逻辑通信信道仍然是⼀条不可靠信道.</p>
+<li><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-udp"><header><h1><span class="taxon"></span>⽤户数据报协议 UDP <a class="slug" href="/408/network/udp.html">[udp]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>⽤户数据报协议 UDP 只在 IP 的 <span class="link local"><a href="/408/network/ip-datagram.html" title="IP 数据报的格式 [408/network/ip-datagram]">数据报</a></span> 服务之上增加了很少⼀点的功能, 这就是 <span class="link local"><a href="/408/network/transport-layer.html" title="运输层 [408/network/transport-layer]">复⽤和分⽤</a></span> 的功能以及差错检测的功能. 当运输层采⽤⽆连接的 UDP 协议时, 这种逻辑通信信道仍然是⼀条不可靠信道.</p>
 <ol>
 <li>UDP 是无连接的, 发送数据之前不需要建立连接, 因此减少了开销和发送数据之前的时延.</li>
 <li>UDP 使用尽最大努力交付, 即不保证可靠交付, 因此主机不需要维持复杂的连接状态表.</li>
@@ -135,8 +133,7 @@ em {
 <li>UDP 的首部开销小, 只有 8 个字节, 比 <span class="link local"><a href="/408/network/tcp.html" title="传输控制协议 TCP [408/network/tcp]">TCP</a></span> 的 20 个字节的首部要短.</li>
 </ol>
 </details></section></li>
-<li><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-tcp"><header><h1><span class="taxon"></span>传输控制协议 TCP <a class="slug" href="/408/network/tcp.html">[tcp]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>当运输层采⽤⾯向连接的 TCP 协议时, 尽管下⾯的⽹络是不可靠的 (只提供尽最⼤努⼒服务), 但这种逻辑通信信道就相当于⼀条全双⼯的可靠信道. 以下列出 TCP 最主要的特点:</p>
+<li><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-tcp"><header><h1><span class="taxon"></span>传输控制协议 TCP <a class="slug" href="/408/network/tcp.html">[tcp]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>当运输层采⽤⾯向连接的 TCP 协议时, 尽管下⾯的⽹络是不可靠的 (只提供尽最⼤努⼒服务), 但这种逻辑通信信道就相当于⼀条全双⼯的可靠信道. 以下列出 TCP 最主要的特点:</p>
 <ol>
 <li>TCP 是⾯向连接的运输层协议.</li>
 <li>每⼀条 TCP 连接只能有两个端点 (endpoint), 每⼀条 TCP 连接只能是点对点的 (⼀对⼀).</li>

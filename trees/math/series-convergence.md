@@ -2,7 +2,6 @@
 ---
 title: 级数敛散性
 asref: true
-method: [](/math/方法.md)
 tag: [](/math/index.md)
 ---
 

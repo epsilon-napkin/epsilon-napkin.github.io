@@ -1,5 +1,7 @@
+
 ---
 title: Fourier 变换
+tag: [](/math/index.md)
 ---
 
 $\gdef\Z{\mathbf{Z}}$
@@ -25,9 +27,8 @@ $$
 
 这是一个无限维 Hilbert 空间. 
 
-### 有限群上的 Fourier 变换
+类似地, 我们可以考虑有限群上的 Fourier 变换
 
 $$
 \hat{f}(0) \spaces= \frac{1}{|S|} \sum_{x \in S}f(x)
 $$
-

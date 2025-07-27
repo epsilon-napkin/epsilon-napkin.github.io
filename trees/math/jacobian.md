@@ -1,7 +1,6 @@
 
 ---
 title: 积分坐标变换
-method: [](/math/方法.md)
 tag: [](/math/index.md)
 ---
 

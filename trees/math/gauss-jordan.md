@@ -2,7 +2,6 @@
 ---
 title: Gauss--Jordan 消元法
 asref: true
-method: [](/math/方法.md)
 tag: [](/math/index.md)
 ---
 

@@ -104,8 +104,7 @@ nav {
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/连续分配存储管理.html'" title="连续分配存储管理⽅式">« 连续分配存储管理⽅式</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-循环⾸次适应算法"><header><h1><span class="taxon"></span>循环首次适应算法 <a class="slug" href="/408/operating-system/循环⾸次适应算法.html">[循环⾸次适应算法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>为避免低址部分留下许多很⼩的空闲分区, 以及減少查找可⽤空闲分区的开销, 循环⾸次适应算法在为进程分配内存空间时, 不再是每次都从链⾸开始查找,⽽是从上次找到的空闲分区的下⼀个空闲分区开始查找, 直⾄找到⼀个能满⾜要求的空闲分区, 从中划出⼀块与请求⼤⼩相等的内存空间分配给作业. 为实现该算法, 应设置⼀起始查寻指针,⽤于指⽰下⼀次起始查寻的空闲分区, 并采⽤循环查找⽅式, 即如果最后⼀个 (链尾) 空闲分区的⼤⼩仍不能满⾜要求, 则应返回到第⼀个空闲分区, ⽐较其⼤⼩是否满⾜要求. 找到后, 应调整起始查寻指针. 该算法能使内存中的 <em>空闲分区分布得更均匀</em>, 从⽽ <em>减少了查找空闲分区时的开销</em>, 但这样会 <em>缺乏⼤的空闲分区</em>.</p>
+</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/连续分配存储管理.html'" title="连续分配存储管理⽅式">« 连续分配存储管理⽅式</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-循环⾸次适应算法"><header><h1><span class="taxon"></span>循环首次适应算法 <a class="slug" href="/408/operating-system/循环⾸次适应算法.html">[循环⾸次适应算法]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>为避免低址部分留下许多很⼩的空闲分区, 以及減少查找可⽤空闲分区的开销, 循环⾸次适应算法在为进程分配内存空间时, 不再是每次都从链⾸开始查找,⽽是从上次找到的空闲分区的下⼀个空闲分区开始查找, 直⾄找到⼀个能满⾜要求的空闲分区, 从中划出⼀块与请求⼤⼩相等的内存空间分配给作业. 为实现该算法, 应设置⼀起始查寻指针,⽤于指⽰下⼀次起始查寻的空闲分区, 并采⽤循环查找⽅式, 即如果最后⼀个 (链尾) 空闲分区的⼤⼩仍不能满⾜要求, 则应返回到第⼀个空闲分区, ⽐较其⼤⼩是否满⾜要求. 找到后, 应调整起始查寻指针. 该算法能使内存中的 <em>空闲分区分布得更均匀</em>, 从⽽ <em>减少了查找空闲分区时的开销</em>, 但这样会 <em>缺乏⼤的空闲分区</em>.</p>
 <p>$\textbf{Example.}$</p>
 <table><thead><tr><th>请求队列</th><th>循环首次适应算法</th></tr></thead><tbody>
 <tr><td>初始</td><td>10 4 20 18 7 9 12 15</td></tr>

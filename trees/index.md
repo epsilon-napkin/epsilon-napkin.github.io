@@ -1,11 +1,6 @@
 
 ---
-title: 索引
+title: $\varepsilon$-Napkin
+page-title: ε-Napkin
 collect: true
 ---
-
-<style>
-footer .metadata a[title='索引 [index]'] {
-  display: none;
-}
-</style>

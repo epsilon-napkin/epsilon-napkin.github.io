@@ -1,7 +1,9 @@
 
 ---
 title: Green 公式
+asref: true
 taxon: formula
+tag: [](/math/index.md)
 ---
 
 $\gdef\spaces#1{~ #1 ~}$
