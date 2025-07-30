@@ -53,6 +53,10 @@
     color: rgb(249, 117, 131);
     font-style: normal;
   }
+
+  footer .metadata {
+    display: none;
+  }
 </style><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
@@ -177,7 +181,7 @@ $$</p>
 <p>$$
 \lim_{n \to \infty} \Big( \frac{1}{\sqrt{n^2+1}} + \frac{1}{\sqrt{n^2+2}} + \cdots + \frac{1}{\sqrt{n^2+n}} \Big)
 $$</p>
-<p><span class="link local"><a href="/math/series-convergence.html" title="级数敛散性 [math/series-convergence]">夹逼</a></span>. 记这个和式为 $(a_i)_{1 \le i \le n}$, 用下式控制</p>
+<p><span class="link local"><a href="/math/控制收敛.html" title="控制收敛 [math/控制收敛]">夹逼</a></span>. 记这个和式为 $(a_i)_{1 \le i \le n}$, 用下式控制</p>
 <p>$$ 
 n \cdot \min\limits_{1 \le i \le n}(a_i) \spaces\le \sum_{i=1}^n a_i \spaces\le n \cdot \max\limits_{1 \le i \le n}(a_i) 
 $$</p>
@@ -205,6 +209,21 @@ $$</p>
 $$</p>
 </div>
 <div class="frame">
+<p>$$ \lim_{x\to 0} \frac{\sqrt{1+\tan x} - \sqrt{1+\sin x}}{(e^x-1)^3} $$</p>
+<p>根据分母, 这意味着我们至少要知道分子上 $o(x^3)$ 的系数, 由二项式定理</p>
+<p>$$ \sqrt{1+x} \spaces= o(1) + \tfrac{x}2 + o(x^2) + \tfrac{1}{16} x^3 + o(x^4) $$</p>
+<p>我们只看 $x, x^3$ 因为只有这几项能在复合后出现 $x^3$. 以及 <span class="link local"><a href="/math/taylor.html" title="Taylor 展开 [math/taylor]">Taylor 展开</a></span> 给出 $\sin x \sim x - \frac{x^3}{3!}$, 有</p>
+<p>$$
+\sqrt{1+\sin x} \spaces= (\tfrac{1}{16} - \tfrac{1}{3! \times 2}) x^3 + \text{etc.} \spaces= -\tfrac{1}{48}x^3
+$$</p>
+<p>同理 $\tan x \sim x + \frac{x}{3}$,  $\sqrt{1+\tan x} = \frac{11}{48} x^3 + \text{etc.}$, 立得 $\lim \square = \frac{1}{4}$.</p>
+</div>
+<div class="frame">
+<p>$$ \lim\limits_{x \to 0} \frac{e^x\sin x - x(1+x)}{x^3} $$</p>
+<p>根据分母, 我们只看 $e^x\sin x$ 展开式中 $x^3$ 项的系数. 这不难发现就是</p>
+<p>$$ (1+\tfrac{x^2}{2} + \text{etc.})(x - \tfrac{x^3}{3!} + \text{etc.}) \spaces= -\tfrac{1}{6} + \tfrac{1}{2} \spaces= \tfrac{1}{3} $$</p>
+</div>
+<div class="frame">
 <p>$$
 \lim_{x \to \infty} ~ x^2 \ln(1+\tfrac1x) - x
 \spaces\iff 
@@ -230,23 +249,10 @@ $$</p>
 </div>
 <div class="frame">
 <p>$$
-\lim\limits_{x \to 0} \frac{\sqrt{1+\sin x}-\sqrt{1-\sin x}}{x}
-$$</p>
-<p>$\sin x \sim x - \frac{x^3}6$, $(1+x)^{\frac12} \sim 1+\frac{x}2 - \frac{x^3}{12}$, $(1-x)^{\frac12} \sim 1-\frac{x}2+\frac{x^3}{12}$. 分子 $\sim x - \frac{x^3}{6}$. $\lim \square = 1$.</p>
-</div>
-<div class="frame">
-<p>$$
 \lim\limits_{x \to 0} \Big(\frac{e^x + e^{-x}}{2}\Big)^{\frac1{x^2}}
 $$</p>
 <p>取对数, $\lim\limits_{x \to 0} \exp(\frac1{x^2}\ln(\frac{e^x + e^{-x}}{2})) \sim \lim\limits_{x \to 0} \exp(\frac1{x^2}\ln(1+\frac{x^2}2)) \sim \lim\limits_{x \to 0} \exp(\frac1{x^2} \cdot \frac{x^2}2) = e^{\frac12}$.</p>
 </div>
-<div class="frame">
-<p>$$ \lim\limits_{x \to 0} \frac{\ln(1+x) - x\cos x}{x^2} $$</p>
-<p>$\cos x \sim 1 - \frac{x^2}2 + \frac{x^4}{24} + \Re\sum_{n \geqslant 5} i^n\frac{x^n}{n!}$. $\square \sim \frac{x - \frac{x^2}2 + \frac{x^3}3 - x + \frac{x^3}2}{x^2} = \frac{-\frac{x^2}2+\frac{5x^3}{6}}{x^2} = -\frac{1}{2}$.</p>
-</div>
-<div class="frame">
-<p>$$ \lim\limits_{x \to 0} \frac{e^x\sin x - x(1+x)}{x^3} $$</p>
-<p>$\square \sim \frac{(1+x+\frac{x^2}{2}+\frac{x^3}{6})(x - \frac{x^3}6) - x - x^2}{x^3} \sim \frac{\frac{x^3}2 - \frac{x^3}6}{x^3} = \frac{1}2-\frac{1}6 = \frac{1}3$.</p>
-</div></details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>级数敛散性 <a class="slug" href="/math/series-convergence.html">[series-convergence]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section></details></section><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>习题集 <a class="slug" href="/math/习题集/index.html">[习题集]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
+</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Riemann 和 <a class="slug" href="/math/riemann-sum.html">[riemann-sum]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Taylor 展开 <a class="slug" href="/math/taylor.html">[taylor]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>控制收敛 <a class="slug" href="/math/控制收敛.html">[控制收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section></details></section><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>习题集 <a class="slug" href="/math/习题集/index.html">[习题集]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
 
 </div></body></html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width"><title>曲线弧长计算</title><link rel="stylesheet" href="/main.css">
+<meta name="viewport" content="width=device-width"><title>控制收敛</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
   .katex .mfrac .frac-line {
     font-size: 1.25em;
@@ -108,23 +108,16 @@ nav {
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Formula"><details open><summary id="math-arc-length"><header><h1><span class="taxon">Formula. </span>曲线弧长计算 <a class="slug" href="/math/arc-length.html">[arc-length]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
-$\gdef\spaces#1{~ #1 ~}$</p>
-<p>由于弧长积分 $ s = \int_a^b \d s$, 此处 $\d s = \sqrt{(\d x)^2 + (\d y)^2}$ 是对参数曲线 $x=x(t)$, $y=y(t)$ 长度的微分.</p>
-<ul>
-<li>当 $y = f(x)$, $x \in [a,b]$ 时, $\d s = \sqrt{1+(f'(x))^2}\d x$.</li>
-<li>当 $t \in [\alpha, \beta]$ 时, $\d s = \sqrt{(x'(t))^2 + (y'(t))^2}\d t$.</li>
-<li>当曲线由极坐标方程 $\rho = \rho(\theta)$ 描述时, $\d s = \sqrt{(\rho(\theta))^2 + (\rho'(\theta))^2} \d \theta$.</li>
-</ul>
-<p>最后一个是因为</p>
-<p>$$
-\begin{aligned}
-\d s 
-&amp;\spaces= \sqrt{\bigg(\frac{\d x}{\d \theta}\bigg)^2 + \bigg(\frac{\d y}{\d \theta}\bigg)^2} \d \theta \\
-&amp;\spaces= \sqrt{(\rho'\cos \theta - \rho\sin \theta)^2 + (\rho'\sin \theta + \rho \cos \theta)^2} \d \theta \\
-&amp;\spaces= \sqrt{(\rho(\theta))^2 + (\rho'(\theta))^2} \d \theta \\
-\end{aligned}
-$$</p>
-</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Formula" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Formula. </span>旋转体积 <a class="slug" href="/math/rotating-volume.html">[rotating-volume]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section></details></section></footer></article>
+</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/series-convergence.html'" title="级数敛散性">« 级数敛散性</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-控制收敛"><header><h1><span class="taxon"></span>控制收敛 <a class="slug" href="/math/控制收敛.html">[控制收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
+<ol>
+<li>
+<p>双边控制, 又称夹逼. 设有三个实数序列 $(a_n) \le (x_n) \le (b_n)$, 这里的 $\le$ 要求每一项都成立. 如果 $\lim_{n \to \infty} a_n = b_n = X$, 则 $\lim_{n \to \infty} x_n = X$.</p>
+</li>
+<li>
+<p>上界控制, 即放大. 设有非负实数序列 $(x_n) \le (y_n)$, 如果 $\lim_{n \to \infty} y_n = 0$, 则 $\lim_{n \to \infty} x_n = 0$. 为了证明一个级数 $\sum_k a_k$ 收敛, 很多情况下只要说明它绝对收敛 $\sum_k |a_k|$ 即可, 再配合放大 $\sum_k |a_k| \le \sum_k b_k$ 选择恰当的 $b_k$, 从而得到 $a_k$ 收敛.</p>
+</li>
+</ol>
+<p>$\textbf{Example.}$ $\zeta(2) = \sum_{n \ge 1}\frac{1}{n^2}$ 收敛. 因为 $n^2 \ge n(n-1)$ 有 $\sum_{n \ge 1}\frac{1}{n^2} \le 1 + \sum_{n \ge 2}\frac{1}{n(n-1)} = 1 + \sum_{n \ge 2}(\frac{1}{n-1} - \frac{1}{n}) = 2$.</p>
+</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span><span class="link local"><a href="/math/习题集/index.html" title="习题集 [math/习题集/index]">习题集</a></span> 极限 <a class="slug" href="/math/习题集/极限.html">[极限]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
 
 </div></body></html>

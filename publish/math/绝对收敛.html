@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width"><title>曲线弧长计算</title><link rel="stylesheet" href="/main.css">
+<meta name="viewport" content="width=device-width"><title>绝对收敛</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
   .katex .mfrac .frac-line {
     font-size: 1.25em;
@@ -108,23 +108,15 @@ nav {
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Formula"><details open><summary id="math-arc-length"><header><h1><span class="taxon">Formula. </span>曲线弧长计算 <a class="slug" href="/math/arc-length.html">[arc-length]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
-$\gdef\spaces#1{~ #1 ~}$</p>
-<p>由于弧长积分 $ s = \int_a^b \d s$, 此处 $\d s = \sqrt{(\d x)^2 + (\d y)^2}$ 是对参数曲线 $x=x(t)$, $y=y(t)$ 长度的微分.</p>
-<ul>
-<li>当 $y = f(x)$, $x \in [a,b]$ 时, $\d s = \sqrt{1+(f'(x))^2}\d x$.</li>
-<li>当 $t \in [\alpha, \beta]$ 时, $\d s = \sqrt{(x'(t))^2 + (y'(t))^2}\d t$.</li>
-<li>当曲线由极坐标方程 $\rho = \rho(\theta)$ 描述时, $\d s = \sqrt{(\rho(\theta))^2 + (\rho'(\theta))^2} \d \theta$.</li>
-</ul>
-<p>最后一个是因为</p>
+</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/series-convergence.html'" title="级数敛散性">« 级数敛散性</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-绝对收敛"><header><h1><span class="taxon"></span>绝对收敛 <a class="slug" href="/math/绝对收敛.html">[绝对收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>d’Alembert 判别法或称比值判别法, 即考虑 $\rho = \lim_{n \to \infty} |\frac{a_{n+1}}{a_n}|$ 和 $1$ 的关系, 当 $\rho &lt; 1$ 时级数绝对收敛, $\rho &gt; 1$ 时发散.</p>
+<p>除了用比值, 我们也可以考虑根值 $\rho = \limsup_{n \to \infty} \sqrt[n]{|a_n|}$, 这就是 Cauchy 判别法, 类似地 $\rho &lt; 1$ 时绝对收敛, $\rho &gt; 1$ 时发散.</p>
+<p>根据 Cauchy–Hadamard 定理, 这两种方法实际上也是幂级数 $\sum_{n \ge 0} a_n z^n$ 收敛半径 $R = \frac{1}{\rho}$ 的计算方式. 因为此时可认为 $z=1$ 满足 $|z| &lt; R$, 幂级数绝对收敛.</p>
+<p>$\textbf{Example.}$ 级数 $\sum_{n \ge 1} (-1)^n \cdot \frac{2^n}{n!}$ 绝对收敛, 因为 $|\frac{a_{n+1}}{a_n}| = \frac{2^{n+1}}{(n+1)!} \big/ \frac{2^n}{n!}$ 即 $\frac{2}{n+1}$, 此时 $\lim \square = 0$, $\rho &lt; 1$, 故绝对收敛. 类似地, 此方法也适合处理其他含阶乘、指数的级数. 如 $\log(1+x)$ 在 $x=0$ 处的 <span class="link local"><a href="/math/taylor.html" title="Taylor 展开 [math/taylor]">Taylor 展开</a></span></p>
 <p>$$
-\begin{aligned}
-\d s 
-&amp;\spaces= \sqrt{\bigg(\frac{\d x}{\d \theta}\bigg)^2 + \bigg(\frac{\d y}{\d \theta}\bigg)^2} \d \theta \\
-&amp;\spaces= \sqrt{(\rho'\cos \theta - \rho\sin \theta)^2 + (\rho'\sin \theta + \rho \cos \theta)^2} \d \theta \\
-&amp;\spaces= \sqrt{(\rho(\theta))^2 + (\rho'(\theta))^2} \d \theta \\
-\end{aligned}
+\sum_{n \ge 1} (-1)^{k-1} \cdot \frac{x^k}{k} \spaces= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots
 $$</p>
-</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Formula" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Formula. </span>旋转体积 <a class="slug" href="/math/rotating-volume.html">[rotating-volume]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section></details></section></footer></article>
+<p>此时 $\rho = \lim_{n \to \infty} \Big|(-1)^{n} \cdot \frac{x^{n+1}}{n+1} \big/ (-1)^{n-1} \cdot \frac{x^n}{n}\Big| = 0$.</p>
+</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Taylor 展开 <a class="slug" href="/math/taylor.html">[taylor]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section></details></section></footer></article>
 
 </div></body></html>
