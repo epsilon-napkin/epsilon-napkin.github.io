@@ -1,6 +1,7 @@
 
 ---
 title: Riemann 和
+asref: true
 tag: [](/math/index.md)
 ---
 
