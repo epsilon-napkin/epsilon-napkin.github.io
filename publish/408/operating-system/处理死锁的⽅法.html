@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>处理死锁的⽅法</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/死锁.html'" title="死锁 [Deadlock]">« 死锁 [Deadlock]</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-处理死锁的⽅法"><header><h1><span class="taxon"></span>处理死锁的⽅法 <a class="slug" href="/408/operating-system/处理死锁的⽅法.html">[处理死锁的⽅法]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/死锁.html'" title="死锁 [Deadlock]">« 死锁 [Deadlock]</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-处理死锁的⽅法"><header><h1><span class="taxon"></span>处理死锁的⽅法 <a class="slug" href="/408/operating-system/处理死锁的⽅法.html">[处理死锁的⽅法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ol>
 <li>
 <p>预防死锁. 这是一种较简单和直观的事先预防方法. 该方法是通过设置某些限制条件, 去破坏产生死锁四个必要条件中的一个或几个来预防产生死锁. 预防死锁是一种较易实现的方法, 已被广泛使用.</p>
 </li>

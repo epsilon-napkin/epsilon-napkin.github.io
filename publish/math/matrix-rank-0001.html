@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>等价条件</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/matrix-rank.html'" title="矩阵的秩">« 矩阵的秩</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-matrix-rank-0001"><header><h1><span class="taxon"></span>等价条件 <a class="slug" href="/math/matrix-rank-0001.html">[matrix-rank-0001]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/matrix-rank.html'" title="矩阵的秩">« 矩阵的秩</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-matrix-rank-0001"><header><h1><span class="taxon"></span>等价条件 <a class="slug" href="/math/matrix-rank-0001.html">[matrix-rank-0001]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ol>
 <li>$n$ 阶矩阵 $A$ 可逆.</li>
 <li>行列式 $\det A \ne 0$.</li>
 <li>$r(A) = n$, 即满秩.</li>

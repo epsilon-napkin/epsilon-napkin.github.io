@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>矩阵秩的计算</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/matrix-rank.html'" title="矩阵的秩">« 矩阵的秩</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-matrix-rank-0002"><header><h1><span class="taxon"></span>矩阵秩的计算 <a class="slug" href="/math/matrix-rank-0002.html">[matrix-rank-0002]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/matrix-rank.html'" title="矩阵的秩">« 矩阵的秩</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-matrix-rank-0002"><header><h1><span class="taxon"></span>矩阵秩的计算 <a class="slug" href="/math/matrix-rank-0002.html">[matrix-rank-0002]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
 <p>用初等行变换将矩阵化为 <span class="link local"><a href="/math/row-echelon-form.html" title="行梯矩阵 [math/row-echelon-form]">行阶梯形</a></span>. 此时秩等于 <span class="link local"><a href="/math/row-echelon-form.html" title="行梯矩阵 [math/row-echelon-form]">主元</a></span> 的数量, 也是非零行的数量.</p>
 <p>$\textbf{Example.}$ 讨论矩阵 $A$ 的秩.</p>
 <p>$$

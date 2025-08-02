@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>矩阵求逆</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,20 +99,34 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-matrix-inverse"><header><h1><span class="taxon"></span>矩阵求逆 <a class="slug" href="/math/matrix-inverse.html">[matrix-inverse]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
-<p>使用 <span class="link local"><a href="/math/gauss-jordan.html" title="Gauss–Jordan 消元法 [math/gauss-jordan]">初等行变换</a></span> 计算 $(A, E) \to (E, A^{-1})$, 即可求得 $A^{-1}$. 固定步骤为, 先化为对角阵, 再化为单位阵.</p>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-matrix-inverse"><header><h1><span class="taxon"></span>矩阵求逆 <a class="slug" href="/math/matrix-inverse.html">[matrix-inverse]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary>
+<p>单论时间复杂度, <span class="link local"><a href="/math/matrix-inverse-1.html" title="初等行变换求逆 [math/matrix-inverse-1]">初等行变换求逆</a></span> $\mathcal{O}(n^3)$ 的复杂度相比 <span class="link local"><a href="/math/matrix-inverse-2.html" title="伴随矩阵求逆 [math/matrix-inverse-2]">伴随矩阵求逆</a></span> 的 $\mathcal{O}(n^2 \cdot n!)$ 在 $n \gt 2$ 时会更有优势, 这里 $n^2$ 来自于余子式, $n!$ 来自于 $\det$. 但手工计算 $A^{-1}$ 时, 如果能够观察出 $A$ 一些特殊的性质然后打洞, 则 $\det A$ 的实际复杂度就会大大下降, 此时的 <span class="link local"><a href="/math/matrix-inverse-2.html" title="伴随矩阵求逆 [math/matrix-inverse-2]">伴随矩阵求逆</a></span> 不失为一种好的策略. 本身行列式可用的处理手段也比 <span class="link local"><a href="/math/gauss-jordan.html" title="Gauss–Jordan 消元法 [math/gauss-jordan]">Gauss–Jordan 消元法</a></span> 要多得多.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-matrix-inverse-1"><header><h1><span class="taxon"> 1. </span>初等行变换求逆 <a class="slug" href="/math/matrix-inverse-1.html">[matrix-inverse-1]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>使用 <span class="link local"><a href="/math/gauss-jordan.html" title="Gauss–Jordan 消元法 [math/gauss-jordan]">初等行变换</a></span> 计算 $(A, E) \to (E, A^{-1})$, 将 $A$ 化为单位阵, 即可求得 $A^{-1}$.</p>
 <p>$\textbf{Example.}$ 考虑 $A = (\begin{smallmatrix} a &amp; b \\ c &amp; d \end{smallmatrix})$, 此时我们有</p>
 <p>$$
 \begin{aligned}
-\left(\begin{array}{cc:}
+&amp;\hspace{2em} \left(\begin{array}{cc:}
    a &amp; b &amp; 1 &amp; 0 \\
    c &amp; d &amp; 0 &amp; 1 \\
-\end{array}\right)
+\end{array}\right) \\
 &amp;\spaces\to
 \left(\begin{array}{cc:}
    1 &amp; ba^{-1} &amp; a^{-1} &amp; 0 \\
@@ -147,6 +157,11 @@ nav {
 \end{aligned}
 $$</p>
 <p>这里最后的 $M_{11} = \frac1a + \frac b a \cdot \frac c {a (d - \frac{cb}a)} = \frac1a (1 + \frac{bc}{ad - bc}) = \frac{d}{ad-bc}$, 其他项可类似地验证.</p>
+</details></section>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-matrix-inverse-2"><header><h1><span class="taxon"> 2. </span>伴随矩阵求逆 <a class="slug" href="/math/matrix-inverse-2.html">[matrix-inverse-2]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\adj{\operatorname{adj}}$</p>
+<p>伴随矩阵 $\adj A$ 或 $A^*$ 满足 $AA^* = (\det A) I$. 由此也可用 $\frac{A^*}{|A|}$ 求得 $A^{-1}$.</p>
+</details></section></p>
 </details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Gauss–Jordan 消元法 <a class="slug" href="/math/gauss-jordan.html">[gauss-jordan]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section></details></section></footer></article>
 
-</div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/matrix-inverse-1.html" title="初等行变换求逆 [math/matrix-inverse-1]">■</a><span class="link local" onclick="window.location.href='#math-matrix-inverse-1'"><span class="taxon"> 1. </span>初等行变换求逆</span></li><li class=""><a class="bullet" href="/math/matrix-inverse-2.html" title="伴随矩阵求逆 [math/matrix-inverse-2]">■</a><span class="link local" onclick="window.location.href='#math-matrix-inverse-2'"><span class="taxon"> 2. </span>伴随矩阵求逆</span></li></ul></div></nav></div></body></html>

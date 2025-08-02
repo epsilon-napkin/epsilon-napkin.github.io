@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>习题集 极限</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-习题集-极限"><header><h1><span class="taxon"></span><span class="link local"><a href="/math/习题集/index.html" title="习题集 [math/习题集/index]">习题集</a></span> 极限 <a class="slug" href="/math/习题集/极限.html">[极限]</a></h1><div class="metadata"><ul></ul></div></header></summary><style>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-习题集-极限"><header><h1><span class="taxon"></span><span class="link local"><a href="/math/习题集/index.html" title="习题集 [math/习题集/index]">习题集</a></span> 极限 <a class="slug" href="/math/习题集/极限.html">[极限]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<style>
 .frame {
     border: 1px solid;
     border-radius: 0.2em;
@@ -164,6 +172,7 @@ $$</p>
 <p>即 <span class="link local"><a href="/math/riemann-sum.html" title="Riemann 和 [math/riemann-sum]">右 Riemann 和</a></span> 的典型形式.</p>
 </div>
 <div class="frame">
+<p>$\textbf{2010.I.4}$</p>
 <p>$$ \lim_{n \to \infty}\sum_{i=1}^n\sum_{j=1}^n \frac{n}{(n+i)(n^2+j^2)} $$</p>
 <p>这也是 <span class="link local"><a href="/math/riemann-sum.html" title="Riemann 和 [math/riemann-sum]">Riemann 和</a></span>. 注意</p>
 <p>$$ \sum_{i=1}^n\sum_{j=1}^n \frac{n}{(n+i)(n^2+j^2)} \spaces= \sum_{i=1}^n\sum_{j=1}^n \frac{1}{(1+\frac{i}{n})(1+\frac{j^2}{n^2})} \cdot \frac{1}{n^2} $$</p>
@@ -238,6 +247,7 @@ $$</p>
 $$</p>
 </div>
 <div class="frame">
+<p>$\textbf{2010.I.1}$</p>
 <p>$$
 \begin{aligned}
 \lim_{x \to \infty} \bigg(\frac{x^2}{(x-a)(x+b)}\bigg)^x

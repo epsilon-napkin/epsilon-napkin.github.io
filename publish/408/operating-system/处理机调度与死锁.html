@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>处理机调度与死锁</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/index.html'" title="计算机操作系统">« 计算机操作系统</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-处理机调度与死锁"><header><h1><span class="taxon"></span>处理机调度与死锁 <a class="slug" href="/408/operating-system/处理机调度与死锁.html">[处理机调度与死锁]</a></h1><div class="metadata"><ul></ul></div></header></summary><style>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/index.html'" title="计算机操作系统">« 计算机操作系统</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-处理机调度与死锁"><header><h1><span class="taxon"></span>处理机调度与死锁 <a class="slug" href="/408/operating-system/处理机调度与死锁.html">[处理机调度与死锁]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<style>
 hint {
   color: gray;  
 }
@@ -117,7 +125,9 @@ em {
   font-style: normal;
 }
 </style>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理机调度"><header><h1><span class="taxon"></span>处理机调度 <a class="slug" href="/408/operating-system/处理机调度.html">[处理机调度]</a></h1><div class="metadata"><ul></ul></div></header></summary><p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理机调度层次"><header><h1><span class="taxon"></span>处理机调度层次 <a class="slug" href="/408/operating-system/处理机调度层次.html">[处理机调度层次]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>在多道程序系统中, 调度的实质是⼀种资源分配, 处理机调度是对处理机资源进⾏分配. 处理机调度算法是指根据处理机分配策略所规定的处理机分配算法. 在多道批处理系统中,⼀个作业从提交到获得处理机执⾏, 直⾄作业运⾏完毕, 可能需要经历多级处理机调度, 下⾯先来了解处理机调度的层次.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理机调度"><header><h1><span class="taxon"></span>处理机调度 <a class="slug" href="/408/operating-system/处理机调度.html">[处理机调度]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理机调度层次"><header><h1><span class="taxon"></span>处理机调度层次 <a class="slug" href="/408/operating-system/处理机调度层次.html">[处理机调度层次]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>在多道程序系统中, 调度的实质是⼀种资源分配, 处理机调度是对处理机资源进⾏分配. 处理机调度算法是指根据处理机分配策略所规定的处理机分配算法. 在多道批处理系统中,⼀个作业从提交到获得处理机执⾏, 直⾄作业运⾏完毕, 可能需要经历多级处理机调度, 下⾯先来了解处理机调度的层次.</p>
 <ul>
 <li><span class="link local"><a href="/408/operating-system/高级调度.html" title="高级调度 / 作业调度 [408/operating-system/高级调度]">高级调度</a></span></li>
 <li><span class="link local"><a href="/408/operating-system/中级调度.html" title="中级调度 / 中程调度 / 内存调度 [408/operating-system/中级调度]">中级调度</a></span></li>
@@ -129,7 +139,8 @@ em {
 <tr><td>低级</td><td>就绪 $\to$ 运行</td><td>内存</td><td>进程调度</td></tr>
 </tbody></table>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理机调度策略准则"><header><h1><span class="taxon"></span>处理机调度策略准则 <a class="slug" href="/408/operating-system/处理机调度策略准则.html">[处理机调度策略准则]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理机调度策略准则"><header><h1><span class="taxon"></span>处理机调度策略准则 <a class="slug" href="/408/operating-system/处理机调度策略准则.html">[处理机调度策略准则]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\str#1{\footnotesize{#1}}$
 $\gdef\hint#1{{\color{gray}{\str{#1}}}}$
 $\gdef\type#1{~:~\texttt{#1}}$</p>
@@ -154,7 +165,8 @@ $$</p>
 <p>周转时间 $=$ 作业完成时间 $−$ 作业提交时间 (到达时间).</p>
 </details></section></p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-作业"><header><h1><span class="taxon"></span>作业 <a class="slug" href="/408/operating-system/作业.html">[作业]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>是用户在一次解题或一个事务处理过程中要求计算机系统所做工作的集合.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-作业"><header><h1><span class="taxon"></span>作业 <a class="slug" href="/408/operating-system/作业.html">[作业]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>是用户在一次解题或一个事务处理过程中要求计算机系统所做工作的集合.</p>
 <ul>
 <li>作业步. 每一个作业的步骤.</li>
 <li>作业控制块 [JCB] 是作业的 <em>唯一标志</em>. 保存进行作业管理和调度信息. 对比 <span class="link local"><a href="/408/operating-system/进程控制块.html" title="进程控制块 PCB [408/operating-system/进程控制块]">进程控制块</a></span> [PCB].</li>
@@ -167,11 +179,13 @@ $$</p>
 </li>
 </ul>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-调度算法"><header><h1><span class="taxon"></span>调度算法 <a class="slug" href="/408/operating-system/调度算法.html">[调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-调度算法"><header><h1><span class="taxon"></span>调度算法 <a class="slug" href="/408/operating-system/调度算法.html">[调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\str#1{\footnotesize{#1}}$
 $\gdef\hint#1{{\color{gray}{\str{#1}}}}$
 $\gdef\type#1{~:~\texttt{#1}}$</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-先来先服务"><header><h1><span class="taxon"></span>先来先服务 <a class="slug" href="/408/operating-system/先来先服务.html">[先来先服务]</a></h1><div class="metadata"><ul></ul></div></header></summary><p><span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 是最简单的调度算法, 该算法既可⽤于作业调度, 也可⽤于进程调度. 当在作业调度中采⽤该算法时, 系统将按照作业到达的先后次序来进⾏调度, 或者说它是优先考虑在系统中等待时间最长的作业,⽽不管该作业所需执⾏时间的长短, 从后备作业队列中选择⼏个最先进⼊该队列的作业, 将它们调⼊内存, 为它们分配资源和创建进程. 然后把它放⼊就绪队列.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-先来先服务"><header><h1><span class="taxon"></span>先来先服务 <a class="slug" href="/408/operating-system/先来先服务.html">[先来先服务]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p><span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 是最简单的调度算法, 该算法既可⽤于作业调度, 也可⽤于进程调度. 当在作业调度中采⽤该算法时, 系统将按照作业到达的先后次序来进⾏调度, 或者说它是优先考虑在系统中等待时间最长的作业,⽽不管该作业所需执⾏时间的长短, 从后备作业队列中选择⼏个最先进⼊该队列的作业, 将它们调⼊内存, 为它们分配资源和创建进程. 然后把它放⼊就绪队列.</p>
 <p>当在进程调度中采⽤ <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法时, 每次调度是从就绪的进程队列中选择⼀个最先进⼊该队列的进程, 为之分配处理机, 使之投⼊运⾏. 该进程⼀直运⾏到完成或发⽣某事件⽽阻塞后, 进程调度程序才将处理机分配给其它进程.</p>
 <p>顺便说明, <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法在单处理机系统中已很少作为主调度算法, 但经常把它与其它调度算法相结合使⽤, 形成⼀种更为有效的调度算法. 例如, 可以在系统中按进程的优先级设置多个队列, 每个优先级⼀个队列, 其中每⼀个队列的调度都基于 <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法.</p>
 <h4>先来先服务 [FCFS, First Come First Served]</h4>
@@ -195,7 +209,8 @@ $\gdef\type#1{~:~\texttt{#1}}$</p>
 <tr><td style="text-align: center">平均</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">$9$</td><td style="text-align: center">$2.8$</td></tr>
 </tbody></table>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-短作业优先"><header><h1><span class="taxon"></span>短作业优先 <a class="slug" href="/408/operating-system/短作业优先.html">[短作业优先]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>短作业优先算法 SJF 是以作业的长短来计算优先级, 作业越短, 其优先级越⾼. 作业的长短是以作业所要求的运⾏时间来衡量的. SJF 算法可以分别⽤于作业调度和进程调度. 在把短作业优先调度算法⽤于作业调度时, 它将从外存的作业后备队列中选择若⼲个估计运⾏时间最短的作业, 优先将它们调⼊内存运⾏.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-短作业优先"><header><h1><span class="taxon"></span>短作业优先 <a class="slug" href="/408/operating-system/短作业优先.html">[短作业优先]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>短作业优先算法 SJF 是以作业的长短来计算优先级, 作业越短, 其优先级越⾼. 作业的长短是以作业所要求的运⾏时间来衡量的. SJF 算法可以分别⽤于作业调度和进程调度. 在把短作业优先调度算法⽤于作业调度时, 它将从外存的作业后备队列中选择若⼲个估计运⾏时间最短的作业, 优先将它们调⼊内存运⾏.</p>
 <h4>短作业优先 [SJF, Shortest Job First]</h4>
 <ul>
 <li>用于作业调度和进程调度</li>
@@ -217,7 +232,8 @@ $\gdef\type#1{~:~\texttt{#1}}$</p>
 <tr><td style="text-align: center">平均</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">$8$</td><td style="text-align: center">$2.1$</td></tr>
 </tbody></table>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-优先级调度算法"><header><h1><span class="taxon"></span>优先级调度算法 <a class="slug" href="/408/operating-system/优先级调度算法.html">[优先级调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>在优先级调度算法中, 基于作业的紧迫程度, 由外部赋予作业相应的优先级, 调度算法是根据该优先级进⾏调度的. 这样就可以保证紧迫性作业优先运⾏.优先级调度算法可作为作业调度算法, 也可作为进程调度算法. 当把该算法⽤于作业调度时, 系统是从后备队列中选择若⼲个优先级最⾼的作业装⼊内存.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-优先级调度算法"><header><h1><span class="taxon"></span>优先级调度算法 <a class="slug" href="/408/operating-system/优先级调度算法.html">[优先级调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>在优先级调度算法中, 基于作业的紧迫程度, 由外部赋予作业相应的优先级, 调度算法是根据该优先级进⾏调度的. 这样就可以保证紧迫性作业优先运⾏.优先级调度算法可作为作业调度算法, 也可作为进程调度算法. 当把该算法⽤于作业调度时, 系统是从后备队列中选择若⼲个优先级最⾼的作业装⼊内存.</p>
 <h4>优先级调度 [PSA, Priority-Scheduling Algorithm]</h4>
 <ul>
 <li>用于作业调度和进程调度</li>
@@ -243,7 +259,8 @@ $\gdef\type#1{~:~\texttt{#1}}$</p>
 <li>动态优先级: 创建进程时有一个初始值, 之后会根据情况动态地调整优先级.</li>
 </ul>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-高响应比优先"><header><h1><span class="taxon"></span>高响应比优先 <a class="slug" href="/408/operating-system/高响应比优先.html">[高响应比优先]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-高响应比优先"><header><h1><span class="taxon"></span>高响应比优先 <a class="slug" href="/408/operating-system/高响应比优先.html">[高响应比优先]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\str#1{\footnotesize{#1}}$
 $\gdef\hint#1{{\color{gray}{\str{#1}}}}$
 $\gdef\type#1{~:~\texttt{#1}}$</p>
@@ -266,7 +283,8 @@ $$</p>
 <li>是否会导致饥饿: 不会.</li>
 </ul>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-时间片轮转"><header><h1><span class="taxon"></span>时间片轮转 <a class="slug" href="/408/operating-system/时间片轮转.html">[时间片轮转]</a></h1><div class="metadata"><ul></ul></div></header></summary><h4>时间片轮转 [RR, Round-Robin]</h4>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-时间片轮转"><header><h1><span class="taxon"></span>时间片轮转 <a class="slug" href="/408/operating-system/时间片轮转.html">[时间片轮转]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<h4>时间片轮转 [RR, Round-Robin]</h4>
 <ul>
 <li>算法规则: 按照各进程到达就绪队列的顺序, 轮流让各个进程执行一个时间片 (如 <code>100ms</code>). 若进程末在一个时间片内执行完, 则剥夺处理机, 将进程重新放到就绪队列队尾重新排队.</li>
 <li>优点: 公平; 响应快, 适用于分时操作系统;</li>
@@ -282,7 +300,8 @@ $$</p>
 <tr><td style="text-align: center">平均</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">$12.2$</td><td style="text-align: center">$3.373..$</td></tr>
 </tbody></table>
 </details></section>
-<section class="block hide-metadata" data-taxon="Example"><details open><summary id="408-operating-system-调度算法-例"><header><h1><span class="taxon">Example. </span>调度算法 <a class="slug" href="/408/operating-system/调度算法-例.html">[调度算法-例]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\textbf{Example.}$ 有 5 个批处理作业 (A、B、C、D、E) 几乎同时到达, 估计的运行时间分别为 2、4、6、8、10, 它们的优先级分别为 1、2、3、4、5 (1 为最低优先级). 对下面的每种调度算法, 分别计算作业的平均周转时间和平均带权周转时间.</p>
+<section class="block hide-metadata" data-taxon="Example"><details open><summary id="408-operating-system-调度算法-例"><header><h1><span class="taxon">Example. </span>调度算法 <a class="slug" href="/408/operating-system/调度算法-例.html">[调度算法-例]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\textbf{Example.}$ 有 5 个批处理作业 (A、B、C、D、E) 几乎同时到达, 估计的运行时间分别为 2、4、6、8、10, 它们的优先级分别为 1、2、3、4、5 (1 为最低优先级). 对下面的每种调度算法, 分别计算作业的平均周转时间和平均带权周转时间.</p>
 <ol>
 <li>先来先服务 FCFS (作业到达顺序为 CDBEA).</li>
 <li>短作业优先 SJF.</li>
@@ -337,16 +356,19 @@ $$</p>
 <p>ABCDE BCDE CDE DE E</p>
 </details></section></p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁"><header><h1><span class="taxon"></span>死锁 <a class="slug" href="/408/operating-system/死锁.html">[死锁]</a></h1><div class="metadata"><ul></ul></div></header></summary><ul>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁"><header><h1><span class="taxon"></span>死锁 <a class="slug" href="/408/operating-system/死锁.html">[死锁]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ul>
 <li>系统中两个或两个以上的进程因共享资源而导致的一种僵持状态.</li>
 <li>死锁是指系统中多个进程无限期地等待永远不会发生的条件.</li>
 </ul>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁的原因"><header><h1><span class="taxon"></span>死锁的原因 <a class="slug" href="/408/operating-system/死锁的原因.html">[死锁的原因]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁的原因"><header><h1><span class="taxon"></span>死锁的原因 <a class="slug" href="/408/operating-system/死锁的原因.html">[死锁的原因]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ol>
 <li><em>对不可抢占资源的竞争</em>. 各进程对不可抢占 (剥夺) 的资源 (如打印机) 的竞争可能引起死锁, 对可抢占资源 (如 CPU) 的竞争是不会引起死锁的.</li>
 <li><em>并发进程运行推进顺序不当</em>. 请求和释放资源的顺序不当也同样会导致死锁.</li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁产生的必要条件"><header><h1><span class="taxon"></span>死锁产生的必要条件 <a class="slug" href="/408/operating-system/死锁产生的必要条件.html">[死锁产生的必要条件]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>产生死锁必须同时满足以下四个条件, 只要其中任一条件不成立, 死锁就不会发生.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁产生的必要条件"><header><h1><span class="taxon"></span>死锁产生的必要条件 <a class="slug" href="/408/operating-system/死锁产生的必要条件.html">[死锁产生的必要条件]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>产生死锁必须同时满足以下四个条件, 只要其中任一条件不成立, 死锁就不会发生.</p>
 <ol>
 <li>
 <p><em>互斥条件</em>: 只有对必须互斥使用的资源的争抢才会导致死锁 (如: 哲学家的筷子、打印机设备). 像内存、扬声器这样可以同时让多个进程使用的资源是不会导致死锁的 (因为进程不用阻塞等待这种资源).</p>
@@ -363,7 +385,8 @@ $$</p>
 </ol>
 <p>发生死锁时一定有循环等待, 但是发生循环等待时未必死锁 (循环等待是死锁的必要不充分条件). 如果同类资源数大于 1, 则即使有循环等待, 也未必发生死锁. <em>但如果系统中每类资源都只有一个, 那循环等待就是死锁的充分必要条件了</em>.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁的处理策略"><header><h1><span class="taxon"></span>死锁的处理策略 <a class="slug" href="/408/operating-system/死锁的处理策略.html">[死锁的处理策略]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>打破四个条件之一.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-死锁的处理策略"><header><h1><span class="taxon"></span>死锁的处理策略 <a class="slug" href="/408/operating-system/死锁的处理策略.html">[死锁的处理策略]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>打破四个条件之一.</p>
 <ol>
 <li>
 <p>把只能互斥使用的资源改造成允许共享使用, 则系统不会进入死锁状态. 如 SPOOLing 技术. 操作系统可以采用 SPOOLing 技术把独占设备在逻辑上改造成共享设备. 比如用 SPOOLing 技术将打印机改造成共享设备.</p>
@@ -398,7 +421,8 @@ $$</p>
 </li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理死锁的⽅法"><header><h1><span class="taxon"></span>处理死锁的⽅法 <a class="slug" href="/408/operating-system/处理死锁的⽅法.html">[处理死锁的⽅法]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-处理死锁的⽅法"><header><h1><span class="taxon"></span>处理死锁的⽅法 <a class="slug" href="/408/operating-system/处理死锁的⽅法.html">[处理死锁的⽅法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ol>
 <li>
 <p>预防死锁. 这是一种较简单和直观的事先预防方法. 该方法是通过设置某些限制条件, 去破坏产生死锁四个必要条件中的一个或几个来预防产生死锁. 预防死锁是一种较易实现的方法, 已被广泛使用.</p>
 </li>
@@ -413,7 +437,8 @@ $$</p>
 </li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-银行家算法"><header><h1><span class="taxon"></span>银行家算法 <a class="slug" href="/408/operating-system/银行家算法.html">[银行家算法]</a></h1><div class="metadata"><ul></ul></div></header></summary><h4>核心思想</h4>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-银行家算法"><header><h1><span class="taxon"></span>银行家算法 <a class="slug" href="/408/operating-system/银行家算法.html">[银行家算法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<h4>核心思想</h4>
 <p>在进程提出资源申请时, 先预判此次分配是否会导致系统进入不安全状态. 如果会进入不安全状态, 就暂时不答应这次请求, 让该进程先阻塞等待.</p>
 <p>算法步骤:</p>
 <ol>

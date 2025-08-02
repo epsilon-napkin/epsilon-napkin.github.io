@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>IP 数据报的格式</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/ip.html'" title="网际协议 IP">« 网际协议 IP</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-ip-datagram"><header><h1><span class="taxon"></span>IP 数据报的格式 <a class="slug" href="/408/network/ip-datagram.html">[ip-datagram]</a></h1><div class="metadata"><ul></ul></div></header></summary><style>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/ip.html'" title="网际协议 IP">« 网际协议 IP</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-ip-datagram"><header><h1><span class="taxon"></span>IP 数据报的格式 <a class="slug" href="/408/network/ip-datagram.html">[ip-datagram]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<style>
 hint {
   color: gray;  
 }
@@ -138,7 +146,8 @@ img {
 <li>生存时间 TTL. 占 8bit. 路由器在转发分组前, 先把 TTL 减 1. <em>若 TTL 被减为 0, 则该分组必须丢弃</em>.</li>
 <li>首部校验和. 占 16bit. 只校验分组的首部, 而不校验数据部分. 每经过一个路由器, 都重新计算.</li>
 </ul>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-sharding-offset"><header><h1><span class="taxon"></span>分片与片偏移大小的计算 <a class="slug" href="/408/network/sharding-offset.html">[sharding-offset]</a></h1><div class="metadata"><ul></ul></div></header></summary><style>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-sharding-offset"><header><h1><span class="taxon"></span>分片与片偏移大小的计算 <a class="slug" href="/408/network/sharding-offset.html">[sharding-offset]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<style>
 hint {
   color: gray;  
 }
@@ -169,7 +178,8 @@ img {
 </tbody></table>
 <p>$(4800 - 20) \mod (1420 - 20) + 20 = 600$. $\frac{1420 - 20}{8} = 175$.</p>
 </details></section></p>
-<p><section class="block hide-metadata" data-taxon=""><details ><summary id="408-network-ip-forward-group"><header><h1><span class="taxon"></span>IP 转发分组流程 <a class="slug" href="/408/network/ip-forward-group.html">[ip-forward-group]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
+<p><section class="block hide-metadata" data-taxon=""><details ><summary id="408-network-ip-forward-group"><header><h1><span class="taxon"></span>IP 转发分组流程 <a class="slug" href="/408/network/ip-forward-group.html">[ip-forward-group]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ol>
 <li>从数据报的首部提取目的主机的 IP 地址 D, 得出目的网络地址 N.</li>
 <li>若网络 N 与此路由器直接相连, 则把数据报直接交付给目的主机 D; 否则是间接交付, 执行步骤 3.</li>
 <li>若路由表中有目的地址为 D 的特定主机路由, 则把数据报传送给路由表中所指明的下一跳路由器; 否则, 执行步骤 4.</li>
@@ -178,7 +188,8 @@ img {
 <li>报告转发分组出错 (ICMP).</li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details ><summary id="408-network-ip-convert-mac"><header><h1><span class="taxon"></span>IP 转换 MAC <a class="slug" href="/408/network/ip-convert-mac.html">[ip-convert-mac]</a></h1><div class="metadata"><ul></ul></div></header></summary><style>
+<section class="block hide-metadata" data-taxon=""><details ><summary id="408-network-ip-convert-mac"><header><h1><span class="taxon"></span>IP 转换 MAC <a class="slug" href="/408/network/ip-convert-mac.html">[ip-convert-mac]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<style>
 hint {
   color: gray;  
 }

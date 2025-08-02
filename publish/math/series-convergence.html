@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>级数敛散性</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,14 +99,27 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-series-convergence"><header><h1><span class="taxon"></span>级数敛散性 <a class="slug" href="/math/series-convergence.html">[series-convergence]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-series-convergence"><header><h1><span class="taxon"></span>级数敛散性 <a class="slug" href="/math/series-convergence.html">[series-convergence]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
 <p>概念是平凡的, 所以我们只介绍收敛判别法. 常用方法如下:</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-控制收敛"><header><h1><span class="taxon"></span>控制收敛 <a class="slug" href="/math/控制收敛.html">[控制收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-控制收敛"><header><h1><span class="taxon"></span>控制收敛 <a class="slug" href="/math/控制收敛.html">[控制收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
 <ol>
 <li>
 <p>双边控制, 又称夹逼. 设有三个实数序列 $(a_n) \le (x_n) \le (b_n)$, 这里的 $\le$ 要求每一项都成立. 如果 $\lim_{n \to \infty} a_n = b_n = X$, 则 $\lim_{n \to \infty} x_n = X$.</p>
@@ -121,7 +130,8 @@ nav {
 </ol>
 <p>$\textbf{Example.}$ $\zeta(2) = \sum_{n \ge 1}\frac{1}{n^2}$ 收敛. 因为 $n^2 \ge n(n-1)$ 有 $\sum_{n \ge 1}\frac{1}{n^2} \le 1 + \sum_{n \ge 2}\frac{1}{n(n-1)} = 1 + \sum_{n \ge 2}(\frac{1}{n-1} - \frac{1}{n}) = 2$.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-绝对收敛"><header><h1><span class="taxon"></span>绝对收敛 <a class="slug" href="/math/绝对收敛.html">[绝对收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-绝对收敛"><header><h1><span class="taxon"></span>绝对收敛 <a class="slug" href="/math/绝对收敛.html">[绝对收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
 <p>d’Alembert 判别法或称比值判别法, 即考虑 $\rho = \lim_{n \to \infty} |\frac{a_{n+1}}{a_n}|$ 和 $1$ 的关系, 当 $\rho &lt; 1$ 时级数绝对收敛, $\rho &gt; 1$ 时发散.</p>
 <p>除了用比值, 我们也可以考虑根值 $\rho = \limsup_{n \to \infty} \sqrt[n]{|a_n|}$, 这就是 Cauchy 判别法, 类似地 $\rho &lt; 1$ 时绝对收敛, $\rho &gt; 1$ 时发散.</p>
 <p>根据 Cauchy–Hadamard 定理, 这两种方法实际上也是幂级数 $\sum_{n \ge 0} a_n z^n$ 收敛半径 $R = \frac{1}{\rho}$ 的计算方式. 因为此时可认为 $z=1$ 满足 $|z| &lt; R$, 幂级数绝对收敛.</p>

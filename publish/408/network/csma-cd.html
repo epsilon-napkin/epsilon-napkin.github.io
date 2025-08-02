@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>CSMA / CD</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/broadcast.html'" title="广播">« 广播</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-csma-cd"><header><h1><span class="taxon"></span>CSMA / CD <a class="slug" href="/408/network/csma-cd.html">[csma-cd]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>CSMA / CD 的意思是 “载波监听多点接⼊ / 碰撞检测” [Carrier Sense Multiple Access with Collision Detection], 其中:</p>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/broadcast.html'" title="广播">« 广播</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-csma-cd"><header><h1><span class="taxon"></span>CSMA / CD <a class="slug" href="/408/network/csma-cd.html">[csma-cd]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>CSMA / CD 的意思是 “载波监听多点接⼊ / 碰撞检测” [Carrier Sense Multiple Access with Collision Detection], 其中:</p>
 <ul>
 <li>“多点接入” 表示许多计算机以多点接入的方式连接在一根总线上.</li>
 <li>“载波监听” 是指每一个站在发送数据之前先要检测一下总线上是否有其他计算机在发送数据, 如果有, 则暂时不要发送数据, 以免发生碰撞.</li>

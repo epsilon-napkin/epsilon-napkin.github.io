@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>概述</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/index.html'" title="计算机网络">« 计算机网络</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-overview"><header><h1><span class="taxon"></span>概述 <a class="slug" href="/408/network/overview.html">[overview]</a></h1><div class="metadata"><ul></ul></div></header></summary><ul>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/index.html'" title="计算机网络">« 计算机网络</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-overview"><header><h1><span class="taxon"></span>概述 <a class="slug" href="/408/network/overview.html">[overview]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ul>
 <li>
 <p>网络把许多计算机连接在一起, 而互连网则把许多网络通过一些路由器连接在一起. 与网络相连的计算机常称为主机.</p>
 </li>
@@ -126,7 +134,8 @@ nav {
 <p>电路交换的三个阶段: 建立连接, 通话, 释放连接.</p>
 </li>
 </ul>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-performance"><header><h1><span class="taxon"></span>计算机网络的性能 <a class="slug" href="/408/network/performance.html">[performance]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-performance"><header><h1><span class="taxon"></span>计算机网络的性能 <a class="slug" href="/408/network/performance.html">[performance]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\str#1{\footnotesize{#1}}$
 $\gdef\hint#1{{\color{gray}{\str{#1}}}}$
 $\gdef\type#1{~:~\texttt{#1}}$</p>
@@ -141,7 +150,8 @@ $\gdef\type#1{~:~\texttt{#1}}$</p>
 <li>利用率</li>
 </ul>
 <p>吞吐量 [throughput] 表示在单位时间内通过某个网络 (或信道、接口) 的数据量. 吞吐量更经常地用于对现实世界中的网络的一种测量, 以便知道实际上到底有多少数据量能够通过网络. 吞吐量受网络的带宽或网络的额定速率的限制.</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-delay"><header><h1><span class="taxon"></span>时延 <a class="slug" href="/408/network/delay.html">[delay]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\str#1{{\footnotesize #1}}$
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-delay"><header><h1><span class="taxon"></span>时延 <a class="slug" href="/408/network/delay.html">[delay]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\str#1{{\footnotesize #1}}$
 $\gdef\type#1{~:~\texttt{#1}}$</p>
 <p>时延 [delay / latency] 是指数据 (一个报文或分组, 甚至比特) 从网络或链路的一端传送到另一端所需的时间. 有时也称为延迟或迟延. 网络中的时延由以下几个不同的部分组成:</p>
 <ol>
@@ -161,12 +171,14 @@ $\gdef\type#1{~:~\texttt{#1}}$</p>
 </details></section>
 <span class="link local"><a href="/408/network/utilization-rate.html" title="利用率 [408/network/utilization-rate]">利用率</a></span></p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-protocol"><header><h1><span class="taxon"></span>协议与划分层次 <a class="slug" href="/408/network/protocol.html">[protocol]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>计算机网络中的数据交换必须遵守事先约定好的规则.
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-protocol"><header><h1><span class="taxon"></span>协议与划分层次 <a class="slug" href="/408/network/protocol.html">[protocol]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>计算机网络中的数据交换必须遵守事先约定好的规则.
 这些规则明确规定了所交换的数据的格式以及有关的同步问题 (同步含有时序的意思). 网络协议 (Network Protocol), 简称为协议, 是为进行网络中的数据交换而建立的规则、标准或约定.</p>
 <blockquote>
 <p>协议是水平的, 服务是垂直的.</p>
 </blockquote>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-layered-network-model"><header><h1><span class="taxon"></span>三种体系结构 <a class="slug" href="/408/network/layered-network-model.html">[layered-network-model]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\str#1{\footnotesize{#1}}$
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-layered-network-model"><header><h1><span class="taxon"></span>三种体系结构 <a class="slug" href="/408/network/layered-network-model.html">[layered-network-model]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\str#1{\footnotesize{#1}}$
 $\gdef\hint#1{{\color{gray}{\str{#1}}}}$</p>
 <blockquote>
 <p><span class="link local"><a href="/408/network/application-layer.html" title="应用层 [408/network/application-layer]">应用层</a></span> $\to$ <span class="link local"><a href="/408/network/transport-layer.html" title="运输层 [408/network/transport-layer]">运输层</a></span> $\to$ <span class="link local"><a href="/408/network/network-layer.html" title="网络层 [408/network/network-layer]">网络层</a></span> $\to$ <span class="link local"><a href="/408/network/data-link-layer.html" title="数据链路层 [408/network/data-link-layer]">数据链路层</a></span> $\to$ <span class="link local"><a href="/408/network/physical-layer.html" title="物理层 [408/network/physical-layer]">物理层</a></span></p>

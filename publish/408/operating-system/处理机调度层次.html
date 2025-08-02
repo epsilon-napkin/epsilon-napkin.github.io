@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>处理机调度层次</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/处理机调度.html'" title="处理机调度">« 处理机调度</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-处理机调度层次"><header><h1><span class="taxon"></span>处理机调度层次 <a class="slug" href="/408/operating-system/处理机调度层次.html">[处理机调度层次]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>在多道程序系统中, 调度的实质是⼀种资源分配, 处理机调度是对处理机资源进⾏分配. 处理机调度算法是指根据处理机分配策略所规定的处理机分配算法. 在多道批处理系统中,⼀个作业从提交到获得处理机执⾏, 直⾄作业运⾏完毕, 可能需要经历多级处理机调度, 下⾯先来了解处理机调度的层次.</p>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/处理机调度.html'" title="处理机调度">« 处理机调度</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-处理机调度层次"><header><h1><span class="taxon"></span>处理机调度层次 <a class="slug" href="/408/operating-system/处理机调度层次.html">[处理机调度层次]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>在多道程序系统中, 调度的实质是⼀种资源分配, 处理机调度是对处理机资源进⾏分配. 处理机调度算法是指根据处理机分配策略所规定的处理机分配算法. 在多道批处理系统中,⼀个作业从提交到获得处理机执⾏, 直⾄作业运⾏完毕, 可能需要经历多级处理机调度, 下⾯先来了解处理机调度的层次.</p>
 <ul>
 <li><span class="link local"><a href="/408/operating-system/高级调度.html" title="高级调度 / 作业调度 [408/operating-system/高级调度]">高级调度</a></span></li>
 <li><span class="link local"><a href="/408/operating-system/中级调度.html" title="中级调度 / 中程调度 / 内存调度 [408/operating-system/中级调度]">中级调度</a></span></li>

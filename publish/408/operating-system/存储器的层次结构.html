@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>存储器的层次结构</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/存储器管理.html'" title="存储器管理">« 存储器管理</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-存储器的层次结构"><header><h1><span class="taxon"></span>存储器的层次结构 <a class="slug" href="/408/operating-system/存储器的层次结构.html">[存储器的层次结构]</a></h1><div class="metadata"><ul></ul></div></header></summary><table><thead><tr><th>多级存储器结构</th><th></th></tr></thead><tbody>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/存储器管理.html'" title="存储器管理">« 存储器管理</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-存储器的层次结构"><header><h1><span class="taxon"></span>存储器的层次结构 <a class="slug" href="/408/operating-system/存储器的层次结构.html">[存储器的层次结构]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<table><thead><tr><th>多级存储器结构</th><th></th></tr></thead><tbody>
 <tr><td>CPU 寄存器</td><td>寄存器</td></tr>
 <tr><td>主存</td><td>高速缓存, 主存, 磁盘缓存 [<code>buffer</code>]</td></tr>
 <tr><td>辅存</td><td>磁盘, 可移动存储介质</td></tr>

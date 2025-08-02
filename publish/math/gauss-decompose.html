@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>Gauss 分解</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-gauss-decompose"><header><h1><span class="taxon"></span>Gauss 分解 <a class="slug" href="/math/gauss-decompose.html">[gauss-decompose]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-gauss-decompose"><header><h1><span class="taxon"></span>Gauss 分解 <a class="slug" href="/math/gauss-decompose.html">[gauss-decompose]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary>
+<p>$\gdef\d{\operatorname{d}}$
 $\gdef\spaces#1{~ #1 ~}$</p>
 <p>处理有理函数积分 $\int \frac{P_n(x)}{P_m(x)} \d x$ $(n &lt; m)$ 的一种方法是将其裂项为分子 $\deg(-) \le 1$ 且分母 $\deg(-) \le 2$ 的有理函数之和, 也称为部分分式分解. 系数的确定一般灵活使用 <span class="link external"><a href="https://en.wikipedia.org/wiki/Heaviside_cover-up_method" title="Heaviside 覆盖法 [https://en.wikipedia.org/wiki/Heaviside_cover-up_method]">Heaviside 覆盖法</a></span>, 对于不能表为 $(x-a)^{-k}$ 的项, 额外考虑 $0,1$ 和 $\infty$ 处的取值.</p>
 <p>$\textbf{Example.}$ 分解 $R(x) = \frac{2x+1}{(x^2+x+1)(x+1)}$ 从而计算 $\int R(x) \d x$.</p>

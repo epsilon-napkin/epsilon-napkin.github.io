@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>矩阵的秩</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,13 +99,26 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-matrix-rank"><header><h1><span class="taxon"></span>矩阵的秩 <a class="slug" href="/math/matrix-rank.html">[matrix-rank]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>矩阵 $A$ 的秩是由其列向量生成或张成的向量空间的维度, 对应于 $A$ 的极大线性无关列数, 反过来又与由其行向量生成的向量空间的维度相同. 相应的, 线性映射或算子 $\varphi$ 的秩定义为它的像 $\operatorname{im} \varphi$ 的维度, 即 $r(\varphi) = \dim(\operatorname{im} \varphi)$.</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-matrix-rank-0001"><header><h1><span class="taxon"></span>等价条件 <a class="slug" href="/math/matrix-rank-0001.html">[matrix-rank-0001]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-matrix-rank"><header><h1><span class="taxon"></span>矩阵的秩 <a class="slug" href="/math/matrix-rank.html">[matrix-rank]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary>
+<p>矩阵 $A$ 的秩是由其列向量生成或张成的向量空间的维度, 对应于 $A$ 的极大线性无关列数, 反过来又与由其行向量生成的向量空间的维度相同. 相应的, 线性映射或算子 $\varphi$ 的秩定义为它的像 $\operatorname{im} \varphi$ 的维度, 即 $r(\varphi) = \dim(\operatorname{im} \varphi)$.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-matrix-rank-0001"><header><h1><span class="taxon"></span>等价条件 <a class="slug" href="/math/matrix-rank-0001.html">[matrix-rank-0001]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ol>
 <li>$n$ 阶矩阵 $A$ 可逆.</li>
 <li>行列式 $\det A \ne 0$.</li>
 <li>$r(A) = n$, 即满秩.</li>
@@ -119,7 +128,8 @@ nav {
 <li>$A$ 的特征值均不为零.</li>
 </ol>
 </details></section></p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-matrix-rank-0002"><header><h1><span class="taxon"></span>矩阵秩的计算 <a class="slug" href="/math/matrix-rank-0002.html">[matrix-rank-0002]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-matrix-rank-0002"><header><h1><span class="taxon"></span>矩阵秩的计算 <a class="slug" href="/math/matrix-rank-0002.html">[matrix-rank-0002]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
 <p>用初等行变换将矩阵化为 <span class="link local"><a href="/math/row-echelon-form.html" title="行梯矩阵 [math/row-echelon-form]">行阶梯形</a></span>. 此时秩等于 <span class="link local"><a href="/math/row-echelon-form.html" title="行梯矩阵 [math/row-echelon-form]">主元</a></span> 的数量, 也是非零行的数量.</p>
 <p>$\textbf{Example.}$ 讨论矩阵 $A$ 的秩.</p>
 <p>$$
@@ -171,7 +181,8 @@ $$</p>
 <li>$r(A) = 2 \implies a = 1, b = 2$.</li>
 </ul>
 </details></section></p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-matrix-rank-0003"><header><h1><span class="taxon"></span>线性方程组解的情况 <a class="slug" href="/math/matrix-rank-0003.html">[matrix-rank-0003]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\Mat{\operatorname{Mat}}$</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-matrix-rank-0003"><header><h1><span class="taxon"></span>线性方程组解的情况 <a class="slug" href="/math/matrix-rank-0003.html">[matrix-rank-0003]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\Mat{\operatorname{Mat}}$</p>
 <p>设 $A \in \Mat_{m \times n}(F)$, 向量 $b \in F^m$. $x \in F^n$. 线性方程组解的情况完全由 $r(A)$ 和 $r(A,b)$ 决定.</p>
 <ol>
 <li>齐次方程组 $Ax = 0$ 有非零解 $\iff r(A) &lt; n$.</li>

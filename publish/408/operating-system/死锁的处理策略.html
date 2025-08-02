@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>死锁的处理策略</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/死锁.html'" title="死锁 [Deadlock]">« 死锁 [Deadlock]</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-死锁的处理策略"><header><h1><span class="taxon"></span>死锁的处理策略 <a class="slug" href="/408/operating-system/死锁的处理策略.html">[死锁的处理策略]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>打破四个条件之一.</p>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/死锁.html'" title="死锁 [Deadlock]">« 死锁 [Deadlock]</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-死锁的处理策略"><header><h1><span class="taxon"></span>死锁的处理策略 <a class="slug" href="/408/operating-system/死锁的处理策略.html">[死锁的处理策略]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>打破四个条件之一.</p>
 <ol>
 <li>
 <p>把只能互斥使用的资源改造成允许共享使用, 则系统不会进入死锁状态. 如 SPOOLing 技术. 操作系统可以采用 SPOOLing 技术把独占设备在逻辑上改造成共享设备. 比如用 SPOOLing 技术将打印机改造成共享设备.</p>

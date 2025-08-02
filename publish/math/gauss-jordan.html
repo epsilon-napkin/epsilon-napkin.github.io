@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>Gauss–Jordan 消元法</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,16 +99,29 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-gauss-jordan"><header><h1><span class="taxon"></span>Gauss–Jordan 消元法 <a class="slug" href="/math/gauss-jordan.html">[gauss-jordan]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><blockquote>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-gauss-jordan"><header><h1><span class="taxon"></span>Gauss–Jordan 消元法 <a class="slug" href="/math/gauss-jordan.html">[gauss-jordan]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary>
+<blockquote>
 <p>本节完全来自 <span class="link local"><a href="/bib/lectures-on-algebra.html" title="代数学讲义 [bib/lectures-on-algebra]">代数学讲义</a></span>, 笔者只做了顺序调整或微不足道的补充.</p>
 </blockquote>
 <p>大而化之地说, Gauss–Jordan 消元法的思路是在同解的方程组之间过渡, 直至方程组化为一类可直接求解的形式为止. Gauss–Jordan 消元法的思路是用以下三种操作来简化方程组, 或者换句话说, 简化相应的矩阵.</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-gauss-jordan-0001"><header><h1><span class="taxon"></span>初等行变换 <a class="slug" href="/math/gauss-jordan-0001.html">[gauss-jordan-0001]</a></h1><div class="metadata"><ul></ul></div></header></summary><ol>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-gauss-jordan-0001"><header><h1><span class="taxon"></span>初等行变换 <a class="slug" href="/math/gauss-jordan-0001.html">[gauss-jordan-0001]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<ol>
 <li>设 $1 \leq i \neq k \leq m$, 而 $c$ 是任意常数. 将第 $i$ 行乘以 $c$ 的结果加到第 $k$ 行, 其他的行保持不变.</li>
 <li>设 $1 \leq i &lt; k \leq m$. 交换第 $i$ 行和第 $k$ 行.</li>
 <li>设 $1 \leq i \leq m$ 而 $c$ 是非零常数. 将第 $i$ 行的每一项都乘以 $c$.</li>
@@ -140,6 +149,6 @@ a_{11} &amp; \cdots &amp; a_{1n} &amp; b_{1~} \\
 </li>
 </ul>
 <p>在关于 <span class="link local"><a href="/math/row-echelon-form.html" title="行梯矩阵 [math/row-echelon-form]">行梯矩阵</a></span> 的定义中, 倘若进一步对所有主元全为 $1$ 且落在主元以上的项全为 $0$, 则称此矩阵为 <span class="link local"><a href="/math/reduced-row-echelon-form.html" title="行最简形 [math/reduced-row-echelon-form]">简化行梯矩阵</a></span>. 虽然矩阵可能具有多个 <span class="link local"><a href="/math/row-echelon-form.html" title="行梯矩阵 [math/row-echelon-form]">行梯形式</a></span>, 但其 <span class="link local"><a href="/math/reduced-row-echelon-form.html" title="行最简形 [math/reduced-row-echelon-form]">简化行梯形式</a></span> 是唯一的.</p>
-</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>行列式 <a class="slug" href="/math/determinant.html">[determinant]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>矩阵求逆 <a class="slug" href="/math/matrix-inverse.html">[matrix-inverse]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section></details></section></footer></article>
+</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>行列式 <a class="slug" href="/math/determinant.html">[determinant]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>矩阵求逆 <a class="slug" href="/math/matrix-inverse.html">[matrix-inverse]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>初等行变换求逆 <a class="slug" href="/math/matrix-inverse-1.html">[matrix-inverse-1]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
 
 <nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/gauss-jordan-0001.html" title="初等行变换 [math/gauss-jordan-0001]">■</a><span class="link local" onclick="window.location.href='#math-gauss-jordan-0001'"><span class="taxon"></span>初等行变换</span></li></ul></div></nav></div></body></html>

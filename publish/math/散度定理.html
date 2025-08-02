@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>散度定理</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Theorem"><details open><summary id="math-散度定理"><header><h1><span class="taxon">Theorem. </span>散度定理 <a class="slug" href="/math/散度定理.html">[散度定理]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Theorem"><details open><summary id="math-散度定理"><header><h1><span class="taxon">Theorem. </span>散度定理 <a class="slug" href="/math/散度定理.html">[散度定理]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\d{\operatorname{d}}$
 $\gdef\spaces#1{~ #1 ~}$
 $\gdef\dif{\partial}$</p>
 <p>散度定理是 <span class="link local"><a href="/math/ostrogradsky-gauss.html" title="Ostrogradsky–Gauß 公式 [math/ostrogradsky-gauss]">Ostrogradsky–Gauß 公式</a></span> 的散度形式推广, 是 <span class="link local"><a href="/math/stokes.html" title="Stokes 公式 [math/stokes]">Stokes 公式</a></span> 的等价表达. 设 $M \subset \R^n$ 是有界光滑带边区域 <sup class="footnote-reference" id="math_散度定理_riemann-back"><a href="#math_散度定理_riemann">1</a></sup>, $\mathbf{n}$ 是 $\partial M$ 的单位外法向量, $\d \sigma$ 为 $\dif M$ 的子流形测度. $X$ 是其上 $C^1$ 向量场, 那么有</p>

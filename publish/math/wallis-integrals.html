@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>Wallis 积分公式</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Formula"><details open><summary id="math-wallis-integrals"><header><h1><span class="taxon">Formula. </span>Wallis 积分公式 <a class="slug" href="/math/wallis-integrals.html">[wallis-integrals]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link external"><a href="https://en.wikipedia.org/wiki/Wallis%27_integrals" title="Wikipedia [https://en.wikipedia.org/wiki/Wallis%27_integrals]">Wikipedia</a></span></li><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Formula"><details open><summary id="math-wallis-integrals"><header><h1><span class="taxon">Formula. </span>Wallis 积分公式 <a class="slug" href="/math/wallis-integrals.html">[wallis-integrals]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link external"><a href="https://en.wikipedia.org/wiki/Wallis%27_integrals" title="Wikipedia [https://en.wikipedia.org/wiki/Wallis%27_integrals]">Wikipedia</a></span></li><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></summary>
+<p>$\gdef\d{\operatorname{d}}$
 $\gdef\spaces#1{~ #1 ~}$</p>
 <p>记 Wallis 序列为
 $$

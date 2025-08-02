@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>优先级调度算法</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/调度算法.html'" title="调度算法">« 调度算法</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-优先级调度算法"><header><h1><span class="taxon"></span>优先级调度算法 <a class="slug" href="/408/operating-system/优先级调度算法.html">[优先级调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>在优先级调度算法中, 基于作业的紧迫程度, 由外部赋予作业相应的优先级, 调度算法是根据该优先级进⾏调度的. 这样就可以保证紧迫性作业优先运⾏.优先级调度算法可作为作业调度算法, 也可作为进程调度算法. 当把该算法⽤于作业调度时, 系统是从后备队列中选择若⼲个优先级最⾼的作业装⼊内存.</p>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/调度算法.html'" title="调度算法">« 调度算法</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-优先级调度算法"><header><h1><span class="taxon"></span>优先级调度算法 <a class="slug" href="/408/operating-system/优先级调度算法.html">[优先级调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>在优先级调度算法中, 基于作业的紧迫程度, 由外部赋予作业相应的优先级, 调度算法是根据该优先级进⾏调度的. 这样就可以保证紧迫性作业优先运⾏.优先级调度算法可作为作业调度算法, 也可作为进程调度算法. 当把该算法⽤于作业调度时, 系统是从后备队列中选择若⼲个优先级最⾼的作业装⼊内存.</p>
 <h4>优先级调度 [PSA, Priority-Scheduling Algorithm]</h4>
 <ul>
 <li>用于作业调度和进程调度</li>

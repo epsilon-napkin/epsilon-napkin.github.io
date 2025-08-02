@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width"><title>七态模型及调度</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
-  .katex .mfrac .frac-line {
-    font-size: 1.25em;
-  }
-
   li p {
     margin: 0;
   }
@@ -103,12 +99,24 @@ nav {
         { left: '\\(', right: '\\)', display: false },
         { left: '\\[', right: '\\]', display: true }
       ],
+      globalGroup: true, 
       strict: false,
       throwOnError: false,
       minRuleThickness: 0.05,
     });
   });
-</script></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/进程.html'" title="进程">« 进程</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-七态模型及调度"><header><h1><span class="taxon"></span>七态模型及调度 <a class="slug" href="/408/operating-system/七态模型及调度.html">[七态模型及调度]</a></h1><div class="metadata"><ul></ul></div></header></summary><p style="text-align: center;"><img class="theme" src="../../assets/full-seven-state-dispatch.svg" style="border-radius: 0.2em; width: 800px;"></p>
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/进程.html'" title="进程">« 进程</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-七态模型及调度"><header><h1><span class="taxon"></span>七态模型及调度 <a class="slug" href="/408/operating-system/七态模型及调度.html">[七态模型及调度]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p style="text-align: center;"><img class="theme" src="../../assets/full-seven-state-dispatch.svg" style="border-radius: 0.2em; width: 800px;"></p>
 <p>由于多个进程在并发执⾏时共享系统资源, 致使它们在运⾏过程中呈现间断性的运⾏规律, 所以进程在其⽣命周期内可能具有多种状态.⼀般⽽⾔, 每⼀个进程⾄少应处于以下三种基本状态之⼀:</p>
 <ul>
 <li>
@@ -128,7 +136,8 @@ nav {
 <li>负荷调节的需要. 实时系统工作负荷较重, 影响对实时任务的控制.</li>
 <li>操作系统的需要. 检查运行中的资源使用情况或进行记账</li>
 </ol>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-进程的结构"><header><h1><span class="taxon"></span>进程的结构 <a class="slug" href="/408/operating-system/进程的结构.html">[进程的结构]</a></h1><div class="metadata"><ul></ul></div></header></summary><div style="display: flex; column-gap: 0.5em;">
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-进程的结构"><header><h1><span class="taxon"></span>进程的结构 <a class="slug" href="/408/operating-system/进程的结构.html">[进程的结构]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<div style="display: flex; column-gap: 0.5em;">
 <div>
 <ul>
 <li><span class="link local"><a href="/408/operating-system/进程控制块.html" title="进程控制块 PCB [408/operating-system/进程控制块]">进程控制块</a></span></li>
@@ -139,7 +148,8 @@ nav {
 <p style="text-align: center;"><img src="../../assets/process.svg" style="border-radius: 0.2em; width: 300px;"><br>进程的结构</p>
 </div>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-中断和异常"><header><h1><span class="taxon"></span>中断和异常 <a class="slug" href="/408/operating-system/中断和异常.html">[中断和异常]</a></h1><div class="metadata"><ul></ul></div></header></summary><h4>中断的作用</h4>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-中断和异常"><header><h1><span class="taxon"></span>中断和异常 <a class="slug" href="/408/operating-system/中断和异常.html">[中断和异常]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<h4>中断的作用</h4>
 <ol>
 <li>中断会使 CPU 由用户态变为内核态, OS 重新夺回对 CPU 的控制权. (硬件实现)</li>
 <li>如果没有中断机制, 就无法进行并发.</li>
