@@ -5,7 +5,7 @@ title: 初等行变换求逆
 
 $\gdef\spaces#1{~ #1 ~}$
 
-使用 [初等行变换](/math/gauss-jordan.md) 计算 $(A, E) \to (E, A^{-1})$, 将 $A$ 化为单位阵, 即可求得 $A^{-1}$. 
+使用 [初等行变换](./gauss-jordan.md) 计算 $(A, E) \to (E, A^{-1})$, 将 $A$ 化为单位阵, 即可求得 $A^{-1}$. 
 
 $\textbf{Example.}$ 考虑 $A = (\begin{smallmatrix} a & b \\ c & d \end{smallmatrix})$, 此时我们有
 
