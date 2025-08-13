@@ -1,7 +1,7 @@
 [kodama]
 trees = "trees"
 assets = "assets"
-url = "/"
+base-url = "/"
 
 [build]
 typst-root = "./"
