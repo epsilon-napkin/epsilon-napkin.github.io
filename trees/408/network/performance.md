@@ -20,4 +20,4 @@ $\gdef\type#1{~:~\texttt{#1}}$
 吞吐量 [throughput] 表示在单位时间内通过某个网络 (或信道、接口) 的数据量. 吞吐量更经常地用于对现实世界中的网络的一种测量, 以便知道实际上到底有多少数据量能够通过网络. 吞吐量受网络的带宽或网络的额定速率的限制. 
 
 [时延](/408/network/delay.md#:embed)
-[利用率](/408/network/utilization-rate.md)
+[利用率](/408/network/utilization-rate.md#:embed)

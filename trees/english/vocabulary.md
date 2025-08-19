@@ -4,9 +4,6 @@ title: Vocabulary
 ---
 
 <style>
-li {
-  font-size: 1.2em;
-}
 
 key {
   color: transparent;
@@ -21,6 +18,13 @@ key:hover {
   background-color: transparent;
 }
 </style>
+
+1. annoying tiresome <key>恼怒</key>
+1. Most of the major avenue (strees) in New York City room north and south
+1. Among all societies legal marriage is usually accomplished by some kind of ceremony that expresses group acceptance (approval) of the union.
+
+
+</br>
 
 1. isolate <key>i so late</key> <key>孤立的</key>
 1. desperate <key>des per rate</key> <key>绝望的</key>

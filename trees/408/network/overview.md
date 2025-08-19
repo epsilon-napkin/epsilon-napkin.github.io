@@ -13,5 +13,5 @@ title: 概述
 
 - 电路交换的三个阶段: 建立连接, 通话, 释放连接. 
 
-[计算机网络的性能](/408/network/performance.md#:embed)
-[协议与划分层次](/408/network/protocol.md#:embed)
+[计算机网络的性能](./performance.md#:embed)
+[协议与划分层次](./protocol.md#:embed)
