@@ -9,7 +9,7 @@ asref: true
 $\gdef\spaces#1{~ #1 ~}$
 $\gdef\d{\operatorname{d}}$
 
-$X$ 的概率密度 [^gaussian] 为 
+若 $X$ 的概率密度为 
 
 $$ f(x) \spaces= \frac{1}{\sqrt{2\pi} \sigma} \exp\Big({-\frac{(x-\mu)^2}{2 \sigma^2}}\Big), \quad x \in \R $$
 
@@ -25,4 +25,6 @@ $$ f(x) \spaces= \frac{1}{\sqrt{2\pi} \sigma} \exp\Big({-\frac{(x-\mu)^2}{2 \sig
 1. $\Phi(0) = \frac{1}{2}$. 
 1. $P(|X|<a) = P(-a<X<a) = 2\Phi(a)-1$.
 
-[^gaussian]: 我们来验证概率密度在整个定义域上的积分是 $1$. 首先置 $t = \frac{x-\mu}{\sqrt 2 \sigma}$, $\d x = \sqrt 2 \sigma \d t$, 积分化为 $\frac{1}{\sqrt\pi} \int_\R e^{-t^2} \d t$, 又熟知 Gauß 积分为 $\sqrt{\pi}$, 立得. 
+我们来验证概率密度在整个定义域上的积分是 $1$. 首先置 $t = \frac{x-\mu}{\sqrt 2 \sigma}$, $\d x = \sqrt 2 \sigma \d t$, 积分化为 $\frac{1}{\sqrt\pi} \int_\R e^{-t^2} \d t$, 又熟知 Gauß 积分为 $\sqrt{\pi}$, 立得. 
+
+
