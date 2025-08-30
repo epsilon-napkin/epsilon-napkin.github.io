@@ -21,8 +21,5 @@ title:
     - vivid, revive, survive, vital, vitamin, gravity
 1. voc, vow, vouch, vok, voic
     - advocate, provoke, vocabulary, voice, vowel
-1. 
-
-
-
-
+1. volt, volv, volu = to roll
+    - invole, revole, evole, evalution, revolt, revolution, revolutionary
