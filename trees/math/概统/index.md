@@ -17,4 +17,4 @@ index: [](../index.md)
 | [指数分布](./指数分布.md) | $X \sim E(\lambda)$ | $\dfrac{1}{\lambda}$ | $\dfrac{1}{\lambda^2}$ |
 | [正态分布](./gaussian.md) | $X \sim N(\mu,\sigma^2)$ | $\mu$ | $\sigma^2$ |
 
-两点分布作为 [二项分布](./二项分布.md) 在 $n=1$ 时的特例, 我们单独列出. 
+两点分布作为 [二项分布](./二项分布.md) 在 $n=1$ 时的特例, 我们不再单独列出. 

@@ -28,3 +28,10 @@ $$ f(x) \spaces= \frac{1}{\sqrt{2\pi} \sigma} \exp\Big({-\frac{(x-\mu)^2}{2 \sig
 我们来验证概率密度在整个定义域上的积分是 $1$. 首先置 $t = \frac{x-\mu}{\sqrt 2 \sigma}$, $\d x = \sqrt 2 \sigma \d t$, 积分化为 $\frac{1}{\sqrt\pi} \int_\R e^{-t^2} \d t$, 又熟知 Gauß 积分为 $\sqrt{\pi}$, 立得. 
 
 
+设 $(X,Y) \sim N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$ 则
+
+- $X \sim N(\mu_1, \sigma_1^2)$, $X \sim N(\mu_2, \sigma_2^2)$
+- $X,Y$ 相互独立 $\iff \rho = 0$. 
+- 非零线性组合 $aX+bY$ 仍然服从 [正态分布](./gaussian.md). 
+
+

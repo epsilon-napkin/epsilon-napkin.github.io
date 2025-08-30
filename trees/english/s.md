@@ -45,6 +45,33 @@ title: standby
     - sole, desolate
 1. solid = to make firm
     - solid, solidify, consolidate (加强)
-
+1. solu, solv = to loosen
+    - solve, solution, soluble (可溶的), absolute, resolve, resolution, resolute (坚决的)
+1. soph = wise
+    - sophisticated (复杂的), sophomore (大学二年纪学生), philosophy, philosopher (哲人)
+1. spac(e), (s)pan = to enlarge, expand
+    - expand, expansion, span, space, spaceship, spacecraft
+1. spec, spect, spic, spis = watch, see, look
+    - speculate (推测), aspect, conspicuous (显眼的), despise (轻视), expect, inspect, prospect (展望), respect, spectator (观众), suspect, unexpected, inspector, respective, respectable (可敬的), respectful, suspicious, suspicion, spectacular
+1. speci = kind
+    - species, specimen, special, specialist, speciality, specialize, specify, specific, specification, especially
+1. sphere = globe
+    - shpere, atmospheric, atmosphere
+1. (s)pir = to breathe
+    - spirit, spiritual, expire, inspire, inspiration
+1. spond = to promise
+    - respond, response, responsibility, correspond, corresponding, correspondent
+1. stim, sting, stince = to prick
+    - distinct, distinction, distinguish, stimulate
+1. strain, struct = to pull tight
+    - strain, restrain, restraint, strict, restrict, restriction, district, string
+1. struct = to pile up
+    - structure, construct, structural, destruction, destroy, instruct, instruction, instructor (教员), obstruction
+1. sum = total, top, to take
+    - sum, summarize, summary, summon, assume, assumption, consume, consumption, presume (假定), presumably
+1. sup(e)r, sur = above
+    - superior, superiority, supreme, survey
+1. sur = safe
+    - sure, assume, insure
 
 [^destination]: de + sti + nation
