@@ -11,6 +11,7 @@ collect: true
   - `00` $\to$ [`微积分/`](./math/微积分/)
   - `01` $\to$ [`线性代数/`](./math/线性代数/)
   - `02` $\to$ [`概统/`](./math/概统/)
+  - `03` $\to$ [`习题集/`](./math/习题集/)
 - `1` $\to$ [`408/`](./408/)
   - `11` $\to$ [`data-structure/`](./408/data-structure/)
   - `12` $\to$ [`constitution-principle/`](./408/constitution-principle/)
