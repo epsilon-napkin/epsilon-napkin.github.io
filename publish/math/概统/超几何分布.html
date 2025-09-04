@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>超几何分布</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-概统-超几何分布"><header><h1><span class="taxon"></span>超几何分布 <a class="slug" href="/math/概统/超几何分布.html">[超几何分布]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/概统/index.html" title="概率论与数理统计 [math/概统/index]">概率论与数理统计</a></span></li></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p><span class="link local"><a href="/math/概统/超几何分布.html" title="超几何分布 [math/概统/超几何分布]">超几何分布</a></span> 是一种离散概率分布, 描述了从包含恰好 $K$ 个具有该特征的大小为 $N$ 的有限总体中, 不放回 <sup class="footnote-reference" id="math_概统_超几何分布_binomial-back"><a href="#math_概统_超几何分布_binomial">1</a></sup> 地抽取 $n ~ (\le K)$ 次, 其中有 $k$ 次成功的概率. 其分布律为</p>
+<p>$$
+P(X=k) \spaces= \frac{{K \choose k} {N-K \choose n-k}}{N \choose n}
+$$</p>
+<p>若此事件为 $X$, 称 $X$ 服从 <span class="link local"><a href="/math/概统/超几何分布.html" title="超几何分布 [math/概统/超几何分布]">超几何分布</a></span> 记作 $X \sim H(N,K,n)$. 超几何分布具有以下特征:</p>
+<ul>
+<li>从有限总体中进行不放回抽样.</li>
+<li>每次抽样的结果可以被分为两个互斥的类别之一.</li>
+</ul>
+<p>我们来验证 $\sum_{0 \le k \le n} P(X=k) = 1$, 这也被称为 Vandermonde 恒等式. 处理这些二项式系数的首选策略是二项式定理, 现在观察</p>
+<p>$$ (1+x)^N \spaces= (1+x)^K (1+x)^{N-K} $$</p>
+<p>两边展开, 留意右侧乘积 $x^n$ 的系数就是 $\sum_{k} \binom{K}{k} \binom{N-K}{n-k}$</p>
+<p>$$
+\sum_{0 \le n \le N} \binom{N}{n} x^n 
+\spaces= \sum_{0 \le k \le K} \binom{K}{k} x^k \cdot\sum_{0 \le m \le N-K} \binom{N-K}{m} x^m
+$$</p>
+<p>立刻证得.</p>
+<div class="footnote-definition" id="math_概统_超几何分布_binomial">
+  <sup class="footnote-definition-label"><a href="#math_概统_超几何分布_binomial-back">1</a></sup>
+<p>作为对比, 在放回的情况下抽取 $n$ 次中有 $k$ 次成功则服从 <span class="link local"><a href="/math/概统/二项分布.html" title="二项分布 [math/概统/二项分布]">二项分布</a></span>.</p>
+</div>
+</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>二项分布 <a class="slug" href="/math/概统/二项分布.html">[二项分布]</a></h1><div class="metadata"><ul><li class="meta-item">Binomial Distribution</li><li class="meta-item"><span class="link local"><a href="/math/概统/index.html" title="概率论与数理统计 [math/概统/index]">概率论与数理统计</a></span></li></ul></div></header></section></details></section><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>概率论与数理统计 <a class="slug" href="/math/概统/index.html">[概统]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/index.html" title="Indexes of Mathematics [math/index]">Indexes of Mathematics</a></span></li></ul></div></header></section></details></section></footer></article>
+
+</div></body></html>

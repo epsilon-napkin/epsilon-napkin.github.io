@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>基本术语</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-data-structure-基本术语"><header><h1><span class="taxon"></span>基本术语 <a class="slug" href="/408/data-structure/基本术语.html">[基本术语]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<style>
+em {
+  color: rgb(201, 152, 244);
+  font-style: normal;
+}
+</style>
+<ul>
+<li><em>数据元素</em> 是数据的基本单位, 一个数据元素可由若干个 <em>数据项</em> 组成. <em>数据项</em> 是数据的不可分割的最小单位.</li>
+<li><em>数据对象</em> 是性质相同的数据元素的集合.</li>
+<li><em>数据结构</em> 是相互之间存在一种或多种特定关系的 <em>数据元素</em> 的集合.</li>
+</ul>
+<p>根据数据元素之间关系的不同特性, 通常有下列 4 类基本结构:</p>
+<ol>
+<li>集合. 结构中的数据元素之间除了 “同属于一个集合” 的关系外别无其他关系.</li>
+<li>线性结构. 结构中的数据元素之间存在一对一的关系.
+<ul>
+<li>数组. 具有固定大小的数据元素的集合, 这些元素在存储中是连续的, 并可以通过索引访问.</li>
+<li>链表. 由节点组成, 每个节点包含数据部分和指向下一个节点的指针.</li>
+<li>栈. 后进先出 (LIFO) 的数据结构, 只允许在顶部添加或删除元素.</li>
+<li>队列. 先进先出 (FIFO) 的数据结构, 允许在一端添加元素, 并在另一端删除元素.</li>
+</ul>
+</li>
+<li>树形结构. 结构中的数据元素之间存在一对多的关系.
+<ul>
+<li>二叉树. 每个节点最多有两个子节点.</li>
+</ul>
+</li>
+<li>图结构. 结构中的数据元素之间存在多对多的关系.</li>
+</ol>
+<p>数据结构在计算机中的表示 (又称映像) 称为数据的 <em>物理结构</em>, 又称 <em>存储结构</em>. 它包括数据元素的表示和关系的表示.
+数据元素之间的关系在计算机中有两种不同的表示方法: 顺序映像和非顺序映像, 并由此得到两种不同的存储结构: <em>顺序存储结构</em> 和 <em>链式存储结构</em>.</p>
+<p>算法的设计取决于选定的 <em>数据 (逻辑) 结构</em>, 而算法的实现依赖于采用的 <em>存储结构</em>.</p>
+<p>一个算法具有下列 5 个重要特性:</p>
+<ol>
+<li><em>有穷性</em>. 一个算法必须总是对任何合法的输入值在执行有穷步之后结束, 且每一步都在可接受时间内完成.</li>
+<li><em>确定性</em>. 算法只有唯一的一条执行路径, 即对于相同的输入只能得出相同的输出.</li>
+<li><em>可行性</em>. 一个算法是能行的, 即算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现的.</li>
+<li><em>输入</em>. 一个算法有零或多个输入, 这些输入取自于某个特定的对象的集合.</li>
+<li><em>输出</em>. 一个算法有一或多个输出, 这些输出是同输入有着某些特定关系的量.</li>
+</ol>
+</details></section><footer></footer></article>
+
+</div></body></html>

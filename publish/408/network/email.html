@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>电子邮件</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/application-layer.html'" title="应用层">« 应用层</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-email"><header><h1><span class="taxon"></span>电子邮件 <a class="slug" href="/408/network/email.html">[email]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>电子邮件系统由 用户代理、 邮件服务器 以及 电子邮件协议 这三个核心组成部分协同工作, 确保邮件的发送、 接收和存储.</p>
+<ul>
+<li>用户代理 [UA, User Agent] 是用户与电子邮件系统交互的接口, 通常是邮件客户端软件.</li>
+<li>邮件服务器 [Mail Server] 是电子邮件系统的核心, 负责存储、转发和管理邮件.</li>
+<li>SMTP [Simple Mail Transfer Protocol] 是用于邮件发送的标准协议, 负责在邮件服务器之间或从用户代理到邮件服务器传输邮件. SMTP 使用的是 “推送” [Push] 方式进行通信. 当用户代理发送邮件, 或者邮件在邮件服务器之间传递时, SMTP 客户端会将邮件主动 “推送” 到 SMTP 服务器.</li>
+<li>POP3 是用于从邮件服务器检索邮件的协议, 允许用户将邮件下载到本地设备. POP3 则采用 “拉取” [Pull] 方式进行通信. 当用户需要查看邮件时, 用户代理会向邮件服务器发出请求, 从服务器中 “拉取” 用户邮箱里的邮件.</li>
+</ul>
+<h4>MIME</h4>
+<p>多用途互联网邮件扩展 [MIME, Multipurpose Internet Mail Extensions] 是为了解决传统电子邮件格式的局限性而提出的一种扩展标准. 早期的电子邮件只能传输纯文本 / ASCII 码, 不支持发送图片、音频、视频或非 ASCII 字符. 这严重限制了电子邮件的用途. MIME 的出现, 就是为了解决这些问题.</p>
+<p>MIME 主要包含以下三点核心功能:</p>
+<ol>
+<li>允许使用 UTF-8 等编码发送邮件内容.</li>
+<li>支持多媒体内容. 可以发送图像、音频、视频等多种格式的附件或内嵌内容.</li>
+<li>支持多部分内容 [Multipart], 一封邮件可以同时包含文本和附件, 甚至不同格式的内容.</li>
+</ol>
+</details></section><footer></footer></article>
+
+</div></body></html>

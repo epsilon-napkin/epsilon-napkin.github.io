@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>矩阵求逆</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-线性代数-matrix-inverse"><header><h1><span class="taxon"></span>矩阵求逆 <a class="slug" href="/math/线性代数/matrix-inverse.html">[matrix-inverse]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/线性代数/index.html" title="线性代数 [math/线性代数/index]">线性代数</a></span></li></ul></div></header></summary>
+<p>单论时间复杂度, <span class="link local"><a href="/math/线性代数/matrix-inverse-1.html" title=" [math/线性代数/matrix-inverse-1]"></a></span> $\mathcal{O}(n^3)$ 的复杂度相比 <span class="link local"><a href="/math/线性代数/matrix-inverse-2.html" title=" [math/线性代数/matrix-inverse-2]"></a></span> 的 $\mathcal{O}(n^2 \cdot n!)$ 在 $n \gt 2$ 时会更有优势, 这里 $n^2$ 来自于余子式, $n!$ 来自于 $\det$. 但手工计算 $A^{-1}$ 时, 如果能够观察出 $A$ 一些特殊的性质然后打洞, 则 $\det A$ 的实际复杂度就会大大下降, 此时的 <span class="link local"><a href="/math/线性代数/matrix-inverse-2.html" title=" [math/线性代数/matrix-inverse-2]"></a></span> 不失为一种好的策略. 本身行列式可用的处理手段也比 <span class="link local"><a href="/math/线性代数/gauss-jordan.html" title="Gauss–Jordan 消元法 [math/线性代数/gauss-jordan]">Gauss–Jordan 消元法</a></span> 要多得多.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-线性代数-0141"><header><h1><span class="taxon"> 1. </span>初等行变换求逆 <a class="slug" href="/math/线性代数/0141.html">[0141]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>使用 <span class="link local"><a href="/math/线性代数/gauss-jordan.html" title="Gauss–Jordan 消元法 [math/线性代数/gauss-jordan]">初等行变换</a></span> 计算 $(A, E) \to (E, A^{-1})$, 将 $A$ 化为单位阵, 即可求得 $A^{-1}$.</p>
+<p>$\textbf{Example.}$ 考虑 $A = (\begin{smallmatrix} a &amp; b \\ c &amp; d \end{smallmatrix})$, 此时我们有</p>
+<p>$$
+\begin{aligned}
+&amp;\hspace{2em} \left(\begin{array}{cc:}
+   a &amp; b &amp; 1 &amp; 0 \\
+   c &amp; d &amp; 0 &amp; 1 \\
+\end{array}\right) \\
+&amp;\spaces\to
+\left(\begin{array}{cc:}
+   1 &amp; ba^{-1} &amp; a^{-1} &amp; 0 \\
+   c &amp; d &amp; 0 &amp; 1 \\
+\end{array}\right)
+\quad \color{gray}{r_1 a^{-1}}
+\\
+&amp;\spaces\to
+\left(\begin{array}{cc:}
+   1 &amp; ba^{-1} &amp; a^{-1} &amp; 0 \\
+   0 &amp; d-cba^{-1} &amp; -ca^{-1} &amp; 1 \\
+\end{array}\right)
+\quad \color{gray}{r_2 - cr_1}
+\\
+&amp;\spaces\to
+\left(\begin{array}{cc:}
+   1 &amp; ba^{-1} &amp; a^{-1} &amp; 0 \\
+   0 &amp; 1 &amp; -ca^{-1}(d-cba^{-1})^{-1} &amp; (d-cba^{-1})^{-1} \\
+\end{array}\right)
+\quad \color{gray}{r_2 (d-cba^{-1})^{-1}}
+\\
+&amp;\spaces\to
+\left(\begin{array}{cc:}
+   1 &amp; 0 &amp; d(ad-bc)^{-1} &amp; -b(ad-bc)^{-1} \\
+   0 &amp; 1 &amp; -c(ad-bc)^{-1} &amp; a(ad-bc)^{-1} \\
+\end{array}\right)
+\quad \color{gray}{r_1 - ba^{-1} r_2}
+\end{aligned}
+$$</p>
+<p>这里最后的 $M_{11} = \frac1a + \frac b a \cdot \frac c {a (d - \frac{cb}a)} = \frac1a (1 + \frac{bc}{ad - bc}) = \frac{d}{ad-bc}$, 其他项可类似地验证.</p>
+</details></section>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-线性代数-0142"><header><h1><span class="taxon"> 2. </span>伴随矩阵求逆 <a class="slug" href="/math/线性代数/0142.html">[0142]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\adj{\operatorname{adj}}$
+$\gdef\spaces#1{~ #1 ~}$</p>
+<p>伴随矩阵 $\adj A$ 或 $A^*$ 满足 $AA^* = (\det A) I$. 由此也可用 $\frac{A^*}{|A|}$ 求得 $A^{-1}$.</p>
+<p>伴随矩阵可以通过代数余子式计算. 后者定义为</p>
+<p>$$ C_{ij} \spaces= (-1)^{i+j} \cdot \det(M_{ij}) $$</p>
+<p>$M_{ij}$  是从 $A$ 中删除第 $i$ 行和第 $j$ 列后得到的 $(n-1) \times (n-1)$ 子矩阵. 随后 $A^* = C^T$.</p>
+<p>$\textbf{Example.}$ 考虑 $A = (\begin{smallmatrix} a &amp; b \\ c &amp; d \end{smallmatrix})$, 代数余子式矩阵为 $C = (\begin{smallmatrix} d &amp; -c \\ -b &amp; a \end{smallmatrix})$, 于是 $A^* = (\begin{smallmatrix} d &amp; -b \\ -c &amp; a \end{smallmatrix})$. $A^{-1} = \frac{1}{ad-bc}A^*$.</p>
+</details></section></p>
+</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Gauss–Jordan 消元法 <a class="slug" href="/math/线性代数/gauss-jordan.html">[gauss-jordan]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/线性代数/index.html" title="线性代数 [math/线性代数/index]">线性代数</a></span></li></ul></div></header></section></details></section></footer></article>
+
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/线性代数/0141.html" title="初等行变换求逆 [math/线性代数/0141]">■</a><span class="link local" onclick="window.location.href='#math-线性代数-0141'"><span class="taxon"> 1. </span>初等行变换求逆</span></li><li class=""><a class="bullet" href="/math/线性代数/0142.html" title="伴随矩阵求逆 [math/线性代数/0142]">■</a><span class="link local" onclick="window.location.href='#math-线性代数-0142'"><span class="taxon"> 2. </span>伴随矩阵求逆</span></li></ul></div></nav></div></body></html>
