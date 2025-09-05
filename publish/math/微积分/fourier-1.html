@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width"><title>Fourier 变换</title><link rel="stylesheet" href="/main.css">
+<meta name="viewport" content="width=device-width"><title>Fourier 级数</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
   .footnote-reference::before, 
   .footnote-definition-label::before {
@@ -126,24 +126,7 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-fourier"><header><h1><span class="taxon"></span>Fourier 变换 <a class="slug" href="/math/微积分/fourier.html">[fourier]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary>
-<p>$\gdef\Z{\mathbf{Z}}$
-$\gdef\R{\mathbf{R}}$
-$\gdef\C{\mathbf{C}}$
-$\gdef\T{\mathbf{T}}$
-$\gdef\spaces#1{~ #1 ~}$
-$\gdef\d{\operatorname{d}}$</p>
-<p>$\theta \to e^{2\pi i \theta}$ 是 $\R/\Z \to \C$ 的典范映射. 特别地我们记圆周群 $\T = \R/\Z$, 其中元素 $t \in [0, 1)$ 当然来自 $x \mod 1$.</p>
-<p>对于全体 $f:S \to \C$, 这些函数的集合形成一个复向量空间. 如果希望为这些函数的集合配备一个正定的内积, 则可以通过讲这些函数表为 Fourier 系数 $\hat{f}$ 和正交基 $e_\xi$ 的线性组合 [^finite].</p>
-<p>$$
-f(x) \spaces= \sum_\xi \hat{f}(\xi) e_\xi
-$$</p>
-<p>$L^2([-\pi, \pi])$ 函数的 Fourier 级数</p>
-<p>$$
-\lang f, g \rang \spaces= \frac{1}{2\pi} \int_{[-\pi, \pi]} f(x)\overline{g(x)} \d x
-$$</p>
-<p>这是一个无限维 Hilbert 空间.</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-微积分-fourier-1"><header><h1><span class="taxon"></span>Fourier 级数 <a class="slug" href="/math/微积分/fourier-1.html">[fourier-1]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/微积分/fourier.html'" title="Fourier 变换">« Fourier 变换</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-fourier-1"><header><h1><span class="taxon"></span>Fourier 级数 <a class="slug" href="/math/微积分/fourier-1.html">[fourier-1]</a></h1><div class="metadata"><ul></ul></div></header></summary>
 <p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\d{\operatorname{d}}$</p>
 <p>$f$ 是以 $2T$ 为周期的函数, 且在周期 $[-T,T]$ 上可积, 则</p>
@@ -152,24 +135,6 @@ $\gdef\d{\operatorname{d}}$</p>
 <p>是 $f$ 的 fourier 系数. 以 fourier 系数所作的三角函数级数</p>
 <p>$$ \frac{a_0 }{2} + \sum_{n \ge 1} a_n\cos \frac{n\pi}{T} x + b_n \sin \frac{n\pi}{T} x $$</p>
 <p>称为 $f$ 的 fourier 级数.</p>
-</details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微积分-fourier-2"><header><h1><span class="taxon"></span>Dirichlet 收敛定理 <a class="slug" href="/math/微积分/fourier-2.html">[fourier-2]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$</p>
-<p>设函数 $f$ 周期 $2\pi$, 如果 $f$ 满足</p>
-<ol>
-<li>在一个周期内连续或只有有限个第一类间断点.</li>
-<li>在一个周期内至多只有有限个极值点.</li>
-</ol>
-<p>则 $f$ 的 fourier 级数收敛. 并且</p>
-<ul>
-<li>当 $x$ 是 $f$ 的连续点时, 级数收敛于 $f$.</li>
-<li>当 $x$ 是 $f$ 的间断点时, 级数收敛于 $\frac{f(x^-)+f(x^+)}{2}$. 如 $x=\pm\pi$.</li>
-</ul>
-<div class="footnote-definition" id="math_微积分_fourier-2_finite">
-  <sup class="footnote-definition-label"><a href="#math_微积分_fourier-2_finite-back">1</a></sup>
-<p>类似地, 我们可以考虑有限群上的 Fourier 变换 $\hat{f}(0) = \frac{1}{|S|} \sum_{x \in S}f(x)$.</p>
-</div>
-</details></section></p>
 </details></section><footer></footer></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/微积分/fourier-1.html" title="Fourier 级数 [math/微积分/fourier-1]">■</a><span class="link local" onclick="window.location.href='#math-微积分-fourier-1'"><span class="taxon"></span>Fourier 级数</span></li><li class=""><a class="bullet" href="/math/微积分/fourier-2.html" title="Dirichlet 收敛定理 [math/微积分/fourier-2]">■</a><span class="link local" onclick="window.location.href='#math-微积分-fourier-2'"><span class="taxon"></span>Dirichlet 收敛定理</span></li></ul></div></nav></div></body></html>
+</div></body></html>
