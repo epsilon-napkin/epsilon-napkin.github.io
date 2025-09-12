@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width"><title>Γ 函数</title><link rel="stylesheet" href="/main.css">
+<meta name="viewport" content="width=device-width"><title>有理形的注记</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
   .footnote-reference::before, 
   .footnote-definition-label::before {
@@ -126,34 +126,28 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-gamma-function"><header><h1><span class="taxon"></span>$\Gamma$ 函数 <a class="slug" href="/math/微积分/gamma-function.html">[gamma-function]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary>
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-0022"><header><h1><span class="taxon"></span>有理形的注记 <a class="slug" href="/math/微积分/0022.html">[0022]</a></h1><div class="metadata"><ul></ul></div></header></summary>
 <p>$\gdef\spaces#1{~ #1 ~}$
-$\gdef\quads#1{\quad #1 \quad}$
-$\gdef\eqq{\quads=}$
-$\gdef\d{\operatorname{d}}$
-$\gdef\hint#1{\color{grey}#1}$</p>
-<p>$\Gamma$ 的记号来自 Legendre, $\Gamma$ 函数的唯一性由 Bohr–Mollerup 定理保证, 即开区间 $(0, \infty) = \R_{\gt 0}$ 上满足如下条件的函数是唯一的</p>
-<ol>
-<li>保持阶乘. $f(x+1) = xf(x)$.</li>
-<li>恰当的初值. $f(1) = 1$.</li>
-<li>对数凸. 即 $\log f$ 是凸函数. 这一点来自 Hölder 不等式.</li>
-</ol>
-<p>一般地, 此函数定义为</p>
-<p>$$ \Gamma(s) \spaces{:=} \int_0^{\infty} x^{s-1}e^{-x} \d x $$</p>
-<p>也可以按 Haar 测度的写法, 显然乘法群 $\R_{&gt; 0}^\times$ 的不变测度是 $\frac{\d x}{x}$</p>
-<p>$$ \square \spaces= \int_{\R_{&gt; 0}^\times} x^s e^{-x} \d \log x $$</p>
-<p>读者还可以验证其就是 $e^{-x}$ 的 Mellin 变换, 即 $\Gamma(s) = \mathcal{M}(e^{-x})|_s = \int_{\R_{&gt; 0}^\times}$, 此处 $\mathcal{M}_f(s) = \int x^s f(x) \d \log x$. 我们列出 $\Gamma$ 函数的常用特殊值</p>
+$\gdef\d{\operatorname{d}}$</p>
 <p>$$
-\def\arraystretch{1.5}
-\begin{array}{|c|c|c|c|c|c|c|c|c|}
-   \hline
-   s &amp; -\frac{1}{2} &amp; \frac{1}{2} &amp; 1 &amp; \frac{3}{2} &amp; 2 &amp; \frac{5}{2} &amp; 3 &amp; \cdots \\ \hline
-   \Gamma(s)  &amp; -2\sqrt{\pi} &amp; \sqrt\pi &amp; 1 &amp; \frac{\sqrt{\pi}}{2} &amp; 1 &amp; \frac{3\sqrt{\pi}}{4} &amp; 2 &amp; \cdots \\ \hline
-\end{array}
+\int \frac{a_0 g(x) + a_1 g'(x) + a_2}{g(x)} \d x
 $$</p>
-<p>$\Gamma$ 函数在负轴的延拓通过 Euler 反射公式或称余元公式给出</p>
-<p>$$ \Gamma(s)\Gamma(1-s) \spaces= \frac{\pi}{\sin \pi s} $$</p>
-<p>即 $\Gamma(-s) = \frac{1}{\Gamma(s+1)} \cdot \frac{\pi}{\sin \pi (x+1)}$, 推得 $\Gamma(-s) = -\frac{\Gamma(1-s)}{s}$.</p>
-</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Theorem" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Theorem. </span>球体积 <a class="slug" href="/math/微积分/球体积.html">[球体积]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></section></details></section></footer></article>
+<ul>
+<li>
+<p>若 $a_2 = 0$, 则 $\square \spaces= a_0x + a_1 \log g(x)$.</p>
+</li>
+<li>
+<p>若 $g$ 是二次多项式, $f$ 是次数不超过 $2$ 的多项式, 则 $\frac{f}{g}$ 的所有情况都能被上式覆盖. 再设 $g(x) = (x+c_1)^2 + c_2$, 此时
+$$
+\quad \square \spaces= a_0x + a_1 \log g(x) + \frac{1}{2\sqrt{-c_2}} \log^{-1}\Big(\frac{x-\sqrt{-c_2}+c_1}{x+\sqrt{-c_2}+c_1}\Big)
+$$</p>
+<p>特别地, $c_2&gt;0$ 时也写成</p>
+<p>$$ 
+\quad \square \spaces= a_0x + a_1 \log g(x) + \frac{1}{\sqrt{c_2}} \tan^{-1}\Big(\frac{x-c_1}{\sqrt{c_2}}\Big)
+$$</p>
+<p>这来自 $\tan^{-1}$ 的复对数表示 $\frac{i}{2}\log(\frac{1-ix}{1+ix})$.</p>
+</li>
+</ul>
+</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Problem" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Problem. </span>不定积分 <a class="slug" href="/math/习题集/不定积分.html">[不定积分]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/习题集/index.html" title="习题 [math/习题集/index]">习题</a></span></li></ul></div></header></section><section class="block" data-taxon="Example" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Example. </span>实二次不可约 <a class="slug" href="/math/微积分/0021.html">[0021]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
 
 </div></body></html>

@@ -127,6 +127,28 @@ nav {
     font-family: "Inria Sans"
   }
 </style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-凑微分"><header><h1><span class="taxon"></span>凑微分 <a class="slug" href="/math/微积分/凑微分.html">[凑微分]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary>
+<p>$\gdef\d{\operatorname{d}}$
+$\gdef\spaces#1{~ #1 ~}$</p>
+<p>本节主题又名不定积分. 旨在收集罗列凑微分的方法和技巧, 以及常用的形式, 此类问题在实践中属于模式匹配. 我们约定一个单字母函数名的大写表示此函数的原函数, 如 $F' = f$. 于是</p>
+<p>$$
+\int \frac{f(\log x)}{x} \d x \spaces= F(\log x)
+$$</p>
+<p>一般地, 这是 $\int f(\mu(x)) \d \mu(x) = F(\mu(x))$. 我们列出表格</p>
+<p>$$
+\def\arraystretch{1.5}
+\begin{array}{|c|c|}
+  \hline
+  \int f(\mu) \d \mu &amp; F(\mu) + C \\ \hline
+  \int \frac{f(\log x)}{x} \d x &amp; F(\log x) + C \\
+  \hline
+  \int \frac{f(\arctan x)}{1+x^2} \d x &amp; F(\arctan x) + C \\ \hline
+  \int \frac{f(\arcsin x)}{\sqrt{1-x^2}} \d x &amp; F(\arcsin x) + C \\ \hline
+  \int \sin x f(\cos x) \d x &amp; -F(\cos x) + C \\ \hline
+  \int \cos x f(\sin x) \d x &amp; F(\sin x) + C \\ \hline
+  \int \sec^2 x f(\tan x) \d x &amp; F(\tan x) + C \\ \hline
+  \int e^x f(e^x) \d x &amp; F(e^x) + C \\ \hline
+\end{array}
+$$</p>
 </details></section><footer></footer></article>
 
 </div></body></html>

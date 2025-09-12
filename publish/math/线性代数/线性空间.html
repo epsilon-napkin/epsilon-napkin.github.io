@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>线性空间</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-线性代数-线性空间"><header><h1><span class="taxon"></span>线性空间 <a class="slug" href="/math/线性代数/线性空间.html">[线性空间]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/线性代数/index.html" title="线性代数 [math/线性代数/index]">线性代数</a></span></li></ul></div></header></summary>
+<p>设 $k$ 是域, $k$-向量空间是集合 $V$, 并带有加法 $+: V \times V \to V$ 和数乘 $\cdot: k \times V \to V$ 两种运算, 还要求这两种运算满足</p>
+<ol>
+<li>$(V,+)$ 构成 Abel 群.</li>
+<li>数乘满足单位律 $\forall x \in V, 1x = x$.</li>
+<li>数乘对 $V$ 中的加法满足分配律 $\forall c \in k, x,y \in V, c(x+y) = cx+cy$.</li>
+<li>数乘对 $k$ 中的加法满足分配律 $\forall c,d \in k,x \in V, (c+d)x=cx+dx$.</li>
+<li>数乘与 $k$ 中的乘法相容 $\forall c,d \in k,x \in V, (cd)x=c(dx)$.</li>
+</ol>
+<p>习惯上我们把 $k$ 中元素称为标量, $V$ 中元素称为向量, 也把向量空间叫做线性空间. 基是一组向量 $\{e_1,\cdots,e_n\}$, 使得该向量空间的任意向量 $v$ 都能唯一地写成这些向量的线性组合 $v = \sum_i a_ie_i$, 于是通过一组基就能把向量空间的几乎所有操作化为数的运算.</p>
+<p>每个 $k$-向量空间中都能找到一组基, 这被称为基存在定理, 且此定理依赖选择公理. 同一个向量空间的所有基都具有同样多的向量, 此数目称为该向量空间的维数.</p>
+<p><section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-线性代数-0162"><header><h1><span class="taxon">Example. </span>线性空间及其基 <a class="slug" href="/math/线性代数/0162.html">[0162]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\CC{\mathbb{C}}$
+$\gdef\QQ{\mathbb{Q}}$
+$\gdef\str#1{{\footnotesize #1}}$</p>
+<ul>
+<li>单点集 $\{\text{pt}\}$ 可以视为 $k$-向量空间, 称为零向量空间, 记为 $0$.</li>
+<li>$n$ 元实系数齐次线性方程组的全体解向量构成一个实线性空间, 显然其是 $\R^n$ 的一个子集, 称为齐次线性方程组的解空间. 特别, 当齐次线性方程组只有零解时, 它的解空间只有一个元, 就是零向量.</li>
+<li>域 $k$ 上的全体 $m \times n$ 矩阵关于矩阵加法及数乘矩阵的运算构成一个 $k$-线性空间, 记为 $\operatorname{Mat}_{m \times n}(k)$, 这直接来自 $k^{m \times n}$.</li>
+<li>域 $k$ 可以看成维数为 $1$ 的 $k$-向量空间. 可以验证其就是零向量空间, 记为 $0$.</li>
+<li>固定 $n \in \N$, $k^n$ 可以看成维数为 $n$ 的 $k$-向量空间, 其中基向量 $e_i$ 在 $n$ 元组的第 $i$ 个分量取 $1$, 其他位置取 $0$.</li>
+<li>所有次数不超过 $n$  的多项式构成的 $k$-向量空间 $k[x]^{\le n}$, 基 $\{1,x,\cdots,x^n\}$.</li>
+<li>复数域 $\CC$ 可以看成维数为 $2$ 的 $\R$-向量空间, 基 $\{1,\sqrt{-1}\}$.</li>
+<li>数域之一的 $\QQ(\sqrt{2})$ 是维数为 $2$ 的 $\QQ$-向量空间, 基 $\{1,\sqrt{2}\}$.</li>
+<li>对任何扩域 $K/k$, $K$ 可以看作 $k$-向量空间, 此时维数也被称为域扩张次数 $[K:k] := \dim_k K$.</li>
+<li>对任何拓扑空间 $X$, 连续函数空间 $C(X) = \{f:X \to \R ~ \str{连续}\}$ 是 $\R$-向量空间.</li>
+</ul>
+</details></section></p>
+<p>线性映射就是线性空间之间保持 $1$-齐次性 $f(cx) = cf(x)$ 和可加性 $f(x+y) = f(x)+f(y)$ 的映射, 这里自然 $c \in k, x,y \in V$.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-线性代数-0163"><header><h1><span class="taxon"></span>子空间 <a class="slug" href="/math/线性代数/0163.html">[0163]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$
+$\gdef\span{\operatorname{span}}$</p>
+<p>设 $V$ 是 $F$ 上的 <span class="link local"><a href="/math/线性代数/线性空间.html" title="线性空间 [math/线性代数/线性空间]">线性空间</a></span>, $W$ 是 $V$ 的一个非空子集. 如果 $W$ 关于 $V$ 中的加法及数乘运算也构成 $F$ 上的一个线性空间, 则 $W$ 称为 $V$ 的子空间. 等价地说, $V$ 的子集 $W$ 只要满足 $\forall w_1,w_2 \in W$, $\forall \alpha,\beta \in F$, 有 $\alpha w_1 + \beta w_2 \in W$. 那 $W$ 就是 $V$ 的子空间.</p>
+<p>一个非空集合 $W$ 是子空间当且仅当 $W$ 中任意有限个元素的所有线性组合都属于 $W$, 显然这可以化归为只涉及两个元素的线性组合.</p>
+<p>根据前面 $\alpha w_1 + \beta w_2 \in W$ 的等价定义不难证明, 在线性空间 $V$ 中任取 $m$ 个向量 $(\alpha_i)_{1 \le i \le m}$, 由一切形如入 $\sum_{1 \le i \le m} \lambda_i \alpha_i$ 的向量构成的子集满足等价定义的条件, 于是它就是 $V$ 的一个子空间. 这个子空间特别记为 $W = \span(\alpha_1, \cdots, \alpha_m) $, 并称它是由向量 $(\alpha_i)_{1 \le i \le m}$ 生成的子空间.</p>
+<p>此外, 设 $W$ 是 $V$ 的子空间. 则含入映射 $W \hookrightarrow V$ 是线性映射, 且是单射. 线性映射的核、像都是子空间.</p>
+</details></section></p>
+</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>子空间 <a class="slug" href="/math/线性代数/0163.html">[0163]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
+
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/线性代数/0162.html" title="线性空间及其基 [math/线性代数/0162]">■</a><span class="link local" onclick="window.location.href='#math-线性代数-0162'"><span class="taxon">Example. </span>线性空间及其基</span></li><li class=""><a class="bullet" href="/math/线性代数/0163.html" title="子空间 [math/线性代数/0163]">■</a><span class="link local" onclick="window.location.href='#math-线性代数-0163'"><span class="taxon"></span>子空间</span></li></ul></div></nav></div></body></html>
