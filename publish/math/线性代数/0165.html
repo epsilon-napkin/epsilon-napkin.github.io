@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width"><title>子线性空间</title><link rel="stylesheet" href="/main.css">
+<meta name="viewport" content="width=device-width"><title>相似</title><link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/typst.css"><style>
   .footnote-reference::before, 
   .footnote-definition-label::before {
@@ -126,13 +126,11 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/线性代数/线性空间.html'" title="线性空间">« 线性空间</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Definition"><details open><summary id="math-线性代数-0163"><header><h1><span class="taxon">Definition. </span>子线性空间 <a class="slug" href="/math/线性代数/0163.html">[0163]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$
-$\gdef\span{\operatorname{span}}$</p>
-<p>设 $V$ 是 $F$ 上的 <span class="link local"><a href="/math/线性代数/线性空间.html" title="线性空间 [math/线性代数/线性空间]">线性空间</a></span>, $W$ 是 $V$ 的一个非空子集. 如果 $W$ 关于 $V$ 中的加法及数乘运算也构成 $F$ 上的一个线性空间, 则 $W$ 称为 $V$ 的子空间. 等价地说, $V$ 的子集 $W$ 只要满足 $\forall w_1,w_2 \in W$, $\forall \alpha,\beta \in F$, 有 $\alpha w_1 + \beta w_2 \in W$. 那 $W$ 就是 $V$ 的子空间.</p>
-<p>一个非空集合 $W$ 是子空间当且仅当 $W$ 中任意有限个元素的所有线性组合都属于 $W$, 显然这可以化归为只涉及两个元素的线性组合.</p>
-<p>根据前面 $\alpha w_1 + \beta w_2 \in W$ 的等价定义不难证明, 在线性空间 $V$ 中任取 $m$ 个向量 $(\alpha_i)_{1 \le i \le m}$, 由一切形如入 $\sum_{1 \le i \le m} \lambda_i \alpha_i$ 的向量构成的子集满足等价定义的条件, 于是它就是 $V$ 的一个子空间. 这个子空间特别记为 $W = \span(\alpha_1, \cdots, \alpha_m) $, 并称它是由向量 $(\alpha_i)_{1 \le i \le m}$ 生成的子空间.</p>
-<p>此外, 设 $W$ 是 $V$ 的子空间. 则含入映射 $W \hookrightarrow V$ 是线性映射, 且是单射. 线性映射的核、像都是子空间.</p>
-</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Definition" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Definition. </span>线性映射 <a class="slug" href="/math/线性代数/线性映射.html">[线性映射]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/线性代数/基变换.html'" title="基变换">« 基变换</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Exegesis"><details open><summary id="math-线性代数-0165"><header><h1><span class="taxon">Exegesis. </span>相似 <a class="slug" href="/math/线性代数/0165.html">[0165]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>设 <span class="link local"><a href="/math/线性代数/线性映射.html" title="线性映射 [math/线性代数/线性映射]">线性变换</a></span> $f: V \to V$ 在基 $ \mathcal{B}$ 下的矩阵为 $A$ 即 $f(\mathcal{B}) = \mathcal{B}A$, 在基 $\mathcal{B}'$  下的矩阵为 $A'$ 即 $f(\mathcal{B}') = \mathcal{B}'A'$, <span class="link local"><a href="/math/线性代数/基变换.html" title="基变换 [math/线性代数/基变换]">过渡矩阵</a></span> 为 $P$ 满足 $\mathcal{B}' = \mathcal{B}P$, 则 $A' = P^{-1}AP$. 因为</p>
+<p>$$ f(\mathcal{B}') \spaces= f(\mathcal{B}P) \spaces= f(\mathcal{B})P \spaces= \mathcal{B}AP \spaces= \mathcal{B}'P^{-1}AP $$</p>
+<p>这就表明 $\mathcal{B}'A' = \mathcal{B}'P^{-1}AP$. 这给出矩阵相似 $A \sim A'$ 的概念, 此时 $P$ 又称为相似变换矩阵.</p>
+</details></section><footer></footer></article>
 
 </div></body></html>

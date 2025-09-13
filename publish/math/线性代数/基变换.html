@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>基变换</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/线性代数/线性空间.html'" title="线性空间">« 线性空间</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Exegesis"><details open><summary id="math-线性代数-基变换"><header><h1><span class="taxon">Exegesis. </span>基变换 <a class="slug" href="/math/线性代数/基变换.html">[基变换]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>已知 <span class="link local"><a href="/math/线性代数/线性空间.html" title="线性空间 [math/线性代数/线性空间]">线性空间</a></span> $V$ 有两组基 $\mathcal{B}, \mathcal{B}'$, $V$ 中向量 $v$ 在 $\mathcal{B}$ 下的坐标为 $(v)_\mathcal{B}$, 求 $v$ 在 $\mathcal{B}'$ 下的坐标 $(v)_{\mathcal{B}'}$, 这就是基变换的核心问题.</p>
+<p>幸运的是, 我们可以把 $(v)_\mathcal{B}$, $(v)_{\mathcal{B}'}$ 看成列向量, 把基 $\mathcal{B}, \mathcal{B}'$ 视为矩阵 $B,B'$, 其列是基向量. 则 $\mathcal{B} \to \mathcal{B}'$ 显然可以被一个 <span class="link local"><a href="/math/线性代数/线性映射.html" title="线性映射 [math/线性代数/线性映射]">线性变换</a></span> 刻画, 所以我们可以找到一个矩阵 $T$ 使得 $(v)_\mathcal{B} = T \cdot (v)_{\mathcal{B}'}$, $T$ 称为过渡矩阵.</p>
+<p>具体来说, 新基与旧基相差一个线性变换, 于是可以把新基 $\mathcal{B}'$ 表达成旧基 $\mathcal{B}$ 的线性组合,矩阵上对应 $B' = BT$, 即</p>
+<p>$$ B \cdot (v)_\mathcal{B} \spaces= B' \cdot (v)_\mathcal{B'} \spaces= BT \cdot (v)_\mathcal{B'}$$</p>
+<p>两边左乘 $B^{-1}$ 立得 $(v)_\mathcal{B} = T (v)_\mathcal{B'}$. 过渡矩阵就是此线性变换的矩阵表示. 现在, 根据 $(v)_{\mathcal{B}'} = T^{-1} (v)_{\mathcal{B}}$ 就能得到新基下的坐标.</p>
+<p><section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-线性代数-0164"><header><h1><span class="taxon">Example. </span>旋转变换 <a class="slug" href="/math/线性代数/0164.html">[0164]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>考虑 $\R^2$ 这个线性空间里一组由向量 $v_1=(1,0)$ 和 $v_2=(0,1)$ 组成的基, 对应单位阵 $\big[\begin{smallmatrix}1 &amp; 0 \\ 0 &amp; 1\end{smallmatrix}\big]$. 如果将基逆时针旋转 $t$ 度, 就会得到一个新的基 $w_1 = (\cos t, \sin t)$, $w_2 = (-\sin t, \cos t)$. 现在, <span class="link local"><a href="/math/线性代数/基变换.html" title="基变换 [math/线性代数/基变换]">基变换公式</a></span>
+断言, 如果 $(y_1,y_2)$ 是向量 $(x_1,x_2)$ 的新坐标, 那么就有</p>
+<p>$$
+\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+\spaces= 
+\begin{bmatrix} \cos t &amp; -\sin t \\ \sin t &amp; \cos t \end{bmatrix}
+\begin{bmatrix} y_1 \\ y_2 \end{bmatrix}
+\spaces=
+\begin{bmatrix} y_1\cos t - y_2\sin t \\  y_1\sin t + y_2\cos t \end{bmatrix}
+$$</p>
+<p>读者可以自己验证 $x_1v_1 + x_2v_2 = y_1w_1 + y_2w_2$. 我们记矩阵 $T = (w_1,w_2)$, 注意 $T$ 是正交矩阵 $T^{-1} = T^{\top}$, 因为列向量是单位向量且互相正交, 于是</p>
+<p>$$
+\begin{bmatrix} y_1 \\ y_2 \end{bmatrix} 
+\spaces=
+T^{-1} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+\spaces=
+\begin{bmatrix} \cos t &amp; \sin t \\ -\sin t &amp; \cos t \end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+$$</p>
+<p>这对向量 $(x_1,x_2)$ 而言是顺时针旋转 $t$ 度. 反过来, 如果想知道向量 $(x_1,x_2)$ 逆时针旋转 $t$ 度得到的 $(y_1,y_2)$, 只需要让基顺时针旋转, 此时 $T^{-1} = \big[\begin{smallmatrix} \cos t &amp; -\sin t \\ \sin t &amp; \cos t \end{smallmatrix}\big]$, 这就给出了旋转矩阵. 如果我们记点 $(x,y)$ 绕坐标系原点 $(0,0)$ 逆时针旋转 $t$ 度得到的点为 $(x',y')$, 那应用旋转矩阵就可知</p>
+<p>$$
+\begin{cases}
+x' \spaces= x\cos t - y\sin t \\  
+y' \spaces= x\sin t + y\cos t
+\end{cases}
+$$</p>
+</details></section>
+<section class="block hide-metadata" data-taxon="Exegesis"><details open><summary id="math-线性代数-0165"><header><h1><span class="taxon">Exegesis. </span>相似 <a class="slug" href="/math/线性代数/0165.html">[0165]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>设 <span class="link local"><a href="/math/线性代数/线性映射.html" title="线性映射 [math/线性代数/线性映射]">线性变换</a></span> $f: V \to V$ 在基 $ \mathcal{B}$ 下的矩阵为 $A$ 即 $f(\mathcal{B}) = \mathcal{B}A$, 在基 $\mathcal{B}'$  下的矩阵为 $A'$ 即 $f(\mathcal{B}') = \mathcal{B}'A'$, <span class="link local"><a href="/math/线性代数/基变换.html" title="基变换 [math/线性代数/基变换]">过渡矩阵</a></span> 为 $P$ 满足 $\mathcal{B}' = \mathcal{B}P$, 则 $A' = P^{-1}AP$. 因为</p>
+<p>$$ f(\mathcal{B}') \spaces= f(\mathcal{B}P) \spaces= f(\mathcal{B})P \spaces= \mathcal{B}AP \spaces= \mathcal{B}'P^{-1}AP $$</p>
+<p>这就表明 $\mathcal{B}'A' = \mathcal{B}'P^{-1}AP$. 这给出矩阵相似 $A \sim A'$ 的概念, 此时 $P$ 又称为相似变换矩阵.</p>
+</details></section></p>
+<p>积分变换可视为 <span class="link local"><a href="/math/线性代数/基变换.html" title="基变换 [math/线性代数/基变换]">基变换</a></span> 的连续类比.</p>
+</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Example" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Example. </span>旋转变换 <a class="slug" href="/math/线性代数/0164.html">[0164]</a></h1><div class="metadata"><ul></ul></div></header></section><section class="block" data-taxon="Exegesis" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Exegesis. </span>相似 <a class="slug" href="/math/线性代数/0165.html">[0165]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
+
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/线性代数/0164.html" title="旋转变换 [math/线性代数/0164]">■</a><span class="link local" onclick="window.location.href='#math-线性代数-0164'"><span class="taxon">Example. </span>旋转变换</span></li><li class=""><a class="bullet" href="/math/线性代数/0165.html" title="相似 [math/线性代数/0165]">■</a><span class="link local" onclick="window.location.href='#math-线性代数-0165'"><span class="taxon">Exegesis. </span>相似</span></li></ul></div></nav></div></body></html>
