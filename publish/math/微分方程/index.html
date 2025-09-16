@@ -126,9 +126,7 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微分方程-index"><header><h1><span class="taxon"></span>微分方程 <a class="slug" href="/math/微分方程/index.html">[微分方程]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-分离变量"><header><h1><span class="taxon"> 1. </span>分离变量 <a class="slug" href="/math/微分方程/分离变量.html">[分离变量]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\d{\operatorname{d}}$
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微分方程-index"><header><h1><span class="taxon"></span>微分方程 <a class="slug" href="/math/微分方程/index.html">[微分方程]</a></h1><div class="metadata"><ul></ul></div></header></summary><p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-分离变量"><header><h1><span class="taxon"> 1. </span>分离变量 <a class="slug" href="/math/微分方程/分离变量.html">[分离变量]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
 $\gdef\spaces#1{~ #1 ~}$
 $\gdef\dd#1#2{\frac{\d #1}{\d #2}}$</p>
 <p>此类微分方程往往形如</p>
@@ -139,14 +137,12 @@ $$ \frac{\d y}{\sqrt{1-y^2}} = \frac{\d x}{\sqrt{1-x^2}} $$
 由此看出 $\sin^{-1} y = \sin^{-1} x$.</p>
 <p>$\textbf{Example.}$ $xy' = y(1-x)$. 注意可以整理出 $\frac{y'}{y}$ 这项, 沿着这个思路得到 $\frac{y'}{y} = \frac{1}{x} - 1$. 两边积分就是 $\log|y| = \log|x| - x + C$, 遂得 $y = Cxe^{-x}$.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-齐次方程"><header><h1><span class="taxon"> 2. </span>齐次方程 <a class="slug" href="/math/微分方程/齐次方程.html">[齐次方程]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\d{\operatorname{d}}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-齐次方程"><header><h1><span class="taxon"> 2. </span>齐次方程 <a class="slug" href="/math/微分方程/齐次方程.html">[齐次方程]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
 $\gdef\dd#1#2{\frac{\d #1}{\d #2}}$
 $\gdef\spaces#1{~ #1 ~}$</p>
 <p>此时方程形如 $\dd yx = \varphi(\frac{y}{x})$. 换元 $u = \frac{y}{x}$, 则 $\frac{\d y}{\d x} = x \dd u x + u$, 变为 $x \dd u x + u = \varphi(u)$, 可分离变量 $\frac{\d u}{\varphi(u)-u} = \frac{\d x}{x}$ 解得 $u$.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-一阶线性微分方程"><header><h1><span class="taxon"> 3. </span>一阶线性微分方程 <a class="slug" href="/math/微分方程/一阶线性微分方程.html">[一阶线性微分方程]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\d{\operatorname{d}}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-一阶线性微分方程"><header><h1><span class="taxon"> 3. </span>一阶线性微分方程 <a class="slug" href="/math/微分方程/一阶线性微分方程.html">[一阶线性微分方程]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
 $\gdef\dd#1#2{\frac{\d #1}{\d #2}}$
 $\gdef\spaces#1{~ #1 ~}$</p>
 <p>此类方程只包含 $y$ 的一阶导数. $y$ 项次数最高为一, 且系数都是 $x$ 的函数. 即形如</p>
@@ -169,15 +165,13 @@ $$</p>
 <p>$\textbf{Example.}$ 设曲线 $y=f(x)$ 过点 $(1,1)$, 其切线纵截距等于切点横坐标, 求曲线方程.</p>
 <p>依题设切点 $(x,y)$, 切线方程 $Y - y = f'(x)(X - x)$. 纵截距 $y - f'(x)x$ 等于切点横坐标 $x$. 也即解方程 $y - xy' = x$, 化为 $y' - \frac{1}{x} \cdot y = -1$, 由 <span class="link local"><a href="/math/微分方程/一阶线性微分方程.html" title="一阶线性微分方程 [math/微分方程/一阶线性微分方程]">一阶线性微分方程通解</a></span> 得 $y = x(- \log |x| + C)$. 代入 $(1,1)$ 可知 $y = x(1-\log |x|)$.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-微分方程-积分方程"><header><h1><span class="taxon">Example 4. </span>积分方程 <a class="slug" href="/math/微分方程/积分方程.html">[积分方程]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\d{\operatorname{d}}$
+<section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-微分方程-积分方程"><header><h1><span class="taxon">Example 4. </span>积分方程 <a class="slug" href="/math/微分方程/积分方程.html">[积分方程]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
 $\gdef\str#1{{\footnotesize #1}}$</p>
 <p>积分方程的特殊之处在于, 此类问题带有隐含的初值, 为特解问题.</p>
 <p>$\textbf{Example.}$ 求连续函数 $f(x)$ 满足 $f(x) + 2\int_0^x f(t) \d t = x^2$.</p>
 <p>首先来说明 $f$ 可导, 由于 $f$ 是连续函数, 则变限积分 $\int_0^x f(t) \d t$ 可导, 又由于题中等式可知 $f(x) = x^2 - \str{可导项}$, 故 $f$ 可导. 两边求导得到 $f'(x) + 2f(x) = 2x$. 此时可以用类似的方法说明 $f$ 任意阶可导. 由 <span class="link local"><a href="/math/微分方程/一阶线性微分方程.html" title="一阶线性微分方程 [math/微分方程/一阶线性微分方程]">通解</a></span> 得 $f(x) = x - \frac{1}{2} + Ce^{-2x}$. 另一方面, 在题中等式取 $x=0$, 得 $f(0) = 0$. 综上可知 $f(x) = x - \frac{1}{2} + \frac{1}{2}e^{-2x}$.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-Bernoulli方程"><header><h1><span class="taxon"> 5. </span>Bernoulli 方程 <a class="slug" href="/math/微分方程/Bernoulli方程.html">[Bernoulli方程]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\R{\mathbf{R}}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-Bernoulli方程"><header><h1><span class="taxon"> 5. </span>Bernoulli 方程 <a class="slug" href="/math/微分方程/Bernoulli方程.html">[Bernoulli方程]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\R{\mathbf{R}}$
 $\gdef\spaces#1{~ #1 ~}$</p>
 <p>Bernoulli 方程是可以精确求解的非线性常微分方程之一, 具有如下形式</p>
 <p>$$ y' + p(x)y \spaces= q(x)y^\alpha, \quad (\alpha \in \R \smallsetminus \{0, 1\}) $$</p>
@@ -188,8 +182,7 @@ $$</p>
 <p>留意 $z' = (1-\alpha)y^{-\alpha}y'$, 随后同乘 $(1-\alpha)$.</p>
 <p>$\textbf{Example.}$ $y' + \frac{4x}{x^2-1} \cdot y = x\sqrt{y}$. 换元 $\alpha=\frac{1}{2}$, $z = y^{1-\alpha} = \sqrt{y}$, $z' + (1-\alpha)\frac{4x}{x^2-1}z = (1-\alpha)x$, 此时化为 <span class="link local"><a href="/math/微分方程/一阶线性微分方程.html" title="一阶线性微分方程 [math/微分方程/一阶线性微分方程]">一阶线性微分方程</a></span>.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon="Exegesis"><details open><summary id="math-微分方程-叠加原理"><header><h1><span class="taxon">Exegesis 6. </span>叠加原理 <a class="slug" href="/math/微分方程/叠加原理.html">[叠加原理]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$
+<section class="block hide-metadata" data-taxon="Exegesis"><details open><summary id="math-微分方程-叠加原理"><header><h1><span class="taxon">Exegesis 6. </span>叠加原理 <a class="slug" href="/math/微分方程/叠加原理.html">[叠加原理]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\R{\mathbf{R}}$</p>
 <p>对 $n$ 阶线性微分方程, 叠加原理是一种重要的处理策略, 解的结构作为此原理的推论出现. 以 $2$ 阶为例, 设 $y_i^*(x) ~ (i = 1,2)$ 是方程 $y'' + p(x)y' + q(x)y = f_i(x)$ 的特解, 则 $k_1y_1^*(x) + k_2y_2^*(x)$ 作为特解满足方程</p>
 <p>$$
@@ -214,8 +207,7 @@ $$</p>
 $$</p>
 <p>于是 $\lambda + \mu = 1$, 类似地代入 $\lambda y_1 - \mu y_2$ 得到 $\lambda - \mu = 0$, 解得 $\lambda = \mu = \frac{1}{2}$.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-常系数线性微分方程"><header><h1><span class="taxon"> 7. </span>常系数线性微分方程 <a class="slug" href="/math/微分方程/常系数线性微分方程.html">[常系数线性微分方程]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-常系数线性微分方程"><header><h1><span class="taxon"> 7. </span>常系数线性微分方程 <a class="slug" href="/math/微分方程/常系数线性微分方程.html">[常系数线性微分方程]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\str#1{{\footnotesize #1}}$</p>
 <p>对于二阶常系数线性微分方程 $y'' + py' + qy = 0$, 这里 $p,q$ 为常数, 其特征方程为</p>
 <p>$$ \lambda^2 + p\lambda + q \spaces= 0 $$</p>
@@ -259,8 +251,7 @@ k \spaces= \begin{cases}
 \end{cases}
 $$</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-Euler方程"><header><h1><span class="taxon"> 8. </span>Euler 方程 <a class="slug" href="/math/微分方程/Euler方程.html">[Euler方程]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微分方程-Euler方程"><header><h1><span class="taxon"> 8. </span>Euler 方程 <a class="slug" href="/math/微分方程/Euler方程.html">[Euler方程]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\d{\operatorname{d}}$</p>
 <p>$$
 x^ny^{(n)} + p_1x^{n-1}y^{(n-1)} + \cdots + p_{n-1}xy' + p_ny \spaces= f(x)

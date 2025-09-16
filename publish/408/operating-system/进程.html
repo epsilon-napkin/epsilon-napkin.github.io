@@ -126,10 +126,8 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/index.html'" title="计算机操作系统">« 计算机操作系统</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-进程"><header><h1><span class="taxon"></span>进程 <a class="slug" href="/408/operating-system/进程.html">[进程]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>并发执行的问题引出了进程的概念. 进程 [Process] 是一个具有一定独立功能的程序关于某个数据集合的一次运行活动, 是系统进行 <em>资源分配和调度</em> 的一个独立单位.</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-进程控制块"><header><h1><span class="taxon"></span>进程控制块 PCB <a class="slug" href="/408/operating-system/进程控制块.html">[进程控制块]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<ul>
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/index.html'" title="计算机操作系统">« 计算机操作系统</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-进程"><header><h1><span class="taxon"></span>进程 <a class="slug" href="/408/operating-system/进程.html">[进程]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>并发执行的问题引出了进程的概念. 进程 [Process] 是一个具有一定独立功能的程序关于某个数据集合的一次运行活动, 是系统进行 <em>资源分配和调度</em> 的一个独立单位.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-进程控制块"><header><h1><span class="taxon"></span>进程控制块 PCB <a class="slug" href="/408/operating-system/进程控制块.html">[进程控制块]</a></h1><div class="metadata"><ul></ul></div></header></summary><ul>
 <li>系统为了 <em>管理</em> 进程而设置的一个 <em>数据结构</em>.</li>
 <li>记录操作系统所需要的、用于描述进程的 <em>当前信息</em> 以及控制进程运行的 <em>全部信息</em>.</li>
 <li>操作系统通过 <em>PCB</em> 感知进程的存在.</li>
@@ -172,8 +170,7 @@ nav {
 </li>
 </ul>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-七态模型及调度"><header><h1><span class="taxon"></span>七态模型及调度 <a class="slug" href="/408/operating-system/七态模型及调度.html">[七态模型及调度]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p style="text-align: center;"><img class="color-invert" src="../../assets/full-seven-state-dispatch.svg" style="border-radius: 0.2em; width: 800px;"></p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-七态模型及调度"><header><h1><span class="taxon"></span>七态模型及调度 <a class="slug" href="/408/operating-system/七态模型及调度.html">[七态模型及调度]</a></h1><div class="metadata"><ul></ul></div></header></summary><p style="text-align: center;"><img class="color-invert" src="../../assets/full-seven-state-dispatch.svg" style="border-radius: 0.2em; width: 800px;"></p>
 <p>由于多个进程在并发执⾏时共享系统资源, 致使它们在运⾏过程中呈现间断性的运⾏规律, 所以进程在其⽣命周期内可能具有多种状态.⼀般⽽⾔, 每⼀个进程⾄少应处于以下三种基本状态之⼀:</p>
 <ul>
 <li>
@@ -193,8 +190,7 @@ nav {
 <li>负荷调节的需要. 实时系统工作负荷较重, 影响对实时任务的控制.</li>
 <li>操作系统的需要. 检查运行中的资源使用情况或进行记账</li>
 </ol>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-进程的结构"><header><h1><span class="taxon"></span>进程的结构 <a class="slug" href="/408/operating-system/进程的结构.html">[进程的结构]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<div style="display: flex; column-gap: 0.5em;">
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-进程的结构"><header><h1><span class="taxon"></span>进程的结构 <a class="slug" href="/408/operating-system/进程的结构.html">[进程的结构]</a></h1><div class="metadata"><ul></ul></div></header></summary><div style="display: flex; column-gap: 0.5em;">
 <div>
 <ul>
 <li><span class="link local"><a href="/408/operating-system/进程控制块.html" title="进程控制块 PCB [408/operating-system/进程控制块]">进程控制块</a></span></li>
@@ -205,8 +201,7 @@ nav {
 <p style="text-align: center;"><img src="../../assets/process.svg" style="border-radius: 0.2em; width: 300px;"><br>进程的结构</p>
 </div>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-中断和异常"><header><h1><span class="taxon"></span>中断和异常 <a class="slug" href="/408/operating-system/中断和异常.html">[中断和异常]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<h4>中断的作用</h4>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-中断和异常"><header><h1><span class="taxon"></span>中断和异常 <a class="slug" href="/408/operating-system/中断和异常.html">[中断和异常]</a></h1><div class="metadata"><ul></ul></div></header></summary><h4>中断的作用</h4>
 <ol>
 <li>中断会使 CPU 由用户态变为内核态, OS 重新夺回对 CPU 的控制权. (硬件实现)</li>
 <li>如果没有中断机制, 就无法进行并发.</li>
@@ -235,8 +230,7 @@ nav {
 <p><em>异常会引起中断, 中断未必是异常引起的.</em></p>
 </details></section></p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-内核"><header><h1><span class="taxon"></span>内核 <a class="slug" href="/408/operating-system/内核.html">[内核]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<ul>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-内核"><header><h1><span class="taxon"></span>内核 <a class="slug" href="/408/operating-system/内核.html">[内核]</a></h1><div class="metadata"><ul></ul></div></header></summary><ul>
 <li>内核是计算机操作系统的核心程序, 始终对系统中的所有内容拥有完全控制权.</li>
 <li>内核还负责防止和缓解不同进程之间的冲突. 它是始终驻留在内存中的操作系统代码部分, 并促进硬件和软件组件之间的交互.</li>
 <li>完整的内核通过设备驱动程序控制所有硬件资源 (例如 I/O、内存、加密), 仲裁涉及此类资源的进程冲突, 并优化常用资源的利用率. <hint>例如 CPU 和缓存使用、文件系统和网络套接字. 在大多数系统中, 内核是启动时首先加载的程序之一 (在引导加载程序之后). 它处理启动的其余部分, 以及来自软件的内存、外围设备和输入 / 输出 (I/O) 请求, 将它们转换为中央处理单元的数据处理指令. </hint></li>
@@ -263,8 +257,7 @@ nav {
 </ol>
 <p>$\textbf{Remark.}$ 进程控制的目的是实现进程的状态转换.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-进程同步机制"><header><h1><span class="taxon"></span>进程同步机制 <a class="slug" href="/408/operating-system/进程同步机制.html">[进程同步机制]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<h3>进程间的相互关系</h3>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-进程同步机制"><header><h1><span class="taxon"></span>进程同步机制 <a class="slug" href="/408/operating-system/进程同步机制.html">[进程同步机制]</a></h1><div class="metadata"><ul></ul></div></header></summary><h3>进程间的相互关系</h3>
 <h4>竞争关系 [Competition]</h4>
 <ul>
 <li>间接制约关系</li>
@@ -326,8 +319,7 @@ nav {
 1. 用户级线程实现与操作系统平台无关 
 -->
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-信号量机制"><header><h1><span class="taxon"></span>信号量机制 <a class="slug" href="/408/operating-system/信号量机制.html">[信号量机制]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-信号量机制"><header><h1><span class="taxon"></span>信号量机制 <a class="slug" href="/408/operating-system/信号量机制.html">[信号量机制]</a></h1><div class="metadata"><ul></ul></div></header></summary><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/c.min.js"></script>
 <script>hljs.highlightAll();</script>
@@ -524,8 +516,7 @@ mother() {
 <p>Also see: <span class="link external"><a href="https://www.cnblogs.com/Ligo-Z/p/14139991.html" title="https://www.cnblogs.com/Ligo-Z/p/14139991.html">https://www.cnblogs.com/Ligo-Z/p/14139991.html</a></span></p>
 </blockquote>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-经典的进程同步问题"><header><h1><span class="taxon"></span>经典的进程同步问题 <a class="slug" href="/408/operating-system/经典的进程同步问题.html">[经典的进程同步问题]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-经典的进程同步问题"><header><h1><span class="taxon"></span>经典的进程同步问题 <a class="slug" href="/408/operating-system/经典的进程同步问题.html">[经典的进程同步问题]</a></h1><div class="metadata"><ul></ul></div></header></summary><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/c.min.js"></script>
 <script>hljs.highlightAll();</script>

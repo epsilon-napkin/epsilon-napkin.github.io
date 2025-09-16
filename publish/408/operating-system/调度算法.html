@@ -126,13 +126,11 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/处理机调度与死锁.html'" title="处理机调度与死锁">« 处理机调度与死锁</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-调度算法"><header><h1><span class="taxon"></span>调度算法 <a class="slug" href="/408/operating-system/调度算法.html">[调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/处理机调度与死锁.html'" title="处理机调度与死锁">« 处理机调度与死锁</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-调度算法"><header><h1><span class="taxon"></span>调度算法 <a class="slug" href="/408/operating-system/调度算法.html">[调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\str#1{\footnotesize{#1}}$
 $\gdef\hint#1{{\color{gray}{\str{#1}}}}$
 $\gdef\type#1{~:~\texttt{#1}}$</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-先来先服务"><header><h1><span class="taxon"></span>先来先服务 <a class="slug" href="/408/operating-system/先来先服务.html">[先来先服务]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p><span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 是最简单的调度算法, 该算法既可⽤于作业调度, 也可⽤于进程调度. 当在作业调度中采⽤该算法时, 系统将按照作业到达的先后次序来进⾏调度, 或者说它是优先考虑在系统中等待时间最长的作业,⽽不管该作业所需执⾏时间的长短, 从后备作业队列中选择⼏个最先进⼊该队列的作业, 将它们调⼊内存, 为它们分配资源和创建进程. 然后把它放⼊就绪队列.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-先来先服务"><header><h1><span class="taxon"></span>先来先服务 <a class="slug" href="/408/operating-system/先来先服务.html">[先来先服务]</a></h1><div class="metadata"><ul></ul></div></header></summary><p><span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 是最简单的调度算法, 该算法既可⽤于作业调度, 也可⽤于进程调度. 当在作业调度中采⽤该算法时, 系统将按照作业到达的先后次序来进⾏调度, 或者说它是优先考虑在系统中等待时间最长的作业,⽽不管该作业所需执⾏时间的长短, 从后备作业队列中选择⼏个最先进⼊该队列的作业, 将它们调⼊内存, 为它们分配资源和创建进程. 然后把它放⼊就绪队列.</p>
 <p>当在进程调度中采⽤ <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法时, 每次调度是从就绪的进程队列中选择⼀个最先进⼊该队列的进程, 为之分配处理机, 使之投⼊运⾏. 该进程⼀直运⾏到完成或发⽣某事件⽽阻塞后, 进程调度程序才将处理机分配给其它进程.</p>
 <p>顺便说明, <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法在单处理机系统中已很少作为主调度算法, 但经常把它与其它调度算法相结合使⽤, 形成⼀种更为有效的调度算法. 例如, 可以在系统中按进程的优先级设置多个队列, 每个优先级⼀个队列, 其中每⼀个队列的调度都基于 <span class="link local"><a href="/408/operating-system/先来先服务.html" title="先来先服务 [408/operating-system/先来先服务]">FCFS</a></span> 算法.</p>
 <h4>先来先服务 [FCFS, First Come First Served]</h4>
@@ -156,8 +154,7 @@ $\gdef\type#1{~:~\texttt{#1}}$</p>
 <tr><td style="text-align: center">平均</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">$9$</td><td style="text-align: center">$2.8$</td></tr>
 </tbody></table>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-短作业优先"><header><h1><span class="taxon"></span>短作业优先 <a class="slug" href="/408/operating-system/短作业优先.html">[短作业优先]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>短作业优先算法 SJF 是以作业的长短来计算优先级, 作业越短, 其优先级越⾼. 作业的长短是以作业所要求的运⾏时间来衡量的. SJF 算法可以分别⽤于作业调度和进程调度. 在把短作业优先调度算法⽤于作业调度时, 它将从外存的作业后备队列中选择若⼲个估计运⾏时间最短的作业, 优先将它们调⼊内存运⾏.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-短作业优先"><header><h1><span class="taxon"></span>短作业优先 <a class="slug" href="/408/operating-system/短作业优先.html">[短作业优先]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>短作业优先算法 SJF 是以作业的长短来计算优先级, 作业越短, 其优先级越⾼. 作业的长短是以作业所要求的运⾏时间来衡量的. SJF 算法可以分别⽤于作业调度和进程调度. 在把短作业优先调度算法⽤于作业调度时, 它将从外存的作业后备队列中选择若⼲个估计运⾏时间最短的作业, 优先将它们调⼊内存运⾏.</p>
 <h4>短作业优先 [SJF, Shortest Job First]</h4>
 <ul>
 <li>用于作业调度和进程调度</li>
@@ -179,8 +176,7 @@ $\gdef\type#1{~:~\texttt{#1}}$</p>
 <tr><td style="text-align: center">平均</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">$8$</td><td style="text-align: center">$2.1$</td></tr>
 </tbody></table>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-优先级调度算法"><header><h1><span class="taxon"></span>优先级调度算法 <a class="slug" href="/408/operating-system/优先级调度算法.html">[优先级调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>在优先级调度算法中, 基于作业的紧迫程度, 由外部赋予作业相应的优先级, 调度算法是根据该优先级进⾏调度的. 这样就可以保证紧迫性作业优先运⾏.优先级调度算法可作为作业调度算法, 也可作为进程调度算法. 当把该算法⽤于作业调度时, 系统是从后备队列中选择若⼲个优先级最⾼的作业装⼊内存.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-优先级调度算法"><header><h1><span class="taxon"></span>优先级调度算法 <a class="slug" href="/408/operating-system/优先级调度算法.html">[优先级调度算法]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>在优先级调度算法中, 基于作业的紧迫程度, 由外部赋予作业相应的优先级, 调度算法是根据该优先级进⾏调度的. 这样就可以保证紧迫性作业优先运⾏.优先级调度算法可作为作业调度算法, 也可作为进程调度算法. 当把该算法⽤于作业调度时, 系统是从后备队列中选择若⼲个优先级最⾼的作业装⼊内存.</p>
 <h4>优先级调度 [PSA, Priority-Scheduling Algorithm]</h4>
 <ul>
 <li>用于作业调度和进程调度</li>
@@ -206,8 +202,7 @@ $\gdef\type#1{~:~\texttt{#1}}$</p>
 <li>动态优先级: 创建进程时有一个初始值, 之后会根据情况动态地调整优先级.</li>
 </ul>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-高响应比优先"><header><h1><span class="taxon"></span>高响应比优先 <a class="slug" href="/408/operating-system/高响应比优先.html">[高响应比优先]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-高响应比优先"><header><h1><span class="taxon"></span>高响应比优先 <a class="slug" href="/408/operating-system/高响应比优先.html">[高响应比优先]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\str#1{\footnotesize{#1}}$
 $\gdef\hint#1{{\color{gray}{\str{#1}}}}$
 $\gdef\type#1{~:~\texttt{#1}}$</p>
@@ -230,8 +225,7 @@ $$</p>
 <li>是否会导致饥饿: 不会.</li>
 </ul>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-时间片轮转"><header><h1><span class="taxon"></span>时间片轮转 <a class="slug" href="/408/operating-system/时间片轮转.html">[时间片轮转]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<h4>时间片轮转 [RR, Round-Robin]</h4>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-operating-system-时间片轮转"><header><h1><span class="taxon"></span>时间片轮转 <a class="slug" href="/408/operating-system/时间片轮转.html">[时间片轮转]</a></h1><div class="metadata"><ul></ul></div></header></summary><h4>时间片轮转 [RR, Round-Robin]</h4>
 <ul>
 <li>算法规则: 按照各进程到达就绪队列的顺序, 轮流让各个进程执行一个时间片 (如 <code>100ms</code>). 若进程末在一个时间片内执行完, 则剥夺处理机, 将进程重新放到就绪队列队尾重新排队.</li>
 <li>优点: 公平; 响应快, 适用于分时操作系统;</li>
@@ -247,8 +241,7 @@ $$</p>
 <tr><td style="text-align: center">平均</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">$12.2$</td><td style="text-align: center">$3.373..$</td></tr>
 </tbody></table>
 </details></section>
-<section class="block hide-metadata" data-taxon="Example"><details open><summary id="408-operating-system-调度算法-例"><header><h1><span class="taxon">Example. </span>调度算法 <a class="slug" href="/408/operating-system/调度算法-例.html">[调度算法-例]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\textbf{Example.}$ 有 5 个批处理作业 (A、B、C、D、E) 几乎同时到达, 估计的运行时间分别为 2、4、6、8、10, 它们的优先级分别为 1、2、3、4、5 (1 为最低优先级). 对下面的每种调度算法, 分别计算作业的平均周转时间和平均带权周转时间.</p>
+<section class="block hide-metadata" data-taxon="Example"><details open><summary id="408-operating-system-调度算法-例"><header><h1><span class="taxon">Example. </span>调度算法 <a class="slug" href="/408/operating-system/调度算法-例.html">[调度算法-例]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\textbf{Example.}$ 有 5 个批处理作业 (A、B、C、D、E) 几乎同时到达, 估计的运行时间分别为 2、4、6、8、10, 它们的优先级分别为 1、2、3、4、5 (1 为最低优先级). 对下面的每种调度算法, 分别计算作业的平均周转时间和平均带权周转时间.</p>
 <ol>
 <li>先来先服务 FCFS (作业到达顺序为 CDBEA).</li>
 <li>短作业优先 SJF.</li>

@@ -126,8 +126,7 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/transport-layer.html'" title="运输层">« 运输层</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-udp"><header><h1><span class="taxon"></span>⽤户数据报协议 UDP <a class="slug" href="/408/network/udp.html">[udp]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>⽤户数据报协议 UDP 只在 IP 的 <span class="link local"><a href="/408/network/ip-datagram.html" title="IP 数据报的格式 [408/network/ip-datagram]">数据报</a></span> 服务之上增加了很少⼀点的功能, 这就是 <span class="link local"><a href="/408/network/transport-layer.html" title="运输层 [408/network/transport-layer]">复⽤和分⽤</a></span> 的功能以及差错检测的功能. 当运输层采⽤⽆连接的 UDP 协议时, 这种逻辑通信信道仍然是⼀条不可靠信道.</p>
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/transport-layer.html'" title="运输层">« 运输层</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-udp"><header><h1><span class="taxon"></span>⽤户数据报协议 UDP <a class="slug" href="/408/network/udp.html">[udp]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>⽤户数据报协议 UDP 只在 IP 的 <span class="link local"><a href="/408/network/ip-datagram.html" title="IP 数据报的格式 [408/network/ip-datagram]">数据报</a></span> 服务之上增加了很少⼀点的功能, 这就是 <span class="link local"><a href="/408/network/transport-layer.html" title="运输层 [408/network/transport-layer]">复⽤和分⽤</a></span> 的功能以及差错检测的功能. 当运输层采⽤⽆连接的 UDP 协议时, 这种逻辑通信信道仍然是⼀条不可靠信道.</p>
 <ol>
 <li>UDP 是无连接的, 发送数据之前不需要建立连接, 因此减少了开销和发送数据之前的时延.</li>
 <li>UDP 使用尽最大努力交付, 即不保证可靠交付, 因此主机不需要维持复杂的连接状态表.</li>

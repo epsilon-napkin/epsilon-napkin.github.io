@@ -126,10 +126,8 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/index.html'" title="计算机网络">« 计算机网络</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-application-layer"><header><h1><span class="taxon"></span>应用层 <a class="slug" href="/408/network/application-layer.html">[application-layer]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>应用层的内容非常具体, 且大半概念在如今看都是常识, 我们此处只展开可能生疏的部分.</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-dns"><header><h1><span class="taxon"></span>域名解析 <a class="slug" href="/408/network/dns.html">[dns]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>域名解析分为 递归查询 和 迭代查询 两种.</p>
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/index.html'" title="计算机网络">« 计算机网络</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-application-layer"><header><h1><span class="taxon"></span>应用层 <a class="slug" href="/408/network/application-layer.html">[application-layer]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>应用层的内容非常具体, 且大半概念在如今看都是常识, 我们此处只展开可能生疏的部分.</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-dns"><header><h1><span class="taxon"></span>域名解析 <a class="slug" href="/408/network/dns.html">[dns]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>域名解析分为 递归查询 和 迭代查询 两种.</p>
 <h4>递归查询</h4>
 <ol>
 <li>客户端向递归服务器发送一个请求, 比如解析 <code>www.example.com</code>.</li>
@@ -155,8 +153,7 @@ nav {
 <p>无论是浏览器、 操作系统, 还是本地的递归 DNS 服务器, 在接收到域名解析结果之后, 都会将其暂时保存在本地缓存中. 这样, 如果同一个域名在短时间内被多次请求, 就可以直接从缓存中获取结果, 而不需要再次向外部服务器发送查询请求.</p>
 <p>DNS 记录中包含一个名为 TTL [Time to Live] 的字段, 用于指定这条记录可以在缓存中保存多久. 比如 TTL 为 3600 表示记录在缓存中可保留 3600 秒. 在这段时间内, 只要有查询, 就可以直接使用缓存的结果. 当 TTL 到期后, 缓存记录会被丢弃, 下一次查询将重新走完整的解析流程.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-ftp"><header><h1><span class="taxon"></span>文件传输协议 <a class="slug" href="/408/network/ftp.html">[ftp]</a></h1><div class="metadata"><ul><li class="meta-item">File Transfer Protocol</li></ul></div></header></summary>
-<h4>工作原理</h4>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-ftp"><header><h1><span class="taxon"></span>文件传输协议 <a class="slug" href="/408/network/ftp.html">[ftp]</a></h1><div class="metadata"><ul><li class="meta-item">File Transfer Protocol</li></ul></div></header></summary><h4>工作原理</h4>
 <ol>
 <li>建立连接
 <ul>
@@ -197,8 +194,7 @@ nav {
 </li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-email"><header><h1><span class="taxon"></span>电子邮件 <a class="slug" href="/408/network/email.html">[email]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>电子邮件系统由 用户代理、 邮件服务器 以及 电子邮件协议 这三个核心组成部分协同工作, 确保邮件的发送、 接收和存储.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-email"><header><h1><span class="taxon"></span>电子邮件 <a class="slug" href="/408/network/email.html">[email]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>电子邮件系统由 用户代理、 邮件服务器 以及 电子邮件协议 这三个核心组成部分协同工作, 确保邮件的发送、 接收和存储.</p>
 <ul>
 <li>用户代理 [UA, User Agent] 是用户与电子邮件系统交互的接口, 通常是邮件客户端软件.</li>
 <li>邮件服务器 [Mail Server] 是电子邮件系统的核心, 负责存储、转发和管理邮件.</li>
@@ -214,8 +210,7 @@ nav {
 <li>支持多部分内容 [Multipart], 一封邮件可以同时包含文本和附件, 甚至不同格式的内容.</li>
 </ol>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-www"><header><h1><span class="taxon"></span>万维网与 HTTP 协议 <a class="slug" href="/408/network/www.html">[www]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>万维网 [WWW, World Wide Web], 是一个信息系统, 在这个系统中, 文档和其他资源通过统一资源标识符 [URI, Uniform Resource Identifiers] <sup class="footnote-reference" id="408_network_www_url-back"><a href="#408_network_www_url">1</a></sup> 进行标识和互相链接. 用户可以使用网络浏览器访问万维网上的资源. URI 的语法由五个按从左到右重要性递减的组件组成.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-www"><header><h1><span class="taxon"></span>万维网与 HTTP 协议 <a class="slug" href="/408/network/www.html">[www]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>万维网 [WWW, World Wide Web], 是一个信息系统, 在这个系统中, 文档和其他资源通过统一资源标识符 [URI, Uniform Resource Identifiers] <sup class="footnote-reference" id="408_network_www_url-back"><a href="#408_network_www_url">1</a></sup> 进行标识和互相链接. 用户可以使用网络浏览器访问万维网上的资源. URI 的语法由五个按从左到右重要性递减的组件组成.</p>
 <pre><code>URI = scheme ":" ["//" authority] path ["?" query] ["#" fragment]
 
 authority = [userinfo "@"] host [":" port]

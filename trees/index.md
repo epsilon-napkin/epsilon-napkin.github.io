@@ -12,6 +12,7 @@ collect: true
   - `01` $\to$ [`线性代数/`](./math/线性代数/)
   - `02` $\to$ [`概统/`](./math/概统/)
   - `03` $\to$ [`习题集/`](./math/习题集/)
+  - `04` $\to$ [`微分方程/`](./math/微分方程/)
 - `1` $\to$ [`408/`](./408/)
   - `11` $\to$ [`data-structure/`](./408/data-structure/)
   - `12` $\to$ [`constitution-principle/`](./408/constitution-principle/)

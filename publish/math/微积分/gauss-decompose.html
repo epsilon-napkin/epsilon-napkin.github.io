@@ -126,8 +126,7 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-gauss-decompose"><header><h1><span class="taxon"></span>Gauss 分解 <a class="slug" href="/math/微积分/gauss-decompose.html">[gauss-decompose]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary>
-<p>$\gdef\Q{\mathbf{Q}}$
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-gauss-decompose"><header><h1><span class="taxon"></span>Gauss 分解 <a class="slug" href="/math/微积分/gauss-decompose.html">[gauss-decompose]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary><p>$\gdef\Q{\mathbf{Q}}$
 $\gdef\d{\operatorname{d}}$
 $\gdef\spaces#1{~ #1 ~}$</p>
 <p>处理有理函数积分 $\int \frac{P_n(x)}{P_m(x)} \d x$ $(n &lt; m)$ 的一种方法是将其裂项为分子 $\deg(-) \le 1$ 且分母 $\deg(-) \le 2$ 的有理函数之和, 也称为部分分式分解. 每个 $k$ 重因式 $(x-a)^k$ 会贡献出如下分解项</p>
@@ -144,8 +143,19 @@ $$</p>
 <li>重因式情形 $\frac{P_2(x)}{(x-a)^2(x-b)}$ 可以分解为 $\frac{A}{x-a} + \frac{B}{(x-a)^2} + \frac{C}{x-b}$.</li>
 </ul>
 <p>系数的确定一般灵活使用 <span class="link external"><a href="https://en.wikipedia.org/wiki/Heaviside_cover-up_method" title="Heaviside 覆盖法 [https://en.wikipedia.org/wiki/Heaviside_cover-up_method]">Heaviside 覆盖法</a></span>, 对于不能表为 $(x-a)^{-k}$ 的项, 额外考虑 $0,1$ 和 $\infty$ 处的取值.</p>
-<p><section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-微积分-0021"><header><h1><span class="taxon">Example. </span>实二次不可约 <a class="slug" href="/math/微积分/0021.html">[0021]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\d{\operatorname{d}}$
+<p><section class="block hide-metadata" data-taxon="Remark"><details open><summary id="math-微积分-0024"><header><h1><span class="taxon">Remark. </span>复对数无单值性 <a class="slug" href="/math/微积分/0024.html">[0024]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
+$\gdef\spaces#1{~ #1 ~}$</p>
+<p>请读者观察下面的例子, 其展示了复数在不定积分中并非可以随意使用</p>
+<p>$$
+\begin{aligned}
+\int \frac{\d x}{1+x^2} 
+&amp;\spaces= \frac{1}{2\sqrt{-1}} \int \frac{1}{x-\sqrt{-1}} - \frac{1}{x+\sqrt{-1}} \d x \\
+&amp;\spaces= \frac{1}{2\sqrt{-1}} \log \frac{x-\sqrt{-1}}{x+\sqrt{-1}} \quad (= \tfrac{\pi}{2}-\arctan x)
+\end{aligned}
+$$</p>
+<p>因为复对数是多值函数, 而此处积分并未保证复对数取主值分支.</p>
+</details></section>
+<section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-微积分-0021"><header><h1><span class="taxon">Example. </span>实二次不可约 <a class="slug" href="/math/微积分/0021.html">[0021]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
 $\gdef\spaces#1{~ #1 ~}$</p>
 <p>分解 $R(x) = \frac{2x+1}{(x^2+x+1)(x+1)}$ 从而计算 $\int R(x) \d x$.</p>
 <p>$$
@@ -166,8 +176,23 @@ $$</p>
 <p>$$ \square \spaces= -\log|x+1| + \frac{1}{2} \log(x^2+x+1) + \sqrt{3}\tan^{-1} \frac{2x+1}{\sqrt{x}} $$</p>
 <p>对数部分看不出也无妨, 请回忆一般的 <span class="link local"><a href="/math/微积分/0022.html" title="有理形的注记 [math/微积分/0022]">配凑形式</a></span>.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-微积分-0031"><header><h1><span class="taxon">Example. </span>三角多项式 <a class="slug" href="/math/微积分/0031.html">[0031]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$
+<section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-微积分-0023"><header><h1><span class="taxon">Example. </span>有理四次不可约 <a class="slug" href="/math/微积分/0023.html">[0023]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
+$\gdef\d{\operatorname{d}}$
+$\gdef\Q{\mathbf{Q}}$
+$\gdef\R{\mathbf{R}}$</p>
+<p>为了处理如下这种分母为高次 $\Q$ 不可约多项式的积分, 我们可以考虑其在 $\R$ 上的分解 $x^4+1=(x^2+\sqrt{2}x+1)(x^2-\sqrt{2}x+1)$, 因为系数 $\sqrt{2}$ 并不影响我们积分.</p>
+<p>$$ \int \frac{1}{1+x^4} \d x \spaces= \frac{1}{2\sqrt{2}} \int \bigg(\frac{x+\sqrt{2}}{x^2+\sqrt{2}x+1} - \frac{x-\sqrt{2}}{x^2-\sqrt{2}x+1} \bigg) \d x $$</p>
+<p>但此方法不易计算, 我们观察:</p>
+<ul>
+<li>
+<p>$I = \int \frac{\d x}{1+x^4}$, $J = \int \frac{x^2}{1+x^4} \d x$, $I+J$ 和 $I-J$ 是容易计算的, 因为 $$ \begin{aligned} I+J &amp;\spaces= \int \frac{1+\frac{1}{x^2}}{x^2+\frac{1}{x^2}} \d x \spaces= \int \frac{\d(x-\frac{1}{x})}{(x-\frac{1}{x})^2+2} \spaces= \frac{1}{\sqrt{2}}\tan^{-1}\frac{x-\frac{1}{x}}{\sqrt{2}} \end{aligned}$$ $$ \begin{aligned} I-J &amp;\spaces= -\int \frac{1-\frac{1}{x^2}}{x^2+\frac{1}{x^2}} \d x \spaces= -\int \frac{\d(x+\frac{1}{x})}{(x+\frac{1}{x})^2-2} \spaces= -\frac{1}{2\sqrt{2}}\log\frac{x+\frac{1}{x}-\sqrt{2}}{x+\frac{1}{x}+\sqrt{2}} \end{aligned}$$ 解得 $$ I \spaces= -\frac{1}{4\sqrt{2}} \log \frac{x^2-\sqrt{2}x+1}{x^2+\sqrt{2}x+1} + \frac{1}{2\sqrt{2}}\tan^{-1} \frac{x^2-1}{\sqrt{2}x} + C$$ $$ J \spaces= \frac{1}{4\sqrt{2}} \log \frac{x^2-\sqrt{2}x+1}{x^2+\sqrt{2}x+1} + \frac{1}{2\sqrt{2}}\tan^{-1}\frac{x^2-1}{\sqrt{2}x} + C $$</p>
+</li>
+<li>
+<p>也可以考虑 $I = \int \frac{x^2+1}{1+x^4}\d x$, $J = \int \frac{x^2-1}{1+x^4} \d x$, 于是 $\square = \frac{I-J}{2}$. 现在 $ I = \frac{1}{\sqrt{2}}\tan^{-1}\frac{x-\frac{1}{x}}{\sqrt{2}}$, $J = \frac{1}{2\sqrt{2}}\log\frac{x+\frac{1}{x}-\sqrt{2}}{x+\frac{1}{x}+\sqrt{2}}$, 故 $$ \square \spaces= \frac{1}{2\sqrt{2}}\tan^{-1}\frac{x^2-1}{\sqrt{2}x} -\frac{1}{4\sqrt{2}} \log \frac{x^2-\sqrt{2}x+1}{x^2+\sqrt{2}x+1} + C $$</p>
+</li>
+</ul>
+</details></section>
+<section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-微积分-0031"><header><h1><span class="taxon">Example. </span>三角多项式 <a class="slug" href="/math/微积分/0031.html">[0031]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\d{\operatorname{d}}$</p>
 <p>分母没有直接简化的办法, 所以我们全化为 $\cos x$ 的多项式. 回忆 <span class="link local"><a href="/math/微积分/gauss-decompose.html" title="Gauss 分解 [math/微积分/gauss-decompose]">Gauss 分解</a></span>, 我们写下</p>
 <p>$$
@@ -180,9 +205,9 @@ $\gdef\d{\operatorname{d}}$</p>
 $$</p>
 <p>此处 $u = \cos x$, 现在我们来确定 $A,B,C$. 取 $u=1 \rArr A = \frac{1}{4}$, 取 $u=-1 \rArr C = \frac{1}{2}$, 所以</p>
 <p>$$
-\square \spaces= -\frac{1}{4}\log \frac{1+\cos x}{1-\cos x} + \frac{1}{2(1+\cos x)} + C
+\square \spaces= -\frac{1}{4}\log \frac{1+\cos x}{1-\cos x} + \frac{1}{2(1+\cos x)} + \operatorname{const.}
 $$</p>
 </details></section></p>
-</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Gauss 分解 <a class="slug" href="/math/微积分/gauss-decompose.html">[gauss-decompose]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></section></details></section><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Example" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Example. </span>三角多项式 <a class="slug" href="/math/微积分/0031.html">[0031]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
+</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>有理形的注记 <a class="slug" href="/math/微积分/0022.html">[0022]</a></h1><div class="metadata"><ul></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Gauss 分解 <a class="slug" href="/math/微积分/gauss-decompose.html">[gauss-decompose]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></section></details></section><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Example" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Example. </span>三角多项式 <a class="slug" href="/math/微积分/0031.html">[0031]</a></h1><div class="metadata"><ul></ul></div></header></section></details></section></footer></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/微积分/0021.html" title="实二次不可约 [math/微积分/0021]">■</a><span class="link local" onclick="window.location.href='#math-微积分-0021'"><span class="taxon">Example. </span>实二次不可约</span></li><li class=""><a class="bullet" href="/math/微积分/0031.html" title="三角多项式 [math/微积分/0031]">■</a><span class="link local" onclick="window.location.href='#math-微积分-0031'"><span class="taxon">Example. </span>三角多项式</span></li></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/微积分/0024.html" title="复对数无单值性 [math/微积分/0024]">■</a><span class="link local" onclick="window.location.href='#math-微积分-0024'"><span class="taxon">Remark. </span>复对数无单值性</span></li><li class=""><a class="bullet" href="/math/微积分/0021.html" title="实二次不可约 [math/微积分/0021]">■</a><span class="link local" onclick="window.location.href='#math-微积分-0021'"><span class="taxon">Example. </span>实二次不可约</span></li><li class=""><a class="bullet" href="/math/微积分/0023.html" title="有理四次不可约 [math/微积分/0023]">■</a><span class="link local" onclick="window.location.href='#math-微积分-0023'"><span class="taxon">Example. </span>有理四次不可约</span></li><li class=""><a class="bullet" href="/math/微积分/0031.html" title="三角多项式 [math/微积分/0031]">■</a><span class="link local" onclick="window.location.href='#math-微积分-0031'"><span class="taxon">Example. </span>三角多项式</span></li></ul></div></nav></div></body></html>

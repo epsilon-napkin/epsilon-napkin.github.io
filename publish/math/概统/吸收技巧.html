@@ -126,8 +126,7 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/概统/二项分布.html'" title="二项分布">« 二项分布</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Exegesis"><details open><summary id="math-概统-吸收技巧"><header><h1><span class="taxon">Exegesis. </span>吸收技巧 <a class="slug" href="/math/概统/吸收技巧.html">[吸收技巧]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/概统/二项分布.html'" title="二项分布">« 二项分布</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Exegesis"><details open><summary id="math-概统-吸收技巧"><header><h1><span class="taxon">Exegesis. </span>吸收技巧 <a class="slug" href="/math/概统/吸收技巧.html">[吸收技巧]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$
 $\gdef\E{\mathbb{E}}$</p>
 <p>恒等式 $k \binom{n}{k} = n \binom{n-1}{k-1}$ 可以通过简单地移项证明, 留意 $(n-k)! = ((n-1)-(k-1))!$, 故 $\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$. 现在考虑 $S = \sum_{0 \le k \le n} k^2 {n \choose k} p^k (1-p)^{n-k}$ 这样一个和, 其无法通过直接使用 $k \binom{n}{k} = n \binom{n-1}{k-1}$ 来简化, 但我们可以通过 <span class="link local"><a href="/math/概统/降阶乘基表示.html" title="降阶乘基变换 [math/概统/降阶乘基表示]">降阶乘基表示</a></span> 将 $k^2$ 写成 $k(k-1)+k$, 如此 $k(k-1) \binom{n}{k} = n(n-1) \binom{n-2}{k-2}$, 应用之</p>
 <p>$$

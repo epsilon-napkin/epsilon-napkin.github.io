@@ -126,23 +126,19 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Exegesis"><details open><summary id="math-微积分-向量微积分"><header><h1><span class="taxon">Exegesis. </span>向量微积分 <a class="slug" href="/math/微积分/向量微积分.html">[向量微积分]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary>
-<p>向量微积分中三个基本的向量运算符是:</p>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-微积分-梯度"><header><h1><span class="taxon"></span>梯度 <a class="slug" href="/math/微积分/梯度.html">[梯度]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\d{\operatorname{d}}$
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Exegesis"><details open><summary id="math-微积分-向量微积分"><header><h1><span class="taxon">Exegesis. </span>向量微积分 <a class="slug" href="/math/微积分/向量微积分.html">[向量微积分]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary><p>向量微积分中三个基本的向量运算符是:</p>
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="math-微积分-梯度"><header><h1><span class="taxon"></span>梯度 <a class="slug" href="/math/微积分/梯度.html">[梯度]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
 $\gdef\dif{\partial}$
 $\gdef\grad{\operatorname{grad}}$</p>
 <p>梯度 $\grad f = (\frac{\dif f}{\dif x_1}, \frac{\dif f}{\dif x_2}, \cdots, \frac{\dif f}{\dif x_n})$ 是向量值函数, 其值给出点 $p$ 处最快增长的方向和速率, <span class="link local"><a href="/math/微积分/nabla.html" title="nabla 记号 [math/微积分/nabla]">也用 $\nabla f$ 作为记号</a></span>.</p>
 <p>梯度在一点的值是切向量, 而全导数 $\frac{\d f}{\d t} = \sum_{i} \frac{\dif f}{\dif x_i} \cdot \frac{\d x_i}{\d t} $ 在一点处的值是余切向量. 若将路径 $x(t)$ 的导数 $\frac{\d x}{\d t}$​ 记为方向向量 $v$, 则 $\frac{\d f}{\d t} = \nabla f \cdot v$. <span class="link local"><a href="/math/微积分/梯度定理.html" title="梯度定理 [math/微积分/梯度定理]">梯度定理</a></span> 指出, 梯度沿路径的积分等于该标量场在路径端点的差值.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微积分-散度"><header><h1><span class="taxon"></span>散度 <a class="slug" href="/math/微积分/散度.html">[散度]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\d{\operatorname{d}}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微积分-散度"><header><h1><span class="taxon"></span>散度 <a class="slug" href="/math/微积分/散度.html">[散度]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
 $\gdef\dif{\partial}$
 $\gdef\div{\operatorname{div}}$</p>
 <p>散度 $\div$ 作用于向量场 $F$ 产生一个标量场, 给出向量场在每个点的无穷小邻域中改变体积的速率, 或者说描述了向量场在某一点处的 “源” 或“汇“ 的强度, <span class="link local"><a href="/math/微积分/nabla.html" title="nabla 记号 [math/微积分/nabla]">也用 $\nabla \cdot F$ 作为记号</a></span>. 设 $F: \R^n \to \R^n$ 是光滑向量场, 分量 $F_i: \R^n \to \R$, 散度是一个标量函数, 定义为向量场各分量在对应方向上的偏导数之和 $\div F = \sum_i \frac{\dif F_i}{\dif x_i}$, 由 $\div F$ 和 $0$ 的比较可以确定某点是向外发散的 “源” $(\div F &gt; 0)$ 或被吸收的 “汇” $(\div F &lt; 0)$ 或无源场 $(\div F = 0)$. <span class="link local"><a href="/math/微积分/散度定理.html" title="散度定理 [math/微积分/散度定理]">散度定理</a></span> 将散度的体积积分与向量场通过边界的通量联系起来. 标量函数 $f$ 的梯度 $\nabla f$ 的散度 $\nabla \cdot (\nabla f)$ 是 Laplacian 作用在 $f$ 上 $\nabla^2 f$, 这里 Laplacian $\nabla^2 = \sum_{i=1}^n \frac{\partial^2}{\dif x_i^2}$.</p>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微积分-旋度"><header><h1><span class="taxon"></span>旋度 <a class="slug" href="/math/微积分/旋度.html">[旋度]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\d{\operatorname{d}}$
+<section class="block hide-metadata" data-taxon=""><details open><summary id="math-微积分-旋度"><header><h1><span class="taxon"></span>旋度 <a class="slug" href="/math/微积分/旋度.html">[旋度]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\d{\operatorname{d}}$
 $\gdef\dif{\partial}$
 $\gdef\curl{\operatorname{curl}}$
 $\gdef\spaces#1{~ #1 ~}$</p>

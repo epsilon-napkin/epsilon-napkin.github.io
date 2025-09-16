@@ -126,8 +126,7 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/调度算法.html'" title="调度算法">« 调度算法</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-时间片轮转"><header><h1><span class="taxon"></span>时间片轮转 <a class="slug" href="/408/operating-system/时间片轮转.html">[时间片轮转]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<h4>时间片轮转 [RR, Round-Robin]</h4>
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/operating-system/调度算法.html'" title="调度算法">« 调度算法</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-operating-system-时间片轮转"><header><h1><span class="taxon"></span>时间片轮转 <a class="slug" href="/408/operating-system/时间片轮转.html">[时间片轮转]</a></h1><div class="metadata"><ul></ul></div></header></summary><h4>时间片轮转 [RR, Round-Robin]</h4>
 <ul>
 <li>算法规则: 按照各进程到达就绪队列的顺序, 轮流让各个进程执行一个时间片 (如 <code>100ms</code>). 若进程末在一个时间片内执行完, 则剥夺处理机, 将进程重新放到就绪队列队尾重新排队.</li>
 <li>优点: 公平; 响应快, 适用于分时操作系统;</li>

@@ -28,5 +28,7 @@ $$
 
 系数的确定一般灵活使用 [Heaviside 覆盖法](https://en.wikipedia.org/wiki/Heaviside_cover-up_method), 对于不能表为 $(x-a)^{-k}$ 的项, 额外考虑 $0,1$ 和 $\infty$ 处的取值. 
 
+[](./0024.md#:embed)
 [](./0021.md#:embed)
+[](./0023.md#:embed)
 [](./0031.md#:embed)

@@ -126,15 +126,13 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/线性代数/线性空间.html'" title="线性空间">« 线性空间</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Exegesis"><details open><summary id="math-线性代数-基变换"><header><h1><span class="taxon">Exegesis. </span>基变换 <a class="slug" href="/math/线性代数/基变换.html">[基变换]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$</p>
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/线性代数/线性空间.html'" title="线性空间">« 线性空间</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Exegesis"><details open><summary id="math-线性代数-基变换"><header><h1><span class="taxon">Exegesis. </span>基变换 <a class="slug" href="/math/线性代数/基变换.html">[基变换]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
 <p>已知 <span class="link local"><a href="/math/线性代数/线性空间.html" title="线性空间 [math/线性代数/线性空间]">线性空间</a></span> $V$ 有两组基 $\mathcal{B}, \mathcal{B}'$, $V$ 中向量 $v$ 在 $\mathcal{B}$ 下的坐标为 $(v)_\mathcal{B}$, 求 $v$ 在 $\mathcal{B}'$ 下的坐标 $(v)_{\mathcal{B}'}$, 这就是基变换的核心问题.</p>
 <p>幸运的是, 我们可以把 $(v)_\mathcal{B}$, $(v)_{\mathcal{B}'}$ 看成列向量, 把基 $\mathcal{B}, \mathcal{B}'$ 视为矩阵 $B,B'$, 其列是基向量. 则 $\mathcal{B} \to \mathcal{B}'$ 显然可以被一个 <span class="link local"><a href="/math/线性代数/线性映射.html" title="线性映射 [math/线性代数/线性映射]">线性变换</a></span> 刻画, 所以我们可以找到一个矩阵 $T$ 使得 $(v)_\mathcal{B} = T \cdot (v)_{\mathcal{B}'}$, $T$ 称为过渡矩阵.</p>
 <p>具体来说, 新基与旧基相差一个线性变换, 于是可以把新基 $\mathcal{B}'$ 表达成旧基 $\mathcal{B}$ 的线性组合,矩阵上对应 $B' = BT$, 即</p>
 <p>$$ B \cdot (v)_\mathcal{B} \spaces= B' \cdot (v)_\mathcal{B'} \spaces= BT \cdot (v)_\mathcal{B'}$$</p>
 <p>两边左乘 $B^{-1}$ 立得 $(v)_\mathcal{B} = T (v)_\mathcal{B'}$. 过渡矩阵就是此线性变换的矩阵表示. 现在, 根据 $(v)_{\mathcal{B}'} = T^{-1} (v)_{\mathcal{B}}$ 就能得到新基下的坐标.</p>
-<p><section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-线性代数-0164"><header><h1><span class="taxon">Example. </span>旋转变换 <a class="slug" href="/math/线性代数/0164.html">[0164]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p><section class="block hide-metadata" data-taxon="Example"><details open><summary id="math-线性代数-0164"><header><h1><span class="taxon">Example. </span>旋转变换 <a class="slug" href="/math/线性代数/0164.html">[0164]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
 <p>考虑 $\R^2$ 这个线性空间里一组由向量 $v_1=(1,0)$ 和 $v_2=(0,1)$ 组成的基, 对应单位阵 $\big[\begin{smallmatrix}1 &amp; 0 \\ 0 &amp; 1\end{smallmatrix}\big]$. 如果将基逆时针旋转 $t$ 度, 就会得到一个新的基 $w_1 = (\cos t, \sin t)$, $w_2 = (-\sin t, \cos t)$. 现在, <span class="link local"><a href="/math/线性代数/基变换.html" title="基变换 [math/线性代数/基变换]">基变换公式</a></span>
 断言, 如果 $(y_1,y_2)$ 是向量 $(x_1,x_2)$ 的新坐标, 那么就有</p>
 <p>$$
@@ -162,8 +160,7 @@ y' \spaces= x\sin t + y\cos t
 \end{cases}
 $$</p>
 </details></section>
-<section class="block hide-metadata" data-taxon="Exegesis"><details open><summary id="math-线性代数-0165"><header><h1><span class="taxon">Exegesis. </span>相似 <a class="slug" href="/math/线性代数/0165.html">[0165]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<section class="block hide-metadata" data-taxon="Exegesis"><details open><summary id="math-线性代数-0165"><header><h1><span class="taxon">Exegesis. </span>相似 <a class="slug" href="/math/线性代数/0165.html">[0165]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\spaces#1{~ #1 ~}$</p>
 <p>设 <span class="link local"><a href="/math/线性代数/线性映射.html" title="线性映射 [math/线性代数/线性映射]">线性变换</a></span> $f: V \to V$ 在基 $ \mathcal{B}$ 下的矩阵为 $A$ 即 $f(\mathcal{B}) = \mathcal{B}A$, 在基 $\mathcal{B}'$  下的矩阵为 $A'$ 即 $f(\mathcal{B}') = \mathcal{B}'A'$, <span class="link local"><a href="/math/线性代数/基变换.html" title="基变换 [math/线性代数/基变换]">过渡矩阵</a></span> 为 $P$ 满足 $\mathcal{B}' = \mathcal{B}P$, 则 $A' = P^{-1}AP$. 因为</p>
 <p>$$ f(\mathcal{B}') \spaces= f(\mathcal{B}P) \spaces= f(\mathcal{B})P \spaces= \mathcal{B}AP \spaces= \mathcal{B}'P^{-1}AP $$</p>
 <p>这就表明 $\mathcal{B}'A' = \mathcal{B}'P^{-1}AP$. 这给出矩阵相似 $A \sim A'$ 的概念, 此时 $P$ 又称为相似变换矩阵.</p>

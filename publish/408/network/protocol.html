@@ -126,14 +126,12 @@ nav {
   .cjk_fallback  {
     font-family: "Inria Sans"
   }
-</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/overview.html'" title="概述">« 概述</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-protocol"><header><h1><span class="taxon"></span>协议与划分层次 <a class="slug" href="/408/network/protocol.html">[protocol]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>计算机网络中的数据交换必须遵守事先约定好的规则.
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/408/network/overview.html'" title="概述">« 概述</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="408-network-protocol"><header><h1><span class="taxon"></span>协议与划分层次 <a class="slug" href="/408/network/protocol.html">[protocol]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>计算机网络中的数据交换必须遵守事先约定好的规则.
 这些规则明确规定了所交换的数据的格式以及有关的同步问题 (同步含有时序的意思). 网络协议 [Network Protocol], 简称为协议, 是为进行网络中的数据交换而建立的规则、标准或约定.</p>
 <blockquote>
 <p>协议是水平的, 服务是垂直的.</p>
 </blockquote>
-<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-layered-network-model"><header><h1><span class="taxon"></span>三种体系结构 <a class="slug" href="/408/network/layered-network-model.html">[layered-network-model]</a></h1><div class="metadata"><ul></ul></div></header></summary>
-<p>$\gdef\str#1{\footnotesize{#1}}$
+<p><section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-layered-network-model"><header><h1><span class="taxon"></span>三种体系结构 <a class="slug" href="/408/network/layered-network-model.html">[layered-network-model]</a></h1><div class="metadata"><ul></ul></div></header></summary><p>$\gdef\str#1{\footnotesize{#1}}$
 $\gdef\hint#1{{\color{gray}{\str{#1}}}}$</p>
 <table><thead><tr><th>OSI 的体系结构 <sup class="footnote-reference" id="408_network_layered-network-model_osi-back"><a href="#408_network_layered-network-model_osi">1</a></sup></th><th>TCP/IP 的体系结构</th><th>五层协议的体系结构</th></tr></thead><tbody>
 <tr><td>7	<span class="link local"><a href="/408/network/application-layer.html" title="应用层 [408/network/application-layer]">应用层</a></span></td><td>4 <span class="link local"><a href="/408/network/application-layer.html" title="应用层 [408/network/application-layer]">应用层</a></span> <sup class="footnote-reference" id="408_network_layered-network-model_application-example-back"><a href="#408_network_layered-network-model_application-example">2</a></sup></td><td>5 <span class="link local"><a href="/408/network/application-layer.html" title="应用层 [408/network/application-layer]">应用层</a></span></td></tr>
@@ -157,8 +155,7 @@ $\gdef\hint#1{{\color{gray}{\str{#1}}}}$</p>
 <p>此处有时也用 “网络接口层” 占位, 但这一层并没有具体内容. 和 TCP/IP 的应用层一样, “网络接口层” 涵盖了 OSI 协议中多层的功能.</p>
 </div>
 </details></section>
-<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-协议数据单元"><header><h1><span class="taxon"></span>协议数据单元 <a class="slug" href="/408/network/协议数据单元.html">[协议数据单元]</a></h1><div class="metadata"><ul><li class="meta-item">Protocol Data Unit</li></ul></div></header></summary>
-<p>协议数据单元是指在某一层协议中传输的数据单元. 每一层在接收来自上一层的数据时, 都会在其头部添加控制信息也即 “首部” Header, 然后将其当作一个新的 <span class="link local"><a href="/408/network/协议数据单元.html" title="协议数据单元 [408/network/协议数据单元]">PDU</a></span> 交给下一层处理. 这就是所谓的 “封装” 过程.</p>
+<section class="block hide-metadata" data-taxon=""><details open><summary id="408-network-协议数据单元"><header><h1><span class="taxon"></span>协议数据单元 <a class="slug" href="/408/network/协议数据单元.html">[协议数据单元]</a></h1><div class="metadata"><ul><li class="meta-item">Protocol Data Unit</li></ul></div></header></summary><p>协议数据单元是指在某一层协议中传输的数据单元. 每一层在接收来自上一层的数据时, 都会在其头部添加控制信息也即 “首部” Header, 然后将其当作一个新的 <span class="link local"><a href="/408/network/协议数据单元.html" title="协议数据单元 [408/network/协议数据单元]">PDU</a></span> 交给下一层处理. 这就是所谓的 “封装” 过程.</p>
 <table><thead><tr><th>OSI 层级</th><th>PDU</th><th>PDU 译名</th></tr></thead><tbody>
 <tr><td>7 <span class="link local"><a href="/408/network/application-layer.html" title="应用层 [408/network/application-layer]">应用层</a></span></td><td>Data</td><td>数据</td></tr>
 <tr><td>6 <span class="link local"><a href="/408/network/presentation-layer.html" title="表示层 [408/network/presentation-layer]">表示层</a></span></td><td></td><td>数据</td></tr>
