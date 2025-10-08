@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>Γ 函数</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-gamma-function"><header><h1><span class="taxon"></span>$\Gamma$ 函数 <a class="slug" href="/math/微积分/gamma-function.html">[gamma-function]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$
+$\gdef\quads#1{\quad #1 \quad}$
+$\gdef\eqq{\quads=}$
+$\gdef\d{\operatorname{d}}$
+$\gdef\hint#1{\color{grey}#1}$</p>
+<p>$\Gamma$ 的记号来自 Legendre, $\Gamma$ 函数的唯一性由 Bohr–Mollerup 定理保证, 即开区间 $(0, \infty) = \R_{\gt 0}$ 上满足如下条件的函数是唯一的</p>
+<ol>
+<li>保持阶乘. $f(x+1) = xf(x)$.</li>
+<li>恰当的初值. $f(1) = 1$.</li>
+<li>对数凸. 即 $\log f$ 是凸函数. 这一点来自 Hölder 不等式.</li>
+</ol>
+<p>一般地, 此函数定义为</p>
+<p>$$ \Gamma(s) \spaces{:=} \int_0^{\infty} x^{s-1}e^{-x} \d x $$</p>
+<p>也可以按 Haar 测度的写法, 显然乘法群 $\R_{&gt; 0}^\times$ 的不变测度是 $\frac{\d x}{x}$</p>
+<p>$$ \square \spaces= \int_{\R_{&gt; 0}^\times} x^s e^{-x} \d \log x $$</p>
+<p>读者还可以验证其就是 $e^{-x}$ 的 Mellin 变换, 即 $\Gamma(s) = \mathcal{M}(e^{-x})|_s = \int_{\R_{&gt; 0}^\times}$, 此处 $\mathcal{M}_f(s) = \int x^s f(x) \d \log x$. 我们列出 $\Gamma$ 函数的常用特殊值</p>
+<p>$$
+\def\arraystretch{1.5}
+\begin{array}{|c|c|c|c|c|c|c|c|c|}
+   \hline
+   s &amp; -\frac{1}{2} &amp; \frac{1}{2} &amp; 1 &amp; \frac{3}{2} &amp; 2 &amp; \frac{5}{2} &amp; 3 &amp; \cdots \\ \hline
+   \Gamma(s)  &amp; -2\sqrt{\pi} &amp; \sqrt\pi &amp; 1 &amp; \frac{\sqrt{\pi}}{2} &amp; 1 &amp; \frac{3\sqrt{\pi}}{4} &amp; 2 &amp; \cdots \\ \hline
+\end{array}
+$$</p>
+<p>$\Gamma$ 函数在负轴的延拓通过 Euler 反射公式或称余元公式给出</p>
+<p>$$ \Gamma(s)\Gamma(1-s) \spaces= \frac{\pi}{\sin \pi s} $$</p>
+<p>即 $\Gamma(-s) = \frac{1}{\Gamma(s+1)} \cdot \frac{\pi}{\sin \pi (x+1)}$, 推得 $\Gamma(-s) = -\frac{\Gamma(1-s)}{s}$.</p>
+</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="Theorem" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Theorem. </span>球体积 <a class="slug" href="/math/微积分/球体积.html">[球体积]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></section></details></section></footer></article>
+
+</div></body></html>

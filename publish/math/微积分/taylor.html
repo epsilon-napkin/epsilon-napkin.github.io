@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>Taylor 展开</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-taylor"><header><h1><span class="taxon"></span>Taylor 展开 <a class="slug" href="/math/微积分/taylor.html">[taylor]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$
+$\gdef\d{\operatorname{d}}$
+$\gdef\case#1{\textbf{Case #1.}}$</p>
+<p>定义 $\sum_{n \ge 0} \frac{f^{(n)}(a)}{n!}(x-a)^n$ 不做赘述. 主要展示推导常见函数 Maclaurin 展开的简单方法. 指数函数 $e^x = \sum_{n \ge 0} \frac{x^n}{n!}$ 用 $e^x \ge 1+x$ 一直积分即可, 且本身形式就简单, 此处不详细介绍. 以下方法也多次使用积分来计算原本需要求导得到的 Maclaurin 展开式系数, 从粗略的层面上看, 这是由于 <span class="link local"><a href="/math/微积分/newton-leibniz.html" title="Newton–Leibniz 公式 [math/微积分/newton-leibniz]">Newton–Leibniz 公式</a></span> 的存在.</p>
+<p>$\case1$ 对于 $\sin x$ 和 $\cos x$, 我们应当去考虑 $e^{ix}$ 的 Maclaurin 展开</p>
+<p>$$
+e^{ix} \spaces= 1 + ix + \frac{(ix)^2}{2!} + \frac{(ix)^3}{3!} + \cdots 
+$$</p>
+<p>且由于 $e^{ix} = \cos x + i\sin x$, 我们立刻得到</p>
+<p>$$ \cos x \spaces= 1 - \frac{x^2}{2} + \frac{x^4}{4!} - \cdots \spaces= \sum_{n \ge 0} \frac{(-1)^n}{(2n)!} \cdot x^{2n} $$</p>
+<p>$$ \sin x \spaces= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots \spaces= \sum_{n \ge 0} \frac{(-1)^n}{(2n+1)!} \cdot x^{2n+1} $$</p>
+<p>$\case2$ 随即使用截断项的多项式除法</p>
+<p>$$
+\begin{array}{ll}
+&amp; \quad x + \frac{x^3}{3} \\
+1 - \frac{x^2}{2} + \frac{x^4}{4!}
+&amp; \sqrt{x - \frac{x^3}{3!} + \frac{x^5}{5!}} \\
+&amp; \quad x - \frac{x^3}{2} + \frac{x^5}{4!} \\
+&amp; \text{------------------} \\
+&amp; \hspace{2.8em} \frac{x^3}{3} - \frac{x^5}{30} \\
+&amp; \hspace{2.8em} \frac{x^3}{3} - \frac{x^5}{6} \\
+&amp; \hspace{2.8em} \text{---------} \\
+&amp; \hspace{4.8em} \frac{2x^5}{15}
+\end{array}
+$$</p>
+<p>这就给出 $\tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \cdots$.</p>
+<p>$\case3$ 对于 $\log(1+x)$ 和 $\arctan x$, 可以考虑它们各自的积分定义 $\int \frac{\d x}{1+x}$ 与 $\int \frac{\d x}{1+x^2}$, 并将积分项展开为幂级数.</p>
+<p>$$
+\begin{aligned}
+\int \frac{\d x}{1+x} 
+&amp;\spaces= \int 1 - x + x^2 - x^3 + \cdots \d x \\
+&amp;\spaces= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots \\
+&amp;\spaces= \sum_{n \ge 1} (-1)^{n+1} \frac{x^n}{n} 
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
+\arctan x &amp;\spaces= \int \frac{\d x}{1+x^2} \spaces= \int \frac{\d x}{(1+ix)(1-ix)} \\
+&amp;\spaces= \int \Re (1-ix+(ix)^2+\cdots)(1+ix+(ix)^2+\cdots) \d x \\
+&amp;\spaces= \int 1 + (ix)^2 - (ix)^2 + (ix)^2 + (ix)^4 + \cdots \d x \\
+&amp;\spaces= \int 1 - x^2 + x^4 + \cdots \d x \\
+&amp;\spaces= x - \frac{x^3}{3} + \frac{x^5}{5} + \cdots \\
+&amp;\spaces= \sum_{n \ge 0} \frac{(-1)^n}{2n+1} x^{2n+1}
+\end{aligned}
+$$</p>
+<p>或者注意 $\frac{1}{1+x^2} = \sum_{n \ge 0} (-x^2)^n = \sum_{n \ge 0} (-1)^n x^{2n}$, 立得 $\int \frac{\d x}{1+x^2} = \sum_{n \ge 0} \frac{(-1)^n}{2n+1} x^{2n+1}$.</p>
+<p>$\case4$ 这一类基本可以只观察 $\sqrt{1+x}$, 对此的工具是广义二项式定理</p>
+<p>$$
+(1+x)^\alpha \spaces= 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!} x^2 + \cdots \spaces= \sum_{n \ge 0} \frac{\alpha^{\underline{n}}}{n!} x^n 
+$$</p>
+<p>这里 $\alpha^{\underline{n}}$ 是降阶乘或排列数 $\operatorname{P}_\alpha^n$, 或可简单记 $(1+x)^\alpha = \sum_{n \ge 0} {\alpha \choose n} $. 代入 $\alpha = \frac{1}{2}$, 立得</p>
+<p>$$ \sqrt{1+x} \spaces= 1 + \frac{1}{2}x - \frac{1}{8}x^2 + \cdots $$</p>
+<p>类似地我们可以知道 $(1+x)^{-\frac{1}{2}} = 1 - \frac{1}{2}x + \frac{3}{8}x^2 - \cdots$. 顺带一提, Newton 本人就曾借助广义二项式定理得出过任意函数的 <span class="link local"><a href="/math/微积分/taylor.html" title="Taylor 展开 [math/微积分/taylor]">Taylor 展开</a></span>.</p>
+<p>$\case5$ 对于 $\arcsin x$ 和 $\arccos x = \frac{\pi}{2} - \arcsin x$, 我们可以借助前面得到的 $(1-x^2)^{-\frac{1}{2}} \sim 1 + \frac{1}{2}x^2 + \frac{3}{8}x^4$ 和积分定义得到其展开式.</p>
+<p>$$ \arcsin x \spaces= \int \frac{\d x}{\sqrt{1-x^2}} \spaces= x + \frac{x^3}{6} + \frac{3}{40}x^5 + \cdots $$</p>
+<p>$$ \arccos x = \frac{\pi}{2} - \arcsin x = \frac{\pi}{2} - x - \frac{x^3}{6} - \frac{3}{40}x^5 + \cdots $$</p>
+</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="Formula" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Formula. </span>Newton–Leibniz 公式 <a class="slug" href="/math/微积分/newton-leibniz.html">[newton-leibniz]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></section></details></section><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span><span class="link local"><a href="/math/习题集/index.html" title="习题 [math/习题集/index]">习题集</a></span> 极限 <a class="slug" href="/math/习题集/极限.html">[极限]</a></h1><div class="metadata"><ul></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>绝对收敛 <a class="slug" href="/math/微积分/绝对收敛.html">[绝对收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></section></details></section></footer></article>
+
+</div></body></html>

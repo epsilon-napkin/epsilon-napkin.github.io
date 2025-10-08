@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>行列式</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-线性代数-determinant"><header><h1><span class="taxon"></span>行列式 <a class="slug" href="/math/线性代数/determinant.html">[determinant]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/线性代数/index.html" title="线性代数 [math/线性代数/index]">线性代数</a></span></li></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$
+$\gdef\sgn{\operatorname{sgn}}$</p>
+<p>交换矩阵 $M$ 两行或两列得到 $N$, 则 $\det M = -\det N$. 这可由逆序数的性质直接得到. 或者使用置换的语言</p>
+<p>$$
+\begin{aligned}
+\det M 
+&amp;\spaces= \sum_{\sigma \in \mathfrak{S}_n} \sgn(\sigma) a_{\sigma(1), 1} \cdots a_{\sigma(n), n} \\ 
+&amp;\spaces= \sum_{\sigma \in \mathfrak{S}_n} \sgn(\sigma) a_{1, \sigma(1)} \cdots a_{n, \sigma(n)}
+\end{aligned}
+$$</p>
+<p>自然地, 可以根据以下三点判断 $\det \square = 0$.</p>
+<ol>
+<li>交换矩阵两行或两列后矩阵各分量不变.</li>
+<li>列向量成比例, 即 $M = \alpha M'$, 而 $M'$ 满足 1.</li>
+<li>存在全为零的行或列, 也即存在零向量.</li>
+</ol>
+<p>此外, $\det A = 0$ 也有一个充要条件, 可叙述为 $A$ 的 $n$ 个行 (列) 向量 <span class="link local"><a href="/math/线性代数/线性相关.html" title="线性相关 [math/线性代数/线性相关]">线性相关</a></span>. 等价地, $\det A \ne 0$ $\iff$ $A$ 的 $n$ 个行 (列) 向量线性无关.</p>
+<p><section class="block hide-metadata" data-taxon="Remark"><details open><summary id="math-线性代数-0131"><header><h1><span class="taxon">Remark 1. </span>一般性质 <a class="slug" href="/math/线性代数/0131.html">[0131]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<ol>
+<li>行列式与它的转置行列式相等, $\det M = \det M^T$.</li>
+<li>互换行列式的两行, 行列式变号 $\iff$ 逆序数间相差一个对换.</li>
+<li>行列式的某一行中所有的元素都乘以同一个倍数 $k$, 等于用数 $k$ 乘以此行列式. 等价地, 行列式的某一行中所有元素的公因子可以提到行列式符号的外面．这可推出, 行列式中若有两行元素成比例, 则此行列式为零．</li>
+<li>若行列式的某一行的元素都是两数之和, 则它是两个按此分量加法展开的行列式之和, 其他分量不变.</li>
+<li>把行列式的某一行 $r_i$ 乘以同一个倍数 $\alpha$ 然后加到另一行 $r_j$ 上去, 即 $r_j \to \alpha r_i + r_j$, 行列式值不变．</li>
+</ol>
+<p>对于矩阵 $M$ 和一个选定的分量 $a_{ij}$, $a_{ij}$ 的代数余子式定义为 $A_{ij} = (-1)^{i+j}M_{ij}$, 余子式 $M_{ij}$ 是划去 $M$ 的元素 $a_{ij}$ 所在的第$i$ 行和第 $j$ 列所得的 $n-1$ 阶行列式.</p>
+</details></section>
+<section class="block hide-metadata" data-taxon="Remark"><details open><summary id="math-线性代数-0132"><header><h1><span class="taxon">Remark 2. </span>打洞 <a class="slug" href="/math/线性代数/0132.html">[0132]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>除了观察特殊模式外, 对一般矩阵求行列式最有效的手段是打洞, 其次是 <span class="link local"><a href="/math/线性代数/gauss-jordan.html" title="Gauss–Jordan 消元法 [math/线性代数/gauss-jordan]">Gauss–Jordan 消元法</a></span>, 只要化为上三角矩阵并将对角线上的元素相乘即可, 此时所用的初等变换可以自由交换行与列的顺序, 只需注意交换带来的符号影响 $(-1)^n$.</p>
+</details></section></p>
+</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Gauss–Jordan 消元法 <a class="slug" href="/math/线性代数/gauss-jordan.html">[gauss-jordan]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/线性代数/index.html" title="线性代数 [math/线性代数/index]">线性代数</a></span></li></ul></div></header></section></details></section></footer></article>
+
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="/math/线性代数/0131.html" title="一般性质 [math/线性代数/0131]">■</a><span class="link local" onclick="window.location.href='#math-线性代数-0131'"><span class="taxon">Remark 1. </span>一般性质</span></li><li class=""><a class="bullet" href="/math/线性代数/0132.html" title="打洞 [math/线性代数/0132]">■</a><span class="link local" onclick="window.location.href='#math-线性代数-0132'"><span class="taxon">Remark 2. </span>打洞</span></li></ul></div></nav></div></body></html>

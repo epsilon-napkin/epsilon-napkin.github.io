@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>绝对收敛</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/math/微积分/series-convergence.html'" title="级数敛散性">« 级数敛散性</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon=""><details open><summary id="math-微积分-绝对收敛"><header><h1><span class="taxon"></span>绝对收敛 <a class="slug" href="/math/微积分/绝对收敛.html">[绝对收敛]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>d’Alembert 判别法或称比值判别法, 即考虑 $\rho = \lim_{n \to \infty} |\frac{a_{n+1}}{a_n}|$ 和 $1$ 的关系, 当 $\rho &lt; 1$ 时级数绝对收敛, $\rho &gt; 1$ 时发散.</p>
+<p>除了用比值, 我们也可以考虑根值 $\rho = \limsup_{n \to \infty} \sqrt[n]{|a_n|}$, 这就是 Cauchy 判别法, 类似地 $\rho &lt; 1$ 时绝对收敛, $\rho &gt; 1$ 时发散.</p>
+<p>根据 Cauchy–Hadamard 定理, 这两种方法实际上也是幂级数 $\sum_{n \ge 0} a_n z^n$ 收敛半径 $R = \frac{1}{\rho}$ 的计算方式. 因为此时可认为 $z=1$ 满足 $|z| &lt; R$, 幂级数绝对收敛.</p>
+<p>$\textbf{Example.}$ 级数 $\sum_{n \ge 1} (-1)^n \cdot \frac{2^n}{n!}$ 绝对收敛, 因为 $|\frac{a_{n+1}}{a_n}| = \frac{2^{n+1}}{(n+1)!} \big/ \frac{2^n}{n!}$ 即 $\frac{2}{n+1}$, 此时 $\lim \square = 0$, $\rho &lt; 1$, 故绝对收敛. 类似地, 此方法也适合处理其他含阶乘、指数的级数. 如 $\log(1+x)$ 在 $x=0$ 处的 <span class="link local"><a href="/math/微积分/taylor.html" title="Taylor 展开 [math/微积分/taylor]">Taylor 展开</a></span></p>
+<p>$$
+\sum_{n \ge 1} (-1)^{k-1} \cdot \frac{x^k}{k} \spaces= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots
+$$</p>
+<p>此时 $\rho = \lim_{n \to \infty} \Big|(-1)^{n} \cdot \frac{x^{n+1}}{n+1} \big/ (-1)^{n-1} \cdot \frac{x^n}{n}\Big| = 0$.</p>
+</details></section><footer><section class="block"><details open><summary><header><h1>References</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Taylor 展开 <a class="slug" href="/math/微积分/taylor.html">[taylor]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/微积分/index.html" title="微积分 [math/微积分/index]">微积分</a></span></li></ul></div></header></section></details></section></footer></article>
+
+</div></body></html>

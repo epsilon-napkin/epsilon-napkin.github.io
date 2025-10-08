@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"><title>降阶乘基变换</title><link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/typst.css"><style>
+  .footnote-reference::before, 
+  .footnote-definition-label::before {
+    content: "[";
+  }
+
+  .footnote-reference::after, 
+  .footnote-definition-label::after {
+    content: "]";
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  a.link.local,
+  .link.local a {
+    box-shadow: none;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: rgb(16, 180, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+  }
+
+  table th {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 0.4em;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    margin: 0.5em;
+    padding: 0.5em;
+    outline: 1px solid #ccc;
+    border-radius: 0.2em;
+    font-style: normal;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  hint {
+    color: gray;
+  }
+
+  em {
+    color: rgb(249, 117, 131);
+    font-style: normal;
+  }
+
+  footer .metadata {
+    display: none;
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Inria Sans", "Source Sans", sans-serif;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inria Sans", sans-serif;
+}
+
+nav {
+  font-family: "Inria Sans", sans-serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"
+  integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      globalGroup: true, 
+      strict: false,
+      throwOnError: false,
+      minRuleThickness: 0.05,
+    });
+  });
+</script>
+
+<style>
+  .katex .mfrac .frac-line {
+    font-size: 1.25em;
+  }
+  
+  .cjk_fallback  {
+    font-family: "Inria Sans"
+  }
+</style></head><body><header class="header"><nav class="nav"><div class="logo"><span onclick="window.location.href='/index.html'" title="ε-Napkin">« $\varepsilon$-Napkin</span></div></nav></header><div id="grid-wrapper"><article><section class="block" data-taxon="Lemma"><details open><summary id="math-概统-降阶乘基表示"><header><h1><span class="taxon">Lemma. </span>降阶乘基变换 <a class="slug" href="/math/概统/降阶乘基表示.html">[降阶乘基表示]</a></h1><div class="metadata"><ul></ul></div></header></summary>
+<p>$\gdef\spaces#1{~ #1 ~}$</p>
+<p>即, 将多项式空间的单项式基转换到降阶乘基</p>
+<p>$$
+\{k^0, k^1, k^2, \cdots \} \spaces\to \{ (k)_0, (k)_1, (k)_2, \cdots \}
+$$</p>
+<p>具体每一项的变换由第二类 Stirling 数给出</p>
+<p>$$
+k^m \spaces= \sum_{1 \le i \le m} {m \brace i} (k)_i
+$$</p>
+<p>此变换可以处理形如 $\sum_{k} p(k) \cdot \frac{F_k(x)}{k!}$ 的和, 其中 $\sum_k \frac{F_k(x)}{k!}$ 已知, $p(k)$ 是 $k$ 的多项式.</p>
+<p>$$
+\def\arraystretch{1.5}
+   \begin{array}{c|c}
+   k^2 &amp; k+k(k-1) \\ \hline
+   k^3 &amp; k + 3k(k-1) + k(k-1)(k-2) \\ \hline
+   k^4 &amp; k + 7(k)_2 + 6(k)_3 + (k)_4 \\ \hline
+   \vdots &amp; \vdots
+\end{array}
+$$</p>
+<p>其逆则把降阶乘基转换到单项式基</p>
+<p>$$
+\{ (k)_0, (k)_1, (k)_2, \cdots \} \spaces\to \{k^0, k^1, k^2, \cdots \}
+$$</p>
+<p>每一项的变换由有符号的第一类 Stirling 数给出</p>
+<p>$$
+(k)_m \spaces= \sum_{1 \le i \le m} (-1)^{m-i} {m \brack i} k^i
+$$</p>
+<p>对于升阶乘基, 忽略符号项 $(-1)^{m-i}$ 即可.</p>
+</details></section><footer><section class="block"><details open><summary><header><h1>Backlinks</h1></header></summary><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>Poisson 分布 <a class="slug" href="/math/概统/Poisson分布.html">[Poisson分布]</a></h1><div class="metadata"><ul><li class="meta-item">Poisson distribution</li><li class="meta-item"><span class="link local"><a href="/math/概统/index.html" title="概率论与数理统计 [math/概统/index]">概率论与数理统计</a></span></li></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>几何分布 <a class="slug" href="/math/概统/几何分布.html">[几何分布]</a></h1><div class="metadata"><ul><li class="meta-item"><span class="link local"><a href="/math/概统/index.html" title="概率论与数理统计 [math/概统/index]">概率论与数理统计</a></span></li></ul></div></header></section><section class="block" data-taxon="Exegesis" style="margin-bottom: 0.4em;"><header><h1><span class="taxon">Exegesis. </span>吸收技巧 <a class="slug" href="/math/概统/吸收技巧.html">[吸收技巧]</a></h1><div class="metadata"><ul></ul></div></header></section><section class="block" data-taxon="" style="margin-bottom: 0.4em;"><header><h1><span class="taxon"></span>方差 <a class="slug" href="/math/概统/方差.html">[方差]</a></h1><div class="metadata"><ul><li class="meta-item">Variance</li><li class="meta-item"><span class="link local"><a href="/math/概统/index.html" title="概率论与数理统计 [math/概统/index]">概率论与数理统计</a></span></li></ul></div></header></section></details></section></footer></article>
+
+</div></body></html>
