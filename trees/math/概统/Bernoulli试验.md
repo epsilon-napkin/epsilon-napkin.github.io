@@ -1,7 +1,7 @@
 
 ---
 title: Bernoulli 试验
-term: Bernoulli trial
+term: Bernoulli Trial
 asref: true
 ---
 
